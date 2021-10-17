@@ -426,6 +426,7 @@
             </ul> --}}
 
             <div class="row">
+                @foreach ($products as $product)
                 <div class="col-sm-6 col-md-4">
                     <div class="shop__thumb">
                         <a href="#">
@@ -435,128 +436,19 @@
                             </div>
                             <div class="px-3 text-left pb-2">
                                 <h5 class="shop-thumb__title">
-                                    Product Title
+                                    {{ $product->name }}
                                 </h5>
                                 <div class="shop-thumb__pric">
-                                    $59.99
+                                    ${{ $product->price }}
                                 </div>
                             </div>
                             <div class="shop-thumb__price">
-                                <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
+                                <a href="{{ route('cart.add', $product->id) }}" class="btn btn-primary btn-block">Add to Cart</a>
                             </div>
                         </a>
                     </div>
                 </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="shop__thumb">
-                        <a href="#">
-                            <div class="shop-thumb__img">
-                                <img src="https://via.placeholder.com/400x400/20B2AA/000000" class="img-responsive"
-                                    alt="...">
-                            </div>
-                            <div class="px-3 text-left pb-2">
-                                <h5 class="shop-thumb__title">
-                                    Product Title
-                                </h5>
-                                <div class="shop-thumb__pric">
-                                    $59.99
-                                </div>
-                            </div>
-                            <div class="shop-thumb__price">
-                                <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="shop__thumb">
-                        <a href="#">
-                            <div class="shop-thumb__img">
-                                <img src="https://via.placeholder.com/400x400/FFB6C1/000000" class="img-responsive"
-                                    alt="...">
-                            </div>
-                            <div class="px-3 text-left pb-2">
-                                <h5 class="shop-thumb__title">
-                                    Product Title
-                                </h5>
-                                <div class="shop-thumb__pric">
-                                    $59.99
-                                </div>
-                            </div>
-                            <div class="shop-thumb__price">
-                                <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="shop__thumb">
-                        <a href="#">
-                            <div class="shop-thumb__img">
-                                <img src="https://via.placeholder.com/400x400/87CEFA/000000" class="img-responsive"
-                                    alt="...">
-                            </div>
-                            <div class="px-3 text-left pb-2">
-                                <h5 class="shop-thumb__title">
-                                    Product Title
-                                </h5>
-                                <div class="shop-thumb__pric">
-                                    $59.99
-                                </div>
-                            </div>
-                            <div class="shop-thumb__price">
-                                <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="shop__thumb">
-                        <a href="#">
-                            <div class="shop-thumb__img">
-                                <img src="https://via.placeholder.com/400x400/FFA07A/000000" class="img-responsive"
-                                    alt="...">
-                            </div>
-                            <div class="px-3 text-left pb-2">
-                                <h5 class="shop-thumb__title">
-                                    Product Title
-                                </h5>
-                                <div class="shop-thumb__pric">
-                                    $59.99
-                                </div>
-                            </div>
-                            <div class="shop-thumb__price">
-                                <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="shop__thumb">
-                        <a href="#">
-                            <div class="shop-thumb__img">
-                                <img src="https://via.placeholder.com/400x400/48D1CC/000000" class="img-responsive"
-                                    alt="...">
-                            </div>
-                            <div class="px-3 text-left pb-2">
-                                <h5 class="shop-thumb__title">
-                                    Product Title
-                                </h5>
-                                <div class="shop-thumb__pric">
-                                    $59.99
-                                </div>
-                            </div>
-                            <div class="shop-thumb__price">
-                                <button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div> <!-- / .row -->
 
             <!-- Pagination -->

@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('subscription', [PagesController::class, 'subscription'])->name('subscription');
 
 Route::get('/store',[PagesController::class,'showStore'])->name('store.show');
+Route::get('/store/add/{id}',[CartController::class,'addToCart'])->name('cart.add');
+
 
 Route::get('/store/cart',[PagesController::class,'viewCart'])->name('store.cart');
 Route::get('/store/checkout', [PagesController::class, 'billing'])->name('billing');

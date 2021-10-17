@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -11,7 +12,8 @@ class PagesController extends Controller
     }
 
     public function showStore(){
-        return view('store.index');
+        $products = Product::take(10)->get();
+        return view('store.index',['products' => $products]);
     }
 
     public function viewCart(){
