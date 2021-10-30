@@ -1,4 +1,4 @@
-@extends('layouts.store.main')
+@extends('layouts.app')
 
 @section('css')
 
@@ -312,106 +312,111 @@
 </style>
 
 @endsection
-
 @section('content')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
+{{-- @include('layouts.store.mini-jumbo') --}}
+
+<div class="container"  style="min-height: 70vh">
     <div class="row">
         <div class="col-sm-4 col-md-3">
 
             <!-- Filter -->
-            <form class="shop__filter">
-                <!-- Price -->
-                <h4 class="headline">
-                    <span>Price</span>
-                </h4>
-                <div class="radio">
-                    <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
-                    <label for="shop-filter-price_1">Under $25</label>
-                </div>
-                <div class="radio">
-                    <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
-                    <label for="shop-filter-price_2">$25 to $50</label>
-                </div>
-                <div class="radio">
-                    <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
-                    <label for="shop-filter-price_3">$50 to $100</label>
-                </div>
-                {{-- <div class="radio">
-                    <input type="radio" name="shop-filter__price" id="shop-filter-price_4" value="specify">
-                    <label for="shop-filter-price_4">Other (specify)</label>
-                </div> --}}
+            <div class="card border-0 shadow-sm">
+                <div class="card-body pb-0">
+                    <form class="shop__filter">
+                        <!-- Price -->
+                        <h4 class="headline">
+                            <span>Price</span>
+                        </h4>
+                        <div class="radio">
+                            <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
+                            <label for="shop-filter-price_1">Under $25</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
+                            <label for="shop-filter-price_2">$25 to $50</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
+                            <label for="shop-filter-price_3">$50 to $100</label>
+                        </div>
+                        {{-- <div class="radio">
+                            <input type="radio" name="shop-filter__price" id="shop-filter-price_4" value="specify">
+                            <label for="shop-filter-price_4">Other (specify)</label>
+                        </div> --}}
 
-                <!-- Checkboxes -->
-                <h4 class="headline mt-3">
-                    <span>Categories</span>
-                </h4>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_1" checked="">
-                    <label for="shop-filter-checkbox_1">Foodstuff</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_2">
-                    <label for="shop-filter-checkbox_2">Cooking Oils</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_3">
-                    <label for="shop-filter-checkbox_3">Vegetables</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_4">
-                    <label for="shop-filter-checkbox_4">Condiments</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_5">
-                    <label for="shop-filter-checkbox_5">Fruits</label>
-                </div>
+                        <!-- Checkboxes -->
+                        <h4 class="headline mt-3">
+                            <span>Categories</span>
+                        </h4>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_1" checked="">
+                            <label for="shop-filter-checkbox_1">Foodstuff</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_2">
+                            <label for="shop-filter-checkbox_2">Cooking Oils</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_3">
+                            <label for="shop-filter-checkbox_3">Vegetables</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_4">
+                            <label for="shop-filter-checkbox_4">Condiments</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_5">
+                            <label for="shop-filter-checkbox_5">Fruits</label>
+                        </div>
 
-                <!-- Radios -->
-                <h4 class="headline mt-3">
-                    <span>Brands</span>
-                </h4>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_1" checked="">
-                    <label for="shop-filter-checkbox_1">American Food Store</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_2">
-                    <label for="shop-filter-checkbox_2">Earth Natural Foods</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_3">
-                    <label for="shop-filter-checkbox_3">Whole Foods Market</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_4">
-                    <label for="shop-filter-checkbox_4">Marks and Spence</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="" id="shop-filter-checkbox_5">
-                    <label for="shop-filter-checkbox_5">Tesco</label>
-                </div>
-                <div class="mt-4">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                </div>
-                {{-- <div class="radio">
-                    <input type="radio" name="shop-filter__radio" id="shop-filter-radio_2" value="">
-                    <label for="shop-filter-radio_2">Earth Natural Foods</label>
-                </div>
-                <div class="radio">
-                    <input type="radio" name="shop-filter__radio" id="shop-filter-radio_3" value="">
-                    <label for="shop-filter-radio_3">Whole Foods Market</label>
-                </div>
-                <div class="radio">
-                    <input type="radio" name="shop-filter__radio" id="shop-filter-radio_4" value="">
-                    <label for="shop-filter-radio_4">Marks and Spencer</label>
-                </div>
-                <div class="radio">
-                    <input type="radio" name="shop-filter__radio" id="shop-filter-radio_5" value="">
-                    <label for="shop-filter-radio_5">Tesco</label>
-                </div> --}}
+                        <!-- Radios -->
+                        <h4 class="headline mt-3">
+                            <span>Brands</span>
+                        </h4>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_1" checked="">
+                            <label for="shop-filter-checkbox_1">American Food Store</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_2">
+                            <label for="shop-filter-checkbox_2">Earth Natural Foods</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_3">
+                            <label for="shop-filter-checkbox_3">Whole Foods Market</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_4">
+                            <label for="shop-filter-checkbox_4">Marks and Spence</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" value="" id="shop-filter-checkbox_5">
+                            <label for="shop-filter-checkbox_5">Tesco</label>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary btn-block">Filter</button>
+                        </div>
+                        {{-- <div class="radio">
+                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_2" value="">
+                            <label for="shop-filter-radio_2">Earth Natural Foods</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_3" value="">
+                            <label for="shop-filter-radio_3">Whole Foods Market</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_4" value="">
+                            <label for="shop-filter-radio_4">Marks and Spencer</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_5" value="">
+                            <label for="shop-filter-radio_5">Tesco</label>
+                        </div> --}}
 
-            </form>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="col-sm-8 col-md-9">
@@ -471,6 +476,4 @@
         </div> <!-- / .col-sm-8 -->
     </div> <!-- / .row -->
 </div>
-
-
 @endsection

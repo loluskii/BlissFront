@@ -1,4 +1,4 @@
-@extends('layouts.store.main')
+@extends('layouts.app')
 @section('page')
 View Cart
 @endsection
@@ -97,7 +97,7 @@ View Cart
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container" style="min-height: 70vh">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-md-9">
@@ -108,115 +108,72 @@ View Cart
                     <div class="ibox-content p-0">
                         <div class="table-responsive">
                             <div class="cart-table">
-                                <div class="table-responsive">
-                                    <table class="table table-striped mb-30">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Unit Price</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">Bluetooth Speaker</a>
-                                                </td>
-                                                <td>$9</td>
-                                                <td>
-                                                    <div class="quantity">
-                                                        <input type="number" class="qty-text" id="qty2" step="1" min="1"
-                                                            max="99" name="quantity" value="1">
-                                                    </div>
-                                                </td>
-                                                <td>$9</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">Roof Lamp</a>
-                                                </td>
-                                                <td>$11</td>
-                                                <td>
-                                                    <div class="quantity">
-                                                        <input type="number" class="qty-text" id="qty3" step="1" min="1"
-                                                            max="99" name="quantity" value="1">
-                                                    </div>
-                                                </td>
-                                                <td>$11</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>
-                                                    <a href="#">Cotton T-shirt</a>
-                                                </td>
-                                                <td>$6</td>
-                                                <td>
-                                                    <div class="quantity">
-                                                        <input type="number" class="qty-text" id="qty4" step="1" min="1"
-                                                            max="99" name="quantity" value="1">
-                                                    </div>
-                                                </td>
-                                                <td>$6</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>
-                                                    <a href="#">Water Bottle</a>
-                                                </td>
-                                                <td>$17</td>
-                                                <td>
-                                                    <div class="quantity">
-                                                        <input type="number" class="qty-text" id="qty5" step="1" min="1"
-                                                            max="99" name="quantity" value="1">
-                                                    </div>
-                                                </td>
-                                                <td>$17</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>
-                                                    <a href="#">Alka Sliper</a>
-                                                </td>
-                                                <td>$13</td>
-                                                <td>
-                                                    <div class="quantity">
-                                                        <input type="number" class="qty-text" id="qty6" step="1" min="1"
-                                                            max="99" name="quantity" value="1">
-                                                    </div>
-                                                </td>
-                                                <td>$13</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="card border-0">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered mb-30">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Product</th>
+                                                        <th scope="col">Unit Price</th>
+                                                        <th class="text-center" scope="col">Quantity</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($cartTotalQuantity == 0)
+                                                    <tr class="text-center">
+                                                        <td colspan="5">You have no items in your cart</td>
+                                                    </tr>
+                                                    @endif
+                                                @foreach ($cartItems as $item)
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#">{{ $item->name }}</a>
+                                                        </td>
+                                                        <td>${{ $item->price }}</td>
+                                                        <td>
+                                                            <div class="row h-100 justify-content-center">
+                                                                <form action="{{route('cart.update', $item->id)}}" method="POST">
+                                                                @csrf
+                                                                <div class="quantity">
+                                                                    <input type="number" class="qty-text" id="qty2" step="1" min="1" onchange="this.form.submit()" max="99" name="quantity" style="width: 50px;" value="{{ $item->quantity }}">
+                                                                </div>                                                    </form>
+                                                            </div>
+                                                            {{-- <div class="quantity">
+                                                                <input type="number" class="qty-text" id="qty2" step="1" min="1" onchange="this.form.submit()" max="99" name="quantity" style="width: 50px;" value="{{ $item->quantity }}">
+                                                            </div> --}}
+                                                        </td>
+                                                        <td>
+                                                            {{ Cart::session(auth()->id())->get($item->id)->getPriceSum() }}
+                                                        </td>
+                                                        <td>
+                                                            <a href="{{ route('cart.destroy', $item->id) }}">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end ibox-content">
-                        <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                        @if ($cartTotalQuantity == 0)
+                        <a href="{{ route('store.show') }}" class="btn btn-primary">Continue Shopping</a>
+                        @else
+                        <a href="{{ route('cart.checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <h5>Cart Summary</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <span> Total </span>
-                        <h2 class="font-bold"> $390,00 </h2>
-                        <hr>
-                        <a href="{{ route('billing') }}" class="btn btn-primary btn-block">Proceed to Checkout</a> <br>
-                        <small class="text-muted small">
-                            *For United States, France and Germany applicable sales tax will be applied
-                        </small>
-                    </div>
-                </div>
-            </div>
+            @include('store.cart-summary')
         </div>
     </div>
 </div>
