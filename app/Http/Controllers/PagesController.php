@@ -2,23 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function subscription(){
-        return view('subscription');
+        $cartItems = \Cart::session(auth()->id())->getContent();
+        return view('subscription', compact('cartItems'));
     }
 
     public function showStore(){
-        return view('store.index');
+        $products = Product::take(9)->get();
+        return view('store.index',['products' => $products]);
     }
 
     public function viewCart(){
         return view('store.cart');
     }
 
-    public function billing(){
-        return view('store.billing');
+    public function subscribe(){
+        $cartItems = \Cart::session(auth()->id())->getContent();
+        return view('store.subscribe', compact('cartItems'));
     }
 }

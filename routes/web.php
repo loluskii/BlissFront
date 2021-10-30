@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +25,19 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('subscription', [PagesController::class, 'subscription'])->name('subscription');
-
 Route::get('/store',[PagesController::class,'showStore'])->name('store.show');
 
-Route::get('/store/cart',[PagesController::class,'viewCart'])->name('store.cart');
-Route::get('/store/checkout', [PagesController::class, 'billing'])->name('billing');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/store/add/{product}',[CartController::class,'addToCart'])->name('cart.add');
+    Route::get('/cart',[CartController::class,'index'])->name('store.cart');
+    Route::post('/cart/update/{id}',[CartController::class, 'update'])->name('cart.update');
+    Route::get('/cart/destroy/{id}',[CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/checkout',[CartController::class, 'checkout'])->name('cart.checkout');
+    Route::resource('orders',OrderController::class)->only('store');
+
+});
+
+
+
+Route::get('/subscribe', [PagesController::class, 'subscribe'])->name('subscribe');
