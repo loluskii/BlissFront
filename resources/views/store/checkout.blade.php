@@ -282,6 +282,9 @@ Address Details
                                                 </div>
                                                 <p>Pick a Subscription Plan</p>
                                                 <div class="row">
+                                                    @foreach ($plans as $plan)
+                                                        {{ $plan }}
+                                                    @endforeach
                                                     <div class="col-3 mb-3 justify-content-center pr-0">
                                                         <label class="checkbox-label w-100">
                                                             <input type="radio" value="weekly" name="plan">

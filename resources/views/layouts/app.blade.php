@@ -65,8 +65,8 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-shopping-cart" style="font-size: large;" aria-hidden="true"></i>
-                                    <span class="badge badge-primary" style="background-color:#2A707D; border-radius: 50%; position: relative;top: -15px; left: -10px;">0</span>
+                                <a class="nav-link" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart" style="font-size: large;" aria-hidden="true"></i>
+                                    <span class="badge badge-primary" style="background-color:#2A707D; border-radius: 50%; position: relative;top: -15px; left: -10px;">{{ Cart::session(auth()->id())->getContent()->count()}}</span>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
@@ -74,8 +74,9 @@
                                     Hi, {{ Auth::user()->fname }}
                                 </a>
 
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Dashboard</a>
                                     <a class="dropdown-item" href="#">Another action</a>
                                     <a class="dropdown-item" href="#">Something else here</a>
                                     <div class="dropdown-divider"></div>
@@ -100,7 +101,7 @@
         <main class="pt-4">
             @yield('content')
         </main>
-        {{-- <footer class="w-100 py-4 flex-shrink-0">
+        <footer class="w-100 py-4 flex-shrink-0" style="background-color: black">
             <div class="container py-4">
                 <div class="row gy-4 gx-5">
                     <div class="col-lg-4 col-md-6">
@@ -138,10 +139,10 @@
                     </div>
                 </div>
             </div>
-        </footer> --}}
+        </footer>
 
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     @stack('more_scripts')
 </body>
 </html>

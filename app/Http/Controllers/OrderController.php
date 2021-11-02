@@ -40,7 +40,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $request->validate([
             'shipping_first_name' => 'required',
             'shipping_last_name' => 'required',
@@ -106,7 +106,8 @@ class OrderController extends Controller
         \Cart::session(auth()->id())->clear();
 
         if(request('payment') == 'stripe'){
-            dd('redirect to stripe checkout');
+            return redirect()->route('pay')->with();
+            // dd('redirect to stripe checkout');
         }else{
             Mail::to(Auth::user()->email)->send(new OrderCreated($order));
             return redirect()->route('home')->withMessage('Order has been placed');

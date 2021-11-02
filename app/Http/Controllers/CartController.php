@@ -11,6 +11,21 @@ class CartController extends Controller
 {
     public $userID;
 
+    public function retrievePlans() {
+        $key = \config('services.stripe.secret');
+        $stripe = new \Stripe\StripeClient($key);
+        $plansraw = $stripe->plans->all();
+        $plans = $plansraw->data;
+
+        foreach($plans as $plan) {
+            $prod = $stripe->products->retrieve(
+                $plan->product,[]
+            );
+            $plan->product = $prod;
+        }
+        return $plans;
+    }
+
     public function addToCart(Product $product){
         \Cart::session(auth()->id())->add(array(
             'id' => $product->id,
@@ -50,9 +65,10 @@ class CartController extends Controller
 
 
     public function checkout(){
+        $plans = $this->retrievePlans();
         $cartItems = \Cart::session(auth()->id())->getContent();
         $cartTotalQuantity = \Cart::session(auth()->id())->getContent()->count();
-        return view('store.checkout', compact('cartItems','cartTotalQuantity'));
+        return view('store.checkout', compact('cartItems','cartTotalQuantity','plans'));
     }
 }
 

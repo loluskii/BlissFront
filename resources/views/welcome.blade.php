@@ -328,7 +328,7 @@
         </div>
       </div>
 </div> --}}
-<div class="d-flex flex-column h-100">
+<div class=" bg-dark d-flex flex-column h-100">
 
     <!-- FOR DEMO PURPOSE -->
     <section class="hero text-white py-5 flex-grow-1">
