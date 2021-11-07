@@ -21,7 +21,6 @@ class OrderController extends Controller
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +30,6 @@ class OrderController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -40,79 +38,76 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        $request->validate([
+        // dd($request->all());
+        $validatedData = $request->validate([
             'shipping_first_name' => 'required',
             'shipping_last_name' => 'required',
             'shipping_street_address'  => 'required',
             'shipping_city' => 'required',
             'shipping_state' => 'required',
             'shipping_phone_number' => 'required',
+            'shipping_apartment_suite' => 'required',
+            'plan' => 'required',
+            'shipping_postcode' => 'required',
         ]);
 
         // dd($request);
 
-        $order = new Order();
-        $address = new Address();
+        // $order = new Order();
+        // $address = new Address();
 
-        $order->order_number = uniqid('ON');
-        $order->shipping_fname = $request->input('shipping_first_name');
-        $order->shipping_lname = $request->input('shipping_last_name');
-        $order->shipping_address = $request->input('shipping_street_address');
-        $order->shipping_city = $request->input('shipping_city');
-        $order->shipping_state = $request->input('shipping_state');
-        $order->shipping_phone = $request->input('shipping_phone_number');
-        $order->shipping_zipcode = $request->input('shipping_postcode');
-        $order->shipping_apartment_suite = $request->input('shipping_apartment_suite');
+        // $order->order_number = uniqid('ON');
+        // $order->shipping_fname = $request->input('shipping_first_name');
+        // $order->shipping_lname = $request->input('shipping_last_name');
+        // $order->shipping_address = $request->input('shipping_street_address');
+        // $order->shipping_city = $request->input('shipping_city');
+        // $order->shipping_state = $request->input('shipping_state');
+        // $order->shipping_phone = $request->input('shipping_phone_number');
+        // $order->shipping_zipcode = $request->input('shipping_postcode');
+        // $order->shipping_apartment_suite = $request->input('shipping_apartment_suite');
 
-        $order->grand_total = \Cart::session(auth()->id())->getTotal();
-        $order->item_count = \Cart::session(auth()->id())->getContent()->count();
-        $order->user_id = auth()->id();
+        // $order->grand_total = \Cart::session(auth()->id())->getTotal();
+        // $order->item_count = \Cart::session(auth()->id())->getContent()->count();
+        // $order->user_id = auth()->id();
+        // $order->plan = $request->input('plan');
+        // $order->payment_method = 'stripe';
 
-        if($request->has('not-same-address')){
-            $order->billing_fname = $request->input('shipping_first_name');
-            $order->billing_lname = $request->input('shipping_last_name');
-            $order->billing_address = $request->input('billing_address');
-            $order->billing_apartment_suite = $request->input('billing_apartment_suite');
-            $order->billing_city = $request->input('billing_city');
-            $order->billing_state = $request->input('billing_state');
-            $order->billing_phone = $request->input('billing_phone');
-            $order->billing_zipcode = $request->input('billing_postcode');
-        }
+        // if($request->has('save-info')){
+        //     $address->user_id = auth()->id();
+        //     $address->shipping_fname  = $request->input('shipping_first_name');
+        //     $address->shipping_lname =  $request->input('shipping_last_name');
+        //     $address->shipping_address =  $request->input('shipping_street_address');
+        //     $address->shipping_apartment_suite = $request->input('shipping_apartment_suite');
+        //     $address->shipping_city = $request->input('shipping_city');
+        //     $address->shipping_state = $request->input('shipping_state');
+        //     $address->shipping_zipcode = $request->input('shipping_postcode');
+        //     $address->shipping_phone = $request->input('shipping_phone_number');
+        //     $address->save();
+        // }
 
-        if($request->has('save-info')){
-            $address->user_id = auth()->id();
-            $address->shipping_fname  = $request->input('shipping_first_name');
-            $address->shipping_lname =  $request->input('shipping_last_name');
-            $address->shipping_address =  $request->input('shipping_street_address');
-            $address->shipping_apartment_suite = $request->input('shipping_apartment_suite');
-            $address->shipping_city = $request->input('shipping_city');
-            $address->shipping_state = $request->input('shipping_state');
-            $address->shipping_zipcode = $request->input('shipping_postcode');
-            $address->shipping_phone = $request->input('shipping_phone_number');
-            $address->save();
-        }
+        // $order->save();
+        // $cartItems =  \Cart::session(auth()->id())->getContent();
+        // foreach($cartItems as $item){
+        //     $order->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
+        // }
 
-        if (request('payment') == 'stripe') {
-            $order->payment_method = 'stripe';
-        }
-
-        $order->save();
-        $cartItems =  \Cart::session(auth()->id())->getContent();
-        foreach($cartItems as $item){
-            $order->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
-        }
-
-        \Cart::session(auth()->id())->clear();
-
-        if(request('payment') == 'stripe'){
-            return redirect()->route('pay')->with();
-            // dd('redirect to stripe checkout');
+        if(empty($request->session()->get('order'))){
+            $order = new Order;
+            $order->fill($validatedData);
+            $request->session()->put('order', $order);
         }else{
-            Mail::to(Auth::user()->email)->send(new OrderCreated($order));
-            return redirect()->route('home')->withMessage('Order has been placed');
-            //send email to user that order will be delivered => create order-success page
+            $order = $request->session()->get('order');
+            $order->fill($validatedData);
+            $request->session()->put('order', $order);
         }
+        return redirect()->route('pay',['plan' => $request->input('plan')]);
+
+        // else{
+        //     \Cart::session(auth()->id())->clear();
+        //     Mail::to(Auth::user()->email)->send(new OrderCreated($order));
+        //     return redirect()->route('home')->withMessage('Order has been placed');
+        //     //send email to user that order will be delivered => create order-success page
+        // }
 
         // return redirect()->route('home')->withMessage('Order has been placed');
 

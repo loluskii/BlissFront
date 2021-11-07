@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plans;
 use App\Models\Product;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
@@ -12,17 +13,7 @@ class CartController extends Controller
     public $userID;
 
     public function retrievePlans() {
-        $key = \config('services.stripe.secret');
-        $stripe = new \Stripe\StripeClient($key);
-        $plansraw = $stripe->plans->all();
-        $plans = $plansraw->data;
-
-        foreach($plans as $plan) {
-            $prod = $stripe->products->retrieve(
-                $plan->product,[]
-            );
-            $plan->product = $prod;
-        }
+        $plans = Plans::get();
         return $plans;
     }
 

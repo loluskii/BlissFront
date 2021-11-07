@@ -17,12 +17,12 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('order_number');
             $table->unsignedBigInteger('user_id');
-            $table->string('plan')
+            $table->string('plan');
             $table->enum('status',['pending','completed','declined'])->default('pending');
             $table->float('grand_total');
             $table->integer('item_count');
             $table->boolean('is_paid')->default(false);
-            $table->enum('payment_method',['payment_on_delivery','paypal','stripe', 'paystack'])->default('payment_on_delivery');
+            $table->enum('payment_method',['payment_on_delivery','stripe', 'paystack'])->default('payment_on_delivery');
 
             $table->string('shipping_fname');
             $table->string('shipping_lname');
@@ -34,14 +34,14 @@ class CreateOrdersTable extends Migration
             $table->string('shipping_phone');
             $table->string('notes')->nullable();
 
-            $table->string('billing_fname')->nullable();
-            $table->string('billing_lname')->nullable();
-            $table->string('billing_address')->nullable();
-            $table->string('billing_apartment_suite')->nullable();
-            $table->string('billing_city')->nullable();
-            $table->string('billing_state')->nullable();
-            $table->string('billing_zipcode')->nullable();
-            $table->string('billing_phone')->nullable();
+            // $table->string('billing_fname')->nullable();
+            // $table->string('billing_lname')->nullable();
+            // $table->string('billing_address')->nullable();
+            // $table->string('billing_apartment_suite')->nullable();
+            // $table->string('billing_city')->nullable();
+            // $table->string('billing_state')->nullable();
+            // $table->string('billing_zipcode')->nullable();
+            // $table->string('billing_phone')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
