@@ -8,6 +8,7 @@ use App\Models\Plans;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
 use Illuminate\Support\Facades\Auth;
+use Cart;
 
 class SubscriptionController extends Controller
 {
@@ -23,41 +24,41 @@ class SubscriptionController extends Controller
         return view('plans.create');
     }
     public function getDeliveryTotal(){
-        
+
     }
 
     public function storePlan(Request $request)
     {
-        $data = $request->except('_token');
+        // $data = $request->except('_token');
 
-        $data['slug'] = strtolower($data['name']);
-        $price = $data['cost'] *100;
+        // $data['slug'] = strtolower($data['name']);
+        // $price = $data['cost'] *100;
 
-        //create stripe product
-        $stripeProduct = $this->stripe->products->create([
-            'name' => $data['name'],
-        ]);
+        // //create stripe product
+        // $stripeProduct = $this->stripe->products->create([
+        //     'name' => $data['name'],
+        // ]);
 
-        //Stripe Plan Creation
-        $stripePlanCreation = $this->stripe->plans->create([
-            'amount' => $price,
-            'currency' => 'inr',
-            'interval' => 'month', //  it can be day,week,month or year
-            'product' => $stripeProduct->id,
-        ]);
+        // //Stripe Plan Creation
+        // $stripePlanCreation = $this->stripe->plans->create([
+        //     'amount' => $price,
+        //     'currency' => 'inr',
+        //     'interval' => 'month', //  it can be day,week,month or year
+        //     'product' => $stripeProduct->id,
+        // ]);
 
-        $data['stripe_plan'] = $stripePlanCreation->id;
+        // $data['stripe_plan'] = $stripePlanCreation->id;
 
-        Plan::create($data);
+        // Plan::create($data);
 
-        echo 'plan has been created';
+        // echo 'plan has been created';
     }
 
     public function finalCheckout(Request $request,Plans $plan){
         $paymentMethods = $request->user()->paymentMethods();
         $order = $request->session()->get('order');
         $intent = $request->user()->createSetupIntent();
-        $cartTotal = \Cart::session(auth()->id())->getTotal();
+        $cartTotal = (\Cart::session(auth()->id())->getTotal());
         return view('store.payments', compact('plan', 'intent', 'order','cartTotal'));
     }
 

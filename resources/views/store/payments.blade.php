@@ -382,9 +382,9 @@
             <section>
                 <div class="payment-info cards visible">
                     <fieldset>
-                        <label class="zip">
+                        <label class="card_holder">
                             <span>Name on Card</span>
-                            <input name="plan" class="field" required>
+                            <input name="card_holder_name" id="card_holder_name" class="field" required>
                         </label>
                         <label>
                             <span>Card</span>
@@ -431,6 +431,7 @@
     const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
     const cardButton = document.getElementById('card-button');
     const clientSecret = cardButton.dataset.secret;
+    const cardHolderName = document.getElementById('card_holder_name');
 
     cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
 
@@ -449,9 +450,11 @@
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+        cardButton.textContent = "Processing..."
+        cardButton.disabled = true;
         stripe.handleCardSetup(clientSecret, cardElement, {
                 payment_method_data: {
-                    //billing_details: { name: cardHolderName.value }
+                    billing_details: { name: cardHolderName.value }
                 }
             })
             .then(function(result) {
@@ -466,8 +469,6 @@
                     stripeTokenHandler(result.setupIntent.payment_method);
                 }
             });
-        cardButton.textContent = "Processing..."
-        cardButton.disabled = true;
     });
 
     // Submit the form with the token ID.
