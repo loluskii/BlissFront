@@ -100,7 +100,7 @@ View Cart
 <div class="container" style="min-height: 70vh">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="ibox">
                     <div class="ibox-title">
                         <h2>Your Cart</h2>
