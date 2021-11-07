@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::resource('orders', OrderController::class)->only('store');
-    Route::get('/pay', [PaymentController::class, 'index'])->name('pay');
+    Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('pay');
+    Route::post('/subscribe', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
+
 
 });
 
