@@ -11,8 +11,9 @@
             </div>
             @endforeach
             <div class="mt-2">
-                <span class="text-muted"> Total </span>
-            <h2 class="font-bold"> ${{ Cart::session(auth()->id())->getTotal()}} </h2>
+                <span class="text-muted">Subtotal </span>
+            <h2 class="font-bold">£<span id="cart_total">{{ Cart::session(auth()->id())->getTotal()}}</span> </h2>
+            <small>Please note delivery fee is £1.99 per month</small>
             </div>
             <hr>
             @if ($cartTotalQuantity > 0)

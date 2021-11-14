@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
 use \Stripe\Stripe;
 use App\Models\Order;
 use App\Models\Plans;
+use App\Actions\Orders\StorePaymentRecord;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
+use App\Models\PlanSubscription;
+use App\Actions\Orders\StoreOrder;
+use App\Models\PaymentRecord;
+use App\Services\Orders\OrderQueries;
 use Illuminate\Support\Facades\Auth;
-use Cart;
+use Carbon\Carbon;
 
 class SubscriptionController extends Controller
 {
@@ -58,42 +64,57 @@ class SubscriptionController extends Controller
         $paymentMethods = $request->user()->paymentMethods();
         $order = $request->session()->get('order');
         $intent = $request->user()->createSetupIntent();
-        $cartTotal = (\Cart::session(auth()->id())->getTotal());
+        $cartTotal = (\Cart::session(auth()->id())->getTotal() * $plan->interval_count) + $plan->delivery_fee;
         return view('store.payments', compact('plan', 'intent', 'order','cartTotal'));
     }
 
-    public function createSubscription(Request $request, Plans $plan)
+    public function createSubscription(Request $request,$id)
     {
-        $plan = Plans::findOrFail($request->get('plan'));
+        $plan = Plans::findOrFail($id);
         $user = $request->user();
         $paymentMethod = $request->paymentMethod;
+        $amount = $request->amount;
+        $order = $request->session()->get('order');
 
-        $user->createOrGetStripeCustomer();
-        $user->updateDefaultPaymentMethod($paymentMethod);
-        $user->newSubscription($plan->slug, $plan->stripe_plan)
-            ->create($paymentMethod, [
-                'email' => $user->email,
-            ]);
+        try {
+            $user->createOrGetStripeCustomer();
+            $user->updateDefaultPaymentMethod($paymentMethod);
+            // $stripeCharge = $this->stripe->charges->create([
+            //     'amount' => $amount * 100,
+            //     'currency' => 'gbp',
+            //     'customer' => $customer['id'],
+            //     'source' => $paymentMethod,
+            //     'description' => 'Payment for '.$plan->name,
+            //     'receipt_email' => $user->email,
+            //     'shipping' => [
+            //         'address' => $order->shipping_street_address.' ,'.$order->shipping_city.', '.$order->shipping_state,
+            //         'name' => $order->shipping_first_name.' '.$order->shipping_last_name,
+            //         'phone' => $order->shipping_phone_number,
+            //     ]
+            // ]);
+            $stripeCharge = $user->charge($amount * 100, $paymentMethod,['receipt_email' => $user->email]);
+            $payment_id= $stripeCharge->jsonSerialize()['id'];
+            $res = (new StoreOrder())->run($order, $amount);
+            $newOrder = (new OrderQueries())->findByRef($res);
+            if($res){
+                $subscription = new PlanSubscription();
+                $subscription->user_id = $user->id;
+                $subscription->plan_id = $plan->id;
+                $subscription->order_id = $newOrder->id;
+                $subscription->start_date = Carbon::today();
+                $subscription->end_date = (Carbon::today())->addMonthsWithNoOverflow($plan->interval_count);
+                $subscription->created_at = Carbon::today();
+                $subscription->save();
 
-        // return response();
+                (new StorePaymentRecord())->run($plan, $amount, $payment_id);
+            }
+            \Cart::session(auth()->id())->clear();
+            $request->session()->forget('order');
+            return view('order.order-success');
 
-        return redirect()->route('home')->with('success', 'Your plan subscribed successfully');
-    }
-
-
-    public function retrievePlans() {
-        $key = \config('services.stripe.secret');
-        $stripe = new \Stripe\StripeClient($key);
-        $plansraw = $stripe->plans->all();
-        $plans = $plansraw->data;
-
-        foreach($plans as $plan) {
-            $prod = $stripe->products->retrieve(
-                $plan->product,[]
-            );
-            $plan->product = $prod;
+        } catch (\Exception $e) {
+            return view('order.order-failure')->with('error',$e->getMessage());
         }
-        return $plans;
     }
 
     public function showSubscription() {

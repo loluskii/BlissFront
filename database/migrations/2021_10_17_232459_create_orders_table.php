@@ -17,8 +17,10 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('order_number');
             $table->unsignedBigInteger('user_id');
+            $table->string('order_reference');
             $table->string('plan');
             $table->enum('status',['pending','completed','declined'])->default('pending');
+            $table->float('subtotal');
             $table->float('grand_total');
             $table->integer('item_count');
             $table->boolean('is_paid')->default(false);

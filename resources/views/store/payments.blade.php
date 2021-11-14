@@ -319,7 +319,7 @@
         <div id="payment-request">
             <div id="payment-request-button"></div>
         </div>
-        <form id="payment-form" method="POST" action="{{ route('subscription.create') }}">
+        <form id="payment-form" method="POST" action="{{ route('subscription.create', $plan->id) }}">
         @csrf
             <section>
                 <h2>Shipping Information</h2>
@@ -335,6 +335,7 @@
                         <span>Plan</span>
                         <input name="plan" class="field" disabled value="{{ $plan->name }}">
                     </label>
+                    <input type="hidden" name="amount" value="{{ $cartTotal }}">
                     {{-- <label>
                         <span>Name</span>
                         <input name="name" class="field" placeholder="Jenny Rosen" required>
@@ -383,7 +384,7 @@
                 <div class="payment-info cards visible">
                     <fieldset>
                         <label class="card_holder">
-                            <span>Name on Card</span>
+                            <span>Name</span>
                             <input name="card_holder_name" id="card_holder_name" class="field" required>
                         </label>
                         <label>

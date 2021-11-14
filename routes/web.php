@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
@@ -25,7 +27,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('subscription', [PagesController::class, 'subscription'])->name('subscription');
 Route::get('/store', [PagesController::class, 'showStore'])->name('store.show');
 
@@ -38,9 +39,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::resource('orders', OrderController::class)->only('store');
     Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('pay');
-    Route::post('/subscribe', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
+    Route::post('/subscribe/{id}', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
 
+});
 
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
+    Route::get('/account', [UserController::class, 'index'])->name('home');
+    Route::get('/details', [UserController::class, 'userDetails'])->name('user.details');
+    Route::get('/address-book', [UserController::class, 'getAddresses'])->name('user.address_book');
+    Route::get('/payments', [UserController::class, 'getPaymentMethods'])->name('user.payment_methods');
+    Route::get('/my-orders', [UserController::class, 'getOrders'])->name('user.my_orders');
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.details');
 });
 
 

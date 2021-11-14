@@ -21,4 +21,14 @@ class Plans extends Model
     {
         return 'slug';
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function subcriptions()
+    {
+        return $this->hasMany(PlanSubscription::class);
+    }
 }
