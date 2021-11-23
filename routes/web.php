@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\SubscriptionController;
 
 /*
@@ -51,6 +52,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/my-orders', [UserController::class, 'getOrders'])->name('user.my_orders');
     Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.details');
 });
+
+// Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
+//     Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+// });
+
+
 
 
 

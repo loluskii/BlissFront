@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class StoreOrder{
 
-    public function run($order, $amount){
+    public function run($order, $amount, $subamount, $delivery_fee){
         $newOrder = new Order();
         $ref = Str::random(20);
         $address = new Address();
@@ -25,12 +25,13 @@ class StoreOrder{
         $newOrder->shipping_phone = $order->shipping_phone_number;
         $newOrder->shipping_zipcode = $order->shipping_postcode;
         $newOrder->shipping_apartment_suite = $order->shipping_apartment_suite;
-        $newOrder->subtotal = \Cart::session(auth()->id())->getTotal();
+        $newOrder->subtotal = $subamount;
         $newOrder->grand_total = $amount;
         $newOrder->item_count = \Cart::session(auth()->id())->getContent()->count();
         $newOrder->user_id = auth()->id();
         $newOrder->plan = $order->plan;
         $newOrder->payment_method = 'stripe';
+        $newOrder->delivery_total = $delivery_fee;
         $newOrder->is_paid = 1;
         $newOrder->order_reference = $ref;
 

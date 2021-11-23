@@ -94,7 +94,9 @@ class SubscriptionController extends Controller
             // ]);
             $stripeCharge = $user->charge($amount * 100, $paymentMethod,['receipt_email' => $user->email]);
             $payment_id= $stripeCharge->jsonSerialize()['id'];
-            $res = (new StoreOrder())->run($order, $amount);
+            $subamount = \Cart::session(auth()->id())->getTotal() * $plan->interval_count;
+            $delivery_fee = $plan->delivery_fee;
+            $res = (new StoreOrder())->run($order, $amount, $subamount, $delivery_fee);
             $newOrder = (new OrderQueries())->findByRef($res);
             if($res){
                 $subscription = new PlanSubscription();

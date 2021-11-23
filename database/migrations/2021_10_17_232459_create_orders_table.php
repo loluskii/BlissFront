@@ -25,7 +25,7 @@ class CreateOrdersTable extends Migration
             $table->integer('item_count');
             $table->boolean('is_paid')->default(false);
             $table->enum('payment_method',['payment_on_delivery','stripe', 'paystack'])->default('payment_on_delivery');
-
+            $table->float('delivery_total');
             $table->string('shipping_fname');
             $table->string('shipping_lname');
             $table->string('shipping_address');
