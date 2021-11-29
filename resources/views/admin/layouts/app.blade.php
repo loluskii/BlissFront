@@ -124,14 +124,12 @@
     <!-- Page level plugins -->
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Page level custom scripts -->
-    <script src="{{ asset('plugins/chart.js/chart-area-demo.js') }}"></script>
+    {{-- <script src="{{ asset('plugins/chart.js/chart-area-demo.js') }}"></script> --}}
     <script src="{{ asset('plugins/chart.js/chart-pie-demo.js') }}"></script>
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('dist/js/datatables-demo.js') }}"></script>
-    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
     <!-- daterangepicker -->

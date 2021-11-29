@@ -20,7 +20,7 @@
 
 
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     @include('admin.layouts.menu')
 </ul>
 <!-- End of Sidebar -->

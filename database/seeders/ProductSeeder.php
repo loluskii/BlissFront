@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
             "description" => $faker->description,
             "price" => $faker->numberBetween(25, 50),
             "cover_img" => $faker->imageUrl($width = 640, $height = 480),
+            "product_ref" => $faker->numberBetween(1234, 7890),
         ]);
     }
 }

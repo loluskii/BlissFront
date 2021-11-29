@@ -133,7 +133,7 @@
             </div>
             <div class="col-md-6">
                 <div class="pl-5">
-                    <h1 class="mb-2" style="font-weight: bolder">Connect with your loved ones in real time.</h1>
+                    <h1 class="mb-2" >Connect with your loved ones in real time.</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil, incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione veritatis in atque amet iste! Eum officiis asperiores veritatis quasi dolore rem, niti illum?</p>
                     <a href="{{ route('register') }}" type="submit" class="btn btn-primary btn-lg mr-2" >Get Started</a >
                     <button type="submit" class="btn  btn-lg" >Learn more</button>
@@ -145,7 +145,7 @@
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-6">
                 <div class="">
-                    <h1 style="font-weight: bolder">Connect with your loved ones.</h1>
+                    <h1 >Connect with your loved ones.</h1>
                     <p> corporis. Tenetur, laboriosam laborum. Nihil, incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione veritatis in atque amet iste! Eum officiis asperiores veritatis quasi dolore rem, niti illum?</p>
                 </div>
             </div>
@@ -159,17 +159,17 @@
         <div class="container section d-flex justify-content-center align-items-center"  style="min-height: 70vh">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="text-center">
-                    <h1 style="font-weight: bolder">Our Products</h1>
+                    <h1 >Our Products</h1>
                     <p>Lorem ipsum dolor sit amet conseqt accusamus officia rem.</p>
                     <div class="d-flex mt-5">
                         <div class="col-md-4 col-sm-12 col-lg-4">
-                            <a href="{{ route('store.show') }}"><img src="https://images.pexels.com/photos/691155/pexels-photo-691155.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="img-fluid" alt="" srcset=""></a>
+                            <a href="{{ route('store.show') }}"><img src="https://images.pexels.com/photos/3326215/pexels-photo-3326215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="img-fluid middle-images" alt="" srcset=""></a>
                         </div>
                         <div class="col-md-4 col-sm-12 col-lg-4">
-                            <a href="{{ route('store.show') }}"><img src="https://images.pexels.com/photos/3326215/pexels-photo-3326215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="img-fluid" alt="" srcset=""></a>
+                            <a href="{{ route('store.show') }}"><img src="https://images.pexels.com/photos/3326215/pexels-photo-3326215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="img-fluid middle-images" alt="" srcset=""></a>
                         </div>
                         <div class="col-md-4 col-sm-12 col-lg-4r">
-                            <a href="{{ route('store.show') }}"><img src="https://images.pexels.com/photos/4374579/pexels-photo-4374579.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" class="img-fluid" alt="" srcset=""></a>
+                            <a href="{{ route('store.show') }}"><img src="https://images.pexels.com/photos/4374579/pexels-photo-4374579.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" class="img-fluid middle-images" alt="" srcset=""></a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
     <div class="section d-flex justify-content-center align-items-center"  style="min-height: 70vh">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="text-center">
-                <h1 style="font-weight: bolder">How it Works</h1>
+                <h1 >How it Works</h1>
                 <p>Lorem ipsum dolor sit amet consequuntur quod eos, minima sequi tempora in illum error autem ad? Quo possimus et accusamus officia rem.</p>
                 <div class="d-flex mt-5">
                     <div class="col-md-4 col-sm-12 col-lg-4">
@@ -221,7 +221,7 @@
             </div>
             <div class="col-md-6">
                 <div class="pl-5">
-                    <h1 style="font-weight: bolder">Connect with your loved ones <br> in real time.</h1>
+                    <h1 >Connect with your loved ones <br> in real time.</h1>
                     <p>commodi laborum architecto inventore ex facere.Illo assumenda dignissimos voluptatum ratione veritatis in atque amet iste! Eum officiis asperiores veritatis quasi dolore rem, niti illum?</p>
                     <a href="{{ route('subscription') }}" class="btn btn-primary btn-lg">Get Started</a>
                 </div>
@@ -232,7 +232,7 @@
         <div class="section d-flex justify-content-center align-items-center"  style="min-height: 70vh">
             <div class="row justify-content-center align-items-center">
                 <div class="text-center">
-                    <h1 style="font-weight: bolder">Frequently Asked Questions</h1>
+                    <h1 >Frequently Asked Questions</h1>
                     <p>Lorem ipsum dolor sit amet consequuntur quod eos, minima sequi tempora in illum error autem ad? Quo possimus et accusamus officia rem.</p>
                 </div>
                 <div class="col-md-12">

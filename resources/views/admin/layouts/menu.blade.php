@@ -14,12 +14,12 @@
 </li>
 
 <!-- Divider -->
-<hr class="sidebar-divider">
+<hr class="sidebar-divider m-0">
 
 
 
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
         aria-controls="collapseTwo">
         <i class="fas fa-fw fa-user"></i>
@@ -27,49 +27,41 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="">All Users</a>
-            <a class="collapse-item" href="">Administrators</a>
-            <a class="collapse-item" href="">Investors</a>
+            <a class="collapse-item" href="{{ route('admin.users.index') }}">All Users</a>
+            <a class="collapse-item" href="">Manage Users</a>
+            <a class="collapse-item" href="">Send Bulk Email</a>
             <a class="collapse-item" href="">Trashed Users</a>
-            <a class="collapse-item" href="">Roles</a>
         </div>
     </div>
-</li>
-
+</li> --}}
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-        aria-controls="collapseTwo">
+    <a class="nav-link" href="{{ route('admin.users.index') }}">
         <i class="fas fa-fw fa-user"></i>
-        <span>Order Management</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">All Orders</a>
-            <a class="collapse-item" href="">Administrators</a>
-            <a class="collapse-item" href="">Investors</a>
-            <a class="collapse-item" href="">Trashed Users</a>
-            <a class="collapse-item" href="">Roles</a>
-        </div>
-    </div>
+        <span>Users</span></a>
 </li>
-
+<hr class="sidebar-divider d-none d-md-block m-0">
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+    <a class="nav-link" href="{{ route('admin.orders.index') }}">
+        <i class="fas fa-fw fa-shopping-cart"></i>
+        <span>Orders</span></a>
+</li>
+<hr class="sidebar-divider d-none d-md-block m-0">
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
         aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-user"></i>
+        <i class="fas fa-fw fa-box"></i>
         <span>Product Management</span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">All Products</a>
-            <a class="collapse-item" href="">Administrators</a>
-            <a class="collapse-item" href="">Investors</a>
-            <a class="collapse-item" href="">Trashed Users</a>
-            <a class="collapse-item" href="">Roles</a>
+            <a class="collapse-item" href="{{ route('admin.products.index') }}">All Products</a>
+            <a class="collapse-item" href="{{ route('admin.category.view') }}">All Categories</a>
         </div>
     </div>
 </li>
+
+
+
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

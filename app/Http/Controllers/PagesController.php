@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -14,7 +15,8 @@ class PagesController extends Controller
 
     public function showStore(){
         $products = Product::take(9)->get();
-        return view('store.index',['products' => $products]);
+        $categories = Category::all();
+        return view('store.index')->with('products', $products)->with('categories',$categories);
     }
 
     public function viewCart(){

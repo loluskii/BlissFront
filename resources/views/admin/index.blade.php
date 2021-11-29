@@ -137,10 +137,16 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="myAreaChart" style="display: block; height: 320px; width: 729px;" width="1458" height="640" class="chartjs-render-monitor"></canvas>
+                    <div class="chart-area">
+                        {{-- <canvas id="myAreaChart"></canvas> --}}
+                        <div id="revenue-chart"></div>
                     </div>
                 </div>
+                {{-- <div class="card-body">
+                    <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                        <canvas id="myAreaChar" style="display: block; height: 320px; width: 729px;" width="1458" height="640" class="chartjs-render-monitor"></canvas>
+                    </div>
+                </div> --}}
             </div>
         </div>
 
@@ -239,6 +245,7 @@
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -260,4 +267,61 @@ $('#recentOrders').DataTable({
     "responsive": true,
 });
 </script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script>
+        var data = @json($charts);
+        console.log(JSON.parse(data));
+
+        // Create our number formatter.
+        var formatter = new Intl.NumberFormat('en-NG', {
+            style: 'currency',
+            currency: 'GBP',
+        });
+
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" ];
+
+        new Morris.Line({
+            // ID of the element in which to draw the chart.
+            element: 'revenue-chart',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: JSON.parse(data),
+
+            // The name of the data record attribute that contains x-values.
+            xkey: 'year',
+            // A list of names of data record attributes that contain y-values.
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            dateFormat: function(x) {
+                return months[new Date(x).getMonth()].toString();
+            },
+            xLabels: "month",
+            xLabelFormat: function(x) {
+                return months[new Date(x).getMonth()].toString();
+            },
+            yLabelFormat: function(y) {
+                return formatter.format(y).toString()
+            },
+            // labels: ['Amount'],
+            lineColors: ['#31aa55', '#f2de2b'],
+            lineWidth: '3px',
+            pointSize: '5px',
+        });
+
+        new Morris.Donut({
+            element: 'revenue-pie-chart',
+            data: JSON.parse(pieData),
+            formatter: function(y, data) {
+                return formatter.format(y).toString()
+            },
+            colors: ['#31aa55', '#f2de2b']
+        });
+
+        $('svg').height(350);
+    </script>
+
 @endsection

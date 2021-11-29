@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentence(15),
             'price' => $this->faker->numberBetween(10,50),
             'cover_img' => $this->faker->imageUrl($width = 640, $height = 480),
+            "product_ref" => $this->faker->numberBetween(1234,7890),
         ];
     }
 }

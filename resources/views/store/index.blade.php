@@ -191,15 +191,7 @@
     }
 
     /* Checkboxes */
-    .checkbox input[type="checkbox"] {
-        display: none;
-    }
-
-    .checkbox label {
-        padding-left: 0;
-    }
-
-    .checkbox label:before {
+    /* input[type="checkbox"] {
         content: "";
         display: inline-block;
         vertical-align: middle;
@@ -210,11 +202,92 @@
         background-color: #eee;
         text-align: center;
         font-family: "FontAwesome";
-    }
+        border: none;
+    } */
 
-    .checkbox input[type="checkbox"]:checked+label::before {
-        content: "\f00c";
-    }
+    /* .checkbox label {
+        padding-left: 0;
+    } */
+
+    /* .checkbox label:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 15px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        background-color: #eee;
+        text-align: center;
+        font-family: "FontAwesome";
+    } */
+
+.containers {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.containers input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.containers:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containers input:checked ~ .checkmark {
+  background-color: #2A707D;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.containers input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.containers .checkmark:after {
+  left: 7px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 
     /* Radios */
     .radio input[type="radio"] {
@@ -241,74 +314,6 @@
         border-width: 7px;
     }
 
-    /* Quantity */
-    .input_qty {
-        margin-bottom: 10px;
-    }
-
-    .input_qty input[type="text"] {
-        display: none;
-    }
-
-    .input_qty label {
-        width: 100%;
-        height: 40px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        line-height: 40px;
-        text-align: center;
-    }
-
-    .input_qty label>span:not(.output) {
-        width: 40px;
-        height: 40px;
-        float: left;
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    .input_qty label>span:not(.output):last-child {
-        float: right;
-        border-right: 0;
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .input_qty label>span:not(.output):hover {
-        background-color: rgba(0, 0, 0, 0.02);
-    }
-
-    .input_qty label>output {
-        display: inline-block;
-        line-height: inherit;
-        padding: 0;
-    }
-
-    .input_qty_sm label {
-        width: 80px;
-        height: 20px;
-        border: 0;
-        line-height: 20px;
-        color: #ccc;
-    }
-
-    .input_qty_sm label>span:not(.output) {
-        width: 20px;
-        height: 20px;
-        border: 0 !important;
-    }
-
-    .input_qty_sm label>span:not(.output):hover {
-        background-color: transparent;
-        color: #333333;
-    }
-
-    .input_qty_sm label output {
-        color: #ccc;
-        font-weight: 600;
-    }
 </style>
 
 @endsection
@@ -349,26 +354,12 @@
                         <h4 class="headline mt-3">
                             <span>Categories</span>
                         </h4>
-                        <div class="checkbox">
-                            <input type="checkbox" value="" id="shop-filter-checkbox_1" checked="">
-                            <label for="shop-filter-checkbox_1">Foodstuff</label>
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" value="" id="shop-filter-checkbox_2">
-                            <label for="shop-filter-checkbox_2">Cooking Oils</label>
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" value="" id="shop-filter-checkbox_3">
-                            <label for="shop-filter-checkbox_3">Vegetables</label>
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" value="" id="shop-filter-checkbox_4">
-                            <label for="shop-filter-checkbox_4">Condiments</label>
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" value="" id="shop-filter-checkbox_5">
-                            <label for="shop-filter-checkbox_5">Fruits</label>
-                        </div>
+                        @foreach ($categories as $category)
+                            <label class="containers">{{ $category->name }}
+                                <input type="checkbox" value="{{ $category->id }}" id="{{ $category->slug }}" name="category[]">
+                                <span class="checkmark"></span>
+                              </label>
+                        @endforeach
 
                         <!-- Radios -->
                         <h4 class="headline mt-3">
@@ -397,23 +388,6 @@
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary btn-block">Filter</button>
                         </div>
-                        {{-- <div class="radio">
-                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_2" value="">
-                            <label for="shop-filter-radio_2">Earth Natural Foods</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_3" value="">
-                            <label for="shop-filter-radio_3">Whole Foods Market</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_4" value="">
-                            <label for="shop-filter-radio_4">Marks and Spencer</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="shop-filter__radio" id="shop-filter-radio_5" value="">
-                            <label for="shop-filter-radio_5">Tesco</label>
-                        </div> --}}
-
                     </form>
                 </div>
             </div>
