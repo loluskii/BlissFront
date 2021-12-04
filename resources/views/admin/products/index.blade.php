@@ -75,9 +75,9 @@
                             <tr>
                                 <td>{{ $product->product_ref }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->category->name }}</td>
+                                <td>{{ $product->category->name ?? 'No Category' }}</td>
                                 <td>£{{ number_format($product->price, 2) }}</td>
-                                <td>Admin</td>
+                                <td>{{ $product->store->name ?? 'Admin' }}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-info">Edit</a> <a href=""
                                         class="btn btn-sm btn-danger">Delete</a>

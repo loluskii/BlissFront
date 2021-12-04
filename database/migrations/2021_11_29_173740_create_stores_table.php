@@ -15,6 +15,12 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->integer('no_of_products')->nullable();
             $table->timestamps();
         });
     }

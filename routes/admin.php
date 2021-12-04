@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -36,4 +38,12 @@ Route::middleware('admin')->group(function () {
     Route::get('products/category',[ProductController::class, 'makeCategory'])->name('category.view');
     Route::post('category/create',[ProductController::class, 'addCategory'])->name('category.add');
     Route::get('category/delete/{id}',[ProductController::class,'deleteCategory'])->name('category.delete');
+    Route::get('stores',[StoreController::class,'index'])->name('store.index');
+    Route::post('stores/create',[StoreController::class, 'store'])->name('store.create');
+
+    Route::prefix('plans')->group(function () {
+        Route::get('/',[PlanController::class,'index'])->name('plans.index');
+        Route::post('store',[PlanController::class,'store'])->name('plans.store');
+        Route::get('{id}',[PlanController::class,'show'])->name('plans.show');
+    });
 });

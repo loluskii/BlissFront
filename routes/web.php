@@ -24,7 +24,7 @@ use App\Http\Controllers\SubscriptionController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Auth::routes();
 
@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
-    Route::get('/account', [UserController::class, 'index'])->name('home');
+    Route::get('/account', [UserController::class, 'index'])->name('user.home');
     Route::get('/details', [UserController::class, 'userDetails'])->name('user.details');
     Route::get('/address-book', [UserController::class, 'getAddresses'])->name('user.address_book');
     Route::get('/payments', [UserController::class, 'getPaymentMethods'])->name('user.payment_methods');
