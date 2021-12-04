@@ -12,7 +12,7 @@ Address Details
         box-shadow: 0 2px 4px 0 rgba(219, 215, 215, 0);
         border: solid 2px transparent;
         background: #fff;
-        padding: 15px;
+        padding: 10px;
         transition: .3s ease-in-out all;
         height: 100%;
         min-width: 150px;
@@ -76,6 +76,7 @@ Address Details
     .checkbox-label input:checked~.checkbox-content {
         box-shadow: 0 2px 4px 0 rgba(219, 215, 215, 0.5);
         border: solid 1px #2A707D;
+        color: #2A707D;
     }
 </style>
 @endsection
@@ -144,17 +145,17 @@ Address Details
                                         <h3 class="font-weight-bold">Pick a Subscription Plan</h3>
                                         <div class="row pt-3">
                                             @foreach ($plans as $plan)
-                                            <div class="col-md-4 mb-3 justify-content-center">
-                                                <label class="checkbox-label w-100">
-                                                    <input type="radio" value="{{ $plan->slug }}" name="plan">
-                                                    <span class="icon"></span>
-                                                    <div class="checkbox-content text-center">
+                                                <div class="col-md-4 mb-2">
+                                                    <label class="checkbox-label w-100">
+                                                        <input type="radio" value="{{ $plan->slug }}" name="plan">
+                                                        <span class="icon d-none"></span>
+                                                        <div class="checkbox-content text-center">
 
-                                                        <h3>{{ $plan->name }}</h3>
-                                                        <p class="mb-0"> {{ $plan->description }} </p>
-                                                    </div>
-                                                </label>
-                                            </div>
+                                                            <h6 class="font-weight-bold">{{ $plan->name }}</h6>
+                                                            <small class="mb-0"> {{ $plan->description }} </small>
+                                                        </div>
+                                                    </label>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -178,3 +179,7 @@ Address Details
     </div>
 </div>
 @endsection
+
+@push('more_scripts')
+
+@endpush

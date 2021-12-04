@@ -16,6 +16,7 @@ class CreateAddressesTable extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->boolean('is_default')->default(true);
             $table->string('shipping_fname');
             $table->string('shipping_lname');
             $table->string('shipping_address');

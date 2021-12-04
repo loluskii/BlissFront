@@ -16,7 +16,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('fontawesome-free/css/all.min.css') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -43,9 +44,6 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mr-1">
                             <a class="nav-link" href="#">{{ __('Features') }}</a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link" href="{{ route('subscription') }}">{{ __('Pricing') }}</a>
                         </li>
                         <li class="nav-item ml-2 mr-3">
                             <a class="nav-link" href="#">{{ __('Contact Us') }}</a>
@@ -76,7 +74,7 @@
 
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Dashboard</a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">Dashboard</a>
                                     <a class="dropdown-item" href="#">Another action</a>
                                     <a class="dropdown-item" href="#">Something else here</a>
                                     <div class="dropdown-divider"></div>
