@@ -333,16 +333,16 @@
                             <span>Price</span>
                         </h4>
                         <div class="radio">
-                            <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
-                            <label for="shop-filter-price_1">Under $25</label>
+                            <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="less_than_10">
+                            <label for="shop-filter-price_1">Under £10</label>
                         </div>
                         <div class="radio">
                             <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
-                            <label for="shop-filter-price_2">$25 to $50</label>
+                            <label for="shop-filter-price_2">£10 to £50</label>
                         </div>
                         <div class="radio">
                             <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
-                            <label for="shop-filter-price_3">$50 to $100</label>
+                            <label for="shop-filter-price_3">£50 to £100</label>
                         </div>
                         {{-- <div class="radio">
                             <input type="radio" name="shop-filter__price" id="shop-filter-price_4" value="specify">
@@ -354,11 +354,15 @@
                             <span>Categories</span>
                         </h4>
                         @if ($categories->count() > 0)
+                        <label class="containers">All Categories
+                            <input type="checkbox" value="all" id="" name="category[]">
+                            <span class="checkmark"></span>
+                        </label>
                         @foreach ($categories as $category)
                             <label class="containers">{{ $category->name }}
                                 <input type="checkbox" value="{{ $category->id }}" id="{{ $category->slug }}" name="category[]">
                                 <span class="checkmark"></span>
-                              </label>
+                            </label>
                         @endforeach
                         @else
                             <p>No Categories available</p>
