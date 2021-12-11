@@ -48,7 +48,7 @@
 
     .shop-thumb__price {
         color: #777777;
-        padding: 10px;
+        padding:10px;
     }
 
     .shop-thumb-price_old {
@@ -221,72 +221,72 @@
         font-family: "FontAwesome";
     } */
 
-    .containers {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+.containers {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-    /* Hide the browser's default checkbox */
-    .containers input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
+/* Hide the browser's default checkbox */
+.containers input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 20px;
-        width: 20px;
-        background-color: #eee;
-        border-radius: 3px;
-    }
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 3px;
+}
 
-    /* On mouse-over, add a grey background color */
-    .containers:hover input~.checkmark {
-        background-color: #ccc;
-    }
+/* On mouse-over, add a grey background color */
+.containers:hover input ~ .checkmark {
+  background-color: #ccc;
+}
 
-    /* When the checkbox is checked, add a blue background */
-    .containers input:checked~.checkmark {
-        background-color: #2A707D;
-    }
+/* When the checkbox is checked, add a blue background */
+.containers input:checked ~ .checkmark {
+  background-color: #2A707D;
+}
 
-    /* Create the checkmark/indicator (hidden when not checked) */
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
 
-    /* Show the checkmark when checked */
-    .containers input:checked~.checkmark:after {
-        display: block;
-    }
+/* Show the checkmark when checked */
+.containers input:checked ~ .checkmark:after {
+  display: block;
+}
 
-    /* Style the checkmark/indicator */
-    .containers .checkmark:after {
-        left: 7px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
+/* Style the checkmark/indicator */
+.containers .checkmark:after {
+  left: 7px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 
     /* Radios */
     .radio input[type="radio"] {
@@ -312,6 +312,7 @@
     .radio input[type="radio"]:checked+label:before {
         border-width: 7px;
     }
+
 </style>
 
 @endsection
@@ -319,9 +320,9 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 {{-- @include('layouts.store.mini-jumbo') --}}
 
-<div class="container" style="min-height: 70vh">
+<div class="container-fluid"  style="min-height: 70vh">
     <div class="row">
-        <div class="col-sm-4 col-md-3">
+        <div class="col-sm-3 col-md-2">
 
             <!-- Filter -->
             <div class="border-0">
@@ -332,16 +333,16 @@
                             <span>Price</span>
                         </h4>
                         <div class="radio">
-                            <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="less_than_10">
-                            <label for="shop-filter-price_1">Under £10</label>
+                            <input type="radio" name="shop-filter__price" id="shop-filter-price_1" value="" checked="">
+                            <label for="shop-filter-price_1">Under $25</label>
                         </div>
                         <div class="radio">
                             <input type="radio" name="shop-filter__price" id="shop-filter-price_2" value="">
-                            <label for="shop-filter-price_2">£10 to £50</label>
+                            <label for="shop-filter-price_2">$25 to $50</label>
                         </div>
                         <div class="radio">
                             <input type="radio" name="shop-filter__price" id="shop-filter-price_3" value="">
-                            <label for="shop-filter-price_3">£50 to £100</label>
+                            <label for="shop-filter-price_3">$50 to $100</label>
                         </div>
                         {{-- <div class="radio">
                             <input type="radio" name="shop-filter__price" id="shop-filter-price_4" value="specify">
@@ -349,43 +350,33 @@
                         </div> --}}
 
                         <!-- Checkboxes -->
-                        <div class="my-4">
-                            <h4 class="headline pb-3">
-                                <span>Categories</span>
-                            </h4>
-                            @if ($categories->count() > 0)
-                            <div class="card mb-2 border-0 shadow-sm">
-                                <div class="card-body p-3">
-                                    <input type="hidden" name="category" value="">
-                                    <p class="mb-0">All Categories</p>
-                                </div>
-                            </div>
-                            @foreach ($categories as $category)
-                            <div class="card mb-2 border-0 shadow-sm">
-                                <div class="card-body p-3">
-                                    <input type="hidden" name="category" value="{{ $category->id }}">
-                                    <p class="mb-0">{{ $category->name }}</p>
-                                </div>
-                            </div>
-                            @endforeach
-                            @else
+                        <h4 class="headline mt-3">
+                            <span>Categories</span>
+                        </h4>
+                        @if ($categories->count() > 0)
+                        @foreach ($categories as $category)
+                            <label class="containers">{{ $category->name }}
+                                <input type="checkbox" value="{{ $category->id }}" id="{{ $category->slug }}" name="category[]">
+                                <span class="checkmark"></span>
+                              </label>
+                        @endforeach
+                        @else
                             <p>No Categories available</p>
-                            @endif
-                        </div>
+                        @endif
 
                         <!-- Radios -->
-                        <h4 class="headline">
+                        <h4 class="headline mt-3">
                             <span>Brands</span>
                         </h4>
                         @if ($stores->count() > 0)
-                        @foreach ($stores as $store)
-                        <label class="containers">{{ $store->name }}
-                            <input type="checkbox" value="{{ $store->id }}" id="{{ $store->slug }}" name="store[]">
-                            <span class="checkmark"></span>
-                        </label>
-                        @endforeach
+                            @foreach ($stores as $store)
+                            <label class="containers">{{ $store->name }}
+                                <input type="checkbox" value="{{ $store->id }}" id="{{ $store->slug }}" name="store[]">
+                                <span class="checkmark"></span>
+                              </label>
+                            @endforeach
                         @else
-                        <p>No Stores Available</p>
+                            <p>No Stores Available</p>
                         @endif
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary btn-block">Filter</button>
@@ -395,7 +386,7 @@
             </div>
         </div>
 
-        <div class="col-sm-8 col-md-9">
+        <div class="col-sm-9 col-md-10">
             {{--
             <!-- Filters -->
             <ul class="shop__sorting">
@@ -408,26 +399,25 @@
 
             <div class="row">
                 @if ($products->count() > 0)
-                @foreach ($products as $product)
-                <div class="col-sm-6 col-md-4 mb-3">
-                    <div class="shop__thumb">
-                        @php
-                        $newImage = 'images/products/'.$product->cover_img;
-                        @endphp
-                        <div class="shop-thumb__img mb-0">
-                            <img src="{{ asset($newImage) }}" class="img-responsive" alt="...">
-                        </div>
-                        <div class="body p-2">
-                            <h5 class="shop-thumb__title text-left">{{ $product->name }}</h5>
-                            <div class="d-flex justify-content-between">
-                                <p>${{ number_format($product->price,2) }}</p>
-                                <a href="{{ route('cart.add', $product->id) }}"><img
-                                        src="{{ asset('images/plus.svg') }}"></a>
+                    @foreach ($products as $product)
+                    <div class="col-sm-6 col-md-3">
+                        <div class="shop__thumb">
+                            @php
+                            $newImage = 'images/products/'.$product->cover_img;
+                            @endphp
+                            <div class="shop-thumb__img mb-0">
+                                <img src="{{ asset($newImage) }}" class="img-responsive" alt="...">
+                            </div>
+                            <div class="body p-2">
+                                <h5 class="shop-thumb__title text-left">{{ $product->name }}</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p>${{ number_format($product->price,2) }}</p>
+                                    <a href="{{ route('cart.add', $product->id) }}"><img src="{{ asset('images/plus.svg') }}" ></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
                 @else
                 <div class="container">
                     <div class="row justify-content-center">

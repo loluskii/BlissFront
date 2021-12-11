@@ -31,7 +31,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs mb-1 lead">
+                                            <div class="text-xs font-weight-bold mb-1 lead">
                                                 Total Orders</div>
                                             <div class="h5 mb-0 font-weight-bold text-muted">{{ $order_count }}</div>
                                         </div>
@@ -46,7 +46,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs mb-1 lead">
+                                            <div class="text-xs font-weight-bold mb-1 lead">
                                                 Total Subscriptions</div>
                                             <div class="h5 mb-0 font-weight-bold text-muted">{{ $subscriptions->count() }}</div>
                                         </div>
@@ -60,7 +60,7 @@
                     <div class="row mt-4">
                         <div class="col">
                             <h5>Personal Details</h5>
-                            <div class="card ">
+                            <div class="card">
                                 <div class="card-body">
                                     <p class="lead mb-2">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</p>
                                     <p class="text-muted mb-0">{{ Auth::user()->email }}</p>
@@ -80,7 +80,7 @@
                                             <p class="text-muted mb-0">Expires {{ \Carbon\Carbon::parse($item->end_date)->format('M d, Y') }}</p>
                                         </div>
                                         <div class="col-auto mt-3">
-                                            <a name="edit" class="btn btn-primary btn-sm rounded" href="{{ route('order.details', $item->order_id ) }}" role="button">View</a>
+                                            <a name="edit" class="btn btn-primary btn-sm rounded" href="#" role="button">View</a>
                                             <a name="edit" class="btn btn-danger btn-sm rounded" href="#" role="button">Edit</a>
                                         </div>
                                     </div>
