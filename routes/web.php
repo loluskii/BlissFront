@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Plans;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -23,7 +24,8 @@ use App\Http\Controllers\SubscriptionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $plans = Plans::all();
+    return view('welcome')->with('plans',$plans);
 })->name('home');
 
 Auth::routes();
@@ -41,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('orders', OrderController::class)->only('store');
     Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('pay');
     Route::post('/subscribe/{id}', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
-
+    Route::any('filter',[PagesController::class,'filter'])->name('filter');
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
@@ -49,8 +51,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/details', [UserController::class, 'userDetails'])->name('user.details');
     Route::get('/address-book', [UserController::class, 'getAddresses'])->name('user.address_book');
     Route::get('/payments', [UserController::class, 'getPaymentMethods'])->name('user.payment_methods');
-    Route::get('/my-orders', [UserController::class, 'getOrders'])->name('user.my_orders');
-    Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.details');
+    Route::get('/subscriptions', [UserController::class, 'getOrders'])->name('user.my_orders');
+    Route::get('/subscriptions/{id}', [OrderController::class, 'show'])->name('order.details');
 });
 
 // Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {

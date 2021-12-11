@@ -13,22 +13,24 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('fontawesome-free/css/all.min.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">    <link rel="stylesheet" href="{{ asset('fontawesome-free/css/all.min.css') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
     @yield('css')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-4">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/blissex.png') }}" height="30" alt="">
+                    <img src="{{ asset('images/blissex.png') }}" height="35" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -52,13 +54,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link btn btn-outline-secondary py-1 my-1 px-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link btn btn-dark btn-sm py-1 my-1 px-3 text-white rounded" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link btn btn-primary py-1 my-1 px-3 text-white" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
+                                    <a class="nav-link btn btn-primary btn-sm py-1 my-1 px-3 text-white rounded" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                                 </li>
                             @endif
                         @else
