@@ -6,7 +6,6 @@ use App\Models\Store;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Services\Filters\FilterQueries;
 
 class PagesController extends Controller
 {
@@ -29,18 +28,5 @@ class PagesController extends Controller
     public function subscribe(){
         $cartItems = \Cart::session(auth()->id())->getContent();
         return view('store.subscribe', compact('cartItems'));
-    }
-
-    public function filter(){
-        try {
-            $products = (new FilterQueries())->filter();
-            dd($products);
-            // return view('search.index')->with('events', $events)->with('interests', $interests);
-        } catch (\Exception $e) {
-            return back()->with(
-                'error',
-                $e->getMessage()
-            );
-        }
     }
 }
