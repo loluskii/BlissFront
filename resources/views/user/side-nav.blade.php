@@ -3,7 +3,7 @@
         <div class="card-body pt-0">
             <div class="row pb-2 ">
                 <div class="col px-0 {{ request()->is('user/account*') ? 'active' : '' }}">
-                    <a href="{{ route('home') }}" style="text-decoration: none;">
+                    <a href="{{ route('user.home') }}" style="text-decoration: none;">
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
                                 <h6 class="mb-0">Account Overview</h6>
