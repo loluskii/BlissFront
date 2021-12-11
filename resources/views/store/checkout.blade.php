@@ -4,7 +4,7 @@ Address Details
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
 <style>
     .checkbox-content {
         text-align: center;
@@ -140,22 +140,23 @@ Address Details
                                                 min="0" value="">
                                         </div>
                                     </div>
-                                    {{-- <hr> --}}
+                                    {{--
+                                    <hr> --}}
                                     <div class="pay_with_creadit_card pt-4">
                                         <h3 class="font-weight-bold">Pick a Subscription Plan</h3>
                                         <div class="row pt-3">
                                             @foreach ($plans as $plan)
-                                                <div class="col-md-4 mb-2">
-                                                    <label class="checkbox-label w-100">
-                                                        <input type="radio" value="{{ $plan->slug }}" name="plan">
-                                                        <span class="icon d-none"></span>
-                                                        <div class="checkbox-content text-center">
+                                            <div class="col-md-4 mb-2">
+                                                <label class="checkbox-label w-100">
+                                                    <input type="radio" value="{{ $plan->slug }}" name="plan">
+                                                    <span class="icon d-none"></span>
+                                                    <div class="checkbox-content text-center">
 
-                                                            <h6 class="font-weight-bold">{{ $plan->name }}</h6>
-                                                            <small class="mb-0"> {{ $plan->description }} </small>
-                                                        </div>
-                                                    </label>
-                                                </div>
+                                                        <h6 class="font-weight-bold">{{ $plan->name }}</h6>
+                                                        <small class="mb-0"> {{ $plan->description }} </small>
+                                                    </div>
+                                                </label>
+                                            </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -166,8 +167,7 @@ Address Details
                                 <div class="checkout_pagination d-flex justify-content-end ">
                                     <a href="checkout-1.html" class="btn btn-primary mt-2 ml-2">Go
                                         Back</a>
-                                    <button type="submit"
-                                        class="btn btn-primary mt-2 ml-2 px-4">Continue</button>
+                                    <button type="submit" class="btn btn-primary mt-2 ml-2 px-4">Continue</button>
                                 </div>
                             </div>
                         </div>

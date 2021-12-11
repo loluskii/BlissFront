@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Enterprise Dashboard</title>
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/sb-admin-2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link href="{{asset('backend/assets/img/icon.png')}}" rel="shortcut icon" />
+    <link rel="stylesheet" href="{{ secure_asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('dist/css/sb-admin-2.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ secure_asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link href="{{secure_asset('backend/secure_assets/img/icon.png')}}" rel="shortcut icon" />
 
     @yield('third_party_stylesheets')
 
@@ -68,12 +68,15 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->username }}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('dist/img/avatar.png') }}">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->username
+                                    }}</span>
+                                <img class="img-profile rounded-circle" src="{{ secure_asset('dist/img/avatar.png') }}">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -99,8 +102,9 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <a href="http://www.theenterprise.com">Bliss Explorers</a> <br>© {{ date('Y') }}.</strong> All rights
-            reserved.
+                        <a href="http://www.theenterprise.com">Bliss Explorers</a> <br>© {{ date('Y') }}.</strong> All
+                        rights
+                        reserved.
                     </div>
                 </div>
             </footer>
@@ -115,37 +119,34 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('plugins/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/jquery-easing/jquery.easing.min.js') }}"></script>
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('dist/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ secure_asset('dist/js/sb-admin-2.min.js') }}"></script>
     <!-- Page level plugins -->
-    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Page level custom scripts -->
-    {{-- <script src="{{ asset('plugins/chart.js/chart-area-demo.js') }}"></script> --}}
-    <script src="{{ asset('plugins/chart.js/chart-pie-demo.js') }}"></script>
-    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+    {{-- <script src="{{ secure_asset('plugins/chart.js/chart-area-demo.js') }}"></script> --}}
+    <script src="{{ secure_asset('plugins/chart.js/chart-pie-demo.js') }}"></script>
+    <script src="{{ secure_asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
     <!-- daterangepicker -->
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ secure_asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- include summernote /js -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <!-- Select2 -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ secure_asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 
     @yield('third_party_scripts')
     @stack('page_scripts')
 </body>
 
 </html>
-
-
-

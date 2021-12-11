@@ -1,6 +1,6 @@
 {{-- <aside class="main-sidebar sidebar-dark-success elevation-4">
     <a href="#" class="brand-link">
-        <img src="{{ asset('hotel/logo.png') }}" alt={{ config('app.name') }}
+        <img src="{{ secure_asset('hotel/logo.png') }}" alt={{ config('app.name') }}
             class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
     </a>
@@ -14,7 +14,7 @@
     </div>
 
 </aside>
- --}}
+--}}
 
 
 

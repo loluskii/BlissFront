@@ -8,7 +8,7 @@ View Cart
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
 <div class="container" style="min-height: 70vh">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -39,7 +39,7 @@ View Cart
                                                         <td colspan="5">You have no items in your cart</td>
                                                     </tr>
                                                     @endif
-                                                @foreach ($cartItems as $item)
+                                                    @foreach ($cartItems as $item)
                                                     <tr>
                                                         <td>
                                                             {{ $item->name }}
@@ -47,18 +47,29 @@ View Cart
                                                         <td>${{ $item->price }}</td>
                                                         <td>
                                                             <div class="row h-100 justify-content-center">
-                                                                <form action="{{route('cart.update', $item->id)}}" method="POST">
-                                                                @csrf
-                                                                <div class="quantity">
-                                                                    <input type="number" class="qty-text" id="qty2" step="1" min="1" onchange="this.form.submit()" max="99" name="quantity" style="width: 50px;" value="{{ $item->quantity }}">
-                                                                </div>                                                    </form>
+                                                                <form action="{{route('cart.update', $item->id)}}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    <div class="quantity">
+                                                                        <input type="number" class="qty-text" id="qty2"
+                                                                            step="1" min="1"
+                                                                            onchange="this.form.submit()" max="99"
+                                                                            name="quantity" style="width: 50px;"
+                                                                            value="{{ $item->quantity }}">
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                             {{-- <div class="quantity">
-                                                                <input type="number" class="qty-text" id="qty2" step="1" min="1" onchange="this.form.submit()" max="99" name="quantity" style="width: 50px;" value="{{ $item->quantity }}">
+                                                                <input type="number" class="qty-text" id="qty2" step="1"
+                                                                    min="1" onchange="this.form.submit()" max="99"
+                                                                    name="quantity" style="width: 50px;"
+                                                                    value="{{ $item->quantity }}">
                                                             </div> --}}
                                                         </td>
                                                         <td>
-                                                            {{ Cart::session(auth()->id())->get($item->id)->getPriceSum() }}
+                                                            {{
+                                                            Cart::session(auth()->id())->get($item->id)->getPriceSum()
+                                                            }}
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('cart.destroy', $item->id) }}">
@@ -66,7 +77,7 @@ View Cart
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                @endforeach
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

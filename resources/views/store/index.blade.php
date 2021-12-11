@@ -415,14 +415,14 @@
                         $newImage = 'images/products/'.$product->cover_img;
                         @endphp
                         <div class="shop-thumb__img mb-0">
-                            <img src="{{ asset($newImage) }}" class="img-responsive" alt="...">
+                            <img src="{{ secure_asset($newImage) }}" class="img-responsive" alt="...">
                         </div>
                         <div class="body p-2">
                             <h5 class="shop-thumb__title text-left">{{ $product->name }}</h5>
                             <div class="d-flex justify-content-between">
                                 <p>${{ number_format($product->price,2) }}</p>
                                 <a href="{{ route('cart.add', $product->id) }}"><img
-                                        src="{{ asset('images/plus.svg') }}"></a>
+                                        src="{{ secure_asset('images/plus.svg') }}"></a>
                             </div>
                         </div>
                     </div>
@@ -432,7 +432,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-12 text-center">
-                            <img src="{{ asset('images/empty.svg') }}" class="img-fluid" style="height: 350px;">
+                            <img src="{{ secure_asset('images/empty.svg') }}" class="img-fluid" style="height: 350px;">
                             <div class="mb-4 lead">Oops! No products available!</div>
                             <a href="{{ route('home') }}" class="btn btn-link">Back to Home</a>
                         </div>

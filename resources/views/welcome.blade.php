@@ -5,7 +5,8 @@
     .card {
         border: none;
     }
-    body{
+
+    body {
         background-color: white;
     }
 
@@ -179,7 +180,8 @@
     <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6">
-                <img src="{{ asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}" class="img-fluid rounded" style="height: 500px" alt="" srcset="">
+                <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
+                    class="img-fluid rounded" style="height: 500px" alt="" srcset="">
             </div>
             <div class="col-md-6">
                 <div class="pl-5">
@@ -259,10 +261,12 @@
                                 {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
                                 <div class="card-body">
                                     <div>
-                                        <img src="{{ asset('images/select-items.svg') }}" class="img-fluid" style="height: 200px" alt="" srcset="">
+                                        <img src="{{ secure_asset('images/select-items.svg') }}" class="img-fluid"
+                                            style="height: 200px" alt="" srcset="">
                                     </div>
                                     <h4 class="text-center pb-2">Select your items</h4>
-                                    <p class="card-text">Choose from our vast lists of categories or stores, items you'll need on a constant basis </p>
+                                    <p class="card-text">Choose from our vast lists of categories or stores, items
+                                        you'll need on a constant basis </p>
                                 </div>
                             </div>
                         </div>
@@ -271,10 +275,12 @@
                                 {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
                                 <div class="card-body">
                                     <div>
-                                        <img src="{{ asset('images/choose-interval.svg') }}" style="height: 200px" class="img-fluid" alt="">
+                                        <img src="{{ secure_asset('images/choose-interval.svg') }}"
+                                            style="height: 200px" class="img-fluid" alt="">
                                     </div>
                                     <h4 class="card-title">Choose a Plan</h4>
-                                    <p class="card-text">Choose from one of our plans, the interval that fits your exact needs and add your delivery details</p>
+                                    <p class="card-text">Choose from one of our plans, the interval that fits your exact
+                                        needs and add your delivery details</p>
                                 </div>
                             </div>
                         </div>
@@ -283,10 +289,12 @@
                                 {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
                                 <div class="card-body">
                                     <div>
-                                        <img src="{{ asset('images/relax.svg') }}" class="img-fluid" style="height: 200px" alt="">
+                                        <img src="{{ secure_asset('images/relax.svg') }}" class="img-fluid"
+                                            style="height: 200px" alt="">
                                     </div>
                                     <h4 class="card-title">Sit back and relax</h4>
-                                    <p class="card-text">No need for monthly grocery runs anymore. Your items will be delivered to you according to your plan. We got you!</p>
+                                    <p class="card-text">No need for monthly grocery runs anymore. Your items will be
+                                        delivered to you according to your plan. We got you!</p>
                                 </div>
                             </div>
                         </div>
@@ -433,7 +441,7 @@
         <div class="row justify-content-center">
             <div class="col-md-9 text-center py-5">
                 <div class="footer-site-logo mb-4">
-                    <a href="#"><img src="{{ asset('images/blissex.png') }}" height="30" alt=""></a>
+                    <a href="#"><img src="{{ secure_asset('images/blissex.png') }}" height="30" alt=""></a>
                 </div>
                 <div class="d-flex justify-content-center">
                     <ul class="list-unstyled nav-links" style="display: inline-block;">
