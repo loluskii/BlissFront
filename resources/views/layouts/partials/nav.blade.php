@@ -16,8 +16,8 @@
                 <span class=""><i class="fas fa-user"></i></span>
             </button>
             <div class="dropdown-menu dropend">
-                <a class="dropdown-item" href="#">Sign In</a>
-                <a class="dropdown-item" href="#">Create your Account</a>
+                <a class="dropdown-item" href="{{ route('login') }}">Sign In</a>
+                <a class="dropdown-item" href="{{ route('register') }}">Create your Account</a>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
