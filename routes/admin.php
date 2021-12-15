@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\DashboardController;
 */
 
 
-Route::get('/', function () {
+Route::get('/overview/router', function () {
     return view('admin.auth.login');
 })->name('login.view');
 Route::post('login', [LoginController::class, 'authenticate'])->name('login');

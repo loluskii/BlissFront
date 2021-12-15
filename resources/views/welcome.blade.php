@@ -371,7 +371,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+{{-- <div class="container">
     <div class="section mb-5">
         <div class="section">
             <div class="row justify-content-center align-items-center">
@@ -442,7 +442,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="container mt-3">
     <div class="section">
         <div class="jumbotron p-sm-5 p-3 text-white" style="background-color: #F8D5C7; ">
