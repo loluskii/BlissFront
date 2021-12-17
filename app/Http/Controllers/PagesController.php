@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Request;
 use App\Models\Store;
 use App\Models\Product;
+use App\Events\SendMail;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use Event;
 use App\Services\Filters\FilterQueries;
 
 class PagesController extends Controller
@@ -16,9 +18,17 @@ class PagesController extends Controller
     }
 
     public function showStore(){
-        $products = Product::paginate(9);
         $categories = Category::all();
         $stores = Store::all();
+        if(Request::get('category')){
+            $checked = $_GET['category'];
+            $products = Product::whereIn('category_id', $checked)->paginate(9);
+        }else if(Request::get('store')){
+            $checked = $_GET['store'];
+            $products = Product::whereIn('store_id', $checked)->paginate(9);
+        }else{
+            $products = Product::paginate(9);
+        }
         return view('store.index')->with('products', $products)->with('categories',$categories)->with('stores',$stores);
     }
 
@@ -32,15 +42,6 @@ class PagesController extends Controller
     }
 
     public function filter(){
-        try {
-            $products = (new FilterQueries())->filter();
-            dd($products);
-            // return view('search.index')->with('events', $events)->with('interests', $interests);
-        } catch (\Exception $e) {
-            return back()->with(
-                'error',
-                $e->getMessage()
-            );
-        }
+
     }
 }

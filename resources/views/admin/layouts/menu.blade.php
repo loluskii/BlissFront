@@ -43,7 +43,7 @@
     <div id="users" class="collapse" aria-labelledby="headingTwo" data-parent="#users">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin.users.index') }}">All Users</a>
-            <a class="collapse-item" href="">Blocked Users</a>
+            <a class="collapse-item" href="{{ route('admin.users.blocked') }}">Blocked Users</a>
         </div>
     </div>
 </li>

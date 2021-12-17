@@ -35,6 +35,7 @@ class StoreOrder{
         $newOrder->is_paid = 1;
         $newOrder->order_reference = $ref;
 
+        $hasDefaultAddress = Address::where('user_id',auth()->id())->where('is_default',1);
         $address->user_id = auth()->id();
         $address->shipping_fname  = $order->shipping_first_name;
         $address->shipping_lname =  $order->shipping_last_name;
@@ -44,17 +45,15 @@ class StoreOrder{
         $address->shipping_state = $order->shipping_state;
         $address->shipping_zipcode = $order->shipping_postcode;
         $address->shipping_phone = $order->shipping_phone_number;
+        if($hasDefaultAddress){
+            $address->is_default = 0;
+        }
         $address->save();
-
-
         $newOrder->save();
         $cartItems =  \Cart::session(auth()->id())->getContent();
         foreach($cartItems as $item){
             $newOrder->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
         }
-
-        Mail::to(Auth::user()->email)->send(new OrderCreated($order));
-
         return $ref;
     }
 

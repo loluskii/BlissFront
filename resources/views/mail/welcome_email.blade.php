@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -451,16 +448,11 @@
             supported-color-schemes: light dark;
         }
     </style>
-    <!--[if mso]>
-    <style type="text/css">
-      .f-fallback  {
-        font-family: Arial, sans-serif;
-      }
-    </style>
-  <![endif]-->
 </head>
 
 <body>
+    <span class="preheader">Thanks for trying out [Product Name]. We’ve pulled together some information and resources
+        to help you get started.</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
             <td align="center">
@@ -468,103 +460,54 @@
                     <tr>
                         <td class="email-masthead">
                             <a href="https://example.com" class="f-fallback email-masthead_name">
-                                Bliss Explorers
+                                BLISS EXPLORERS
                             </a>
                         </td>
                     </tr>
-                    <!-- Email Body -->
                     <tr>
                         <td class="email-body" width="100%" cellpadding="0" cellspacing="0">
                             <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0"
                                 role="presentation">
-                                <!-- Body content -->
                                 <tr>
                                     <td class="content-cell">
                                         <div class="f-fallback">
-                                            <h1>Hi {{ $newOrder->user->fname }},</h1>
-                                            <p>Thanks for joining us! This email is the receipt for your
-                                                purchase. No payment is due.</p>
-
-                                            <!-- Discount -->
-
-                                            <table class="purchase" width="100%" cellpadding="0" cellspacing="0"
+                                            <h1>Welcome, {{ $user->fname }}!</h1>
+                                            <p>Thanks for joining Bliss Explorers. We’re thrilled to have you on board.
+                                            </p>
+                                            <p>For reference, here's your login information:</p>
+                                            <table class="attributes" width="100%" cellpadding="0" cellspacing="0"
                                                 role="presentation">
                                                 <tr>
-                                                    <td>
-                                                        <h3>Order {{ $newOrder->order_number }}</h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3 class="align-right">{{ $newOrder->created_at }}</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <table class="purchase_content" width="100%" cellpadding="0"
-                                                            cellspacing="0">
+                                                    <td class="attributes_content">
+                                                        <table width="100%" cellpadding="0" cellspacing="0"
+                                                            role="presentation">
                                                             <tr>
-                                                                <th class="purchase_heading" align="left">
-                                                                    <p class="f-fallback">Description</p>
-                                                                </th>
-                                                                <th class="purchase_heading" align="right">
-                                                                    <p class="f-fallback">Amount</p>
-                                                                </th>
-                                                            </tr>
-                                                            @foreach ($newOrder->items as $item)
-                                                            <tr>
-                                                                <td width="80%" class="purchase_item">
+                                                                <td class="attributes_item">
                                                                     <span class="f-fallback">
-                                                                        {{ $item->pivot->quantity }}x {{ $item->name }}
+                                                                        <strong>Login Page:</strong> <a href="{{ route('login') }}">Click here</a>
                                                                     </span>
                                                                 </td>
-                                                                <td class="align-right" width="20%"
-                                                                    class="purchase_item"><span
-                                                                        class="f-fallback">£{{ $item->pivot->price }} each</span></td>
-                                                            </tr>
-                                                            @endforeach
-
-
-                                                            <tr>
-                                                                <td width="80%" class="purchase_footer" valign="middle">
-                                                                    <p
-                                                                        class="f-fallback purchase_total purchase_total--label">
-                                                                        Subtotal</p>
-                                                                </td>
-                                                                <td width="20%" class="purchase_footer" valign="middle">
-                                                                    <p class="f-fallback purchase_total">£{{ number_format($newOrder->subtotal,2) }}</p>
-                                                                </td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="80%" class="purchase_footer" style="border: none;" valign="middle">
-                                                                    <p
-                                                                        class="f-fallback purchase_total purchase_total--label">
-                                                                        Shipping Fee</p>
-                                                                </td>
-                                                                <td width="20%" class="purchase_footer" style="border: none;" valign="middle">
-                                                                    <p class="f-fallback purchase_total">£{{ number_format($newOrder->delivery_total,2) }}</p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td width="80%" class="purchase_footer" style="border: none;" valign="middle">
-                                                                    <p
-                                                                        class="f-fallback purchase_total purchase_total--label">
-                                                                        Total</p>
-                                                                </td>
-                                                                <td width="20%" class="purchase_footer" style="border: none;" valign="middle">
-                                                                    <p class="f-fallback purchase_total">£{{ number_format($newOrder->grand_total,2) }}</p>
+                                                                <td class="attributes_item">
+                                                                    <span class="f-fallback">
+                                                                        <strong>Username:</strong> {{ $user->email }}
+                                                                    </span>
                                                                 </td>
                                                             </tr>
                                                         </table>
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <p>If you have any questions about this receipt, simply reply to this email
-                                                or reach out to our support team for help.
+                                            <p>If you have any questions, feel free to <a
+                                                    href="mailto:support_email}}">email</a> our customer success team.
+                                                (We're lightning quick at replying 🙂.) </p>
+                                            <p>Thanks,
+                                                <br><b>The Bliss Explorers Team</b>
                                             </p>
-                                            <p>Cheers,
-                                                <br>The Bliss Explorers Team
-                                            </p>
-
-
+                                            <p><strong>P.S.</strong> Need immediate help getting started? </a> <br> Send
+                                                a reply to this email, the [Product Name] support team is always ready
+                                                to help!</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -580,9 +523,9 @@
                                         <p class="f-fallback sub align-center">&copy; 2021 Bliss Explorers. All rights
                                             reserved.</p>
                                         <p class="f-fallback sub align-center">
-                                            Bliss Explorers
+
                                             <br>1234 Street Rd.
-                                            <br>United Kingdom
+                                            <br>United Kingdom 
                                         </p>
                                     </td>
                                 </tr>

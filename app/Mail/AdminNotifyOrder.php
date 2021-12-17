@@ -2,15 +2,16 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Order;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OrderCreated extends Mailable
+class AdminNotifyOrder extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $newOrder;
 
     /**
@@ -30,6 +31,6 @@ class OrderCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.order.created');
+        return $this->view('mail.admin.order.created');
     }
 }

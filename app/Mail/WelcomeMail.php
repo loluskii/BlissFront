@@ -6,21 +6,25 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Order;
 
-class OrderCreated extends Mailable
+class WelcomeMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $newOrder;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Order $newOrder)
+    public $user;
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct($user)
     {
-        $this->newOrder = $newOrder;
+        $this->user = $user;
     }
 
     /**
@@ -30,6 +34,6 @@ class OrderCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.order.created');
+        return $this->view('mail.welcome_email');
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\SubscriptionController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,11 @@ Auth::routes();
 
 Route::get('subscription', [PagesController::class, 'subscription'])->name('subscription');
 Route::get('/store', [PagesController::class, 'showStore'])->name('store.show');
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
 
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/store/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');

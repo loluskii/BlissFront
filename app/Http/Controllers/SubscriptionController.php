@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use Cart;
+use Carbon\Carbon;
 use \Stripe\Stripe;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Plans;
-use App\Actions\Orders\StorePaymentRecord;
+use App\Mail\OrderCreated;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
+use App\Models\PaymentRecord;
+use App\Mail\AdminNotifyOrder;
 use App\Models\PlanSubscription;
 use App\Actions\Orders\StoreOrder;
-use App\Models\PaymentRecord;
-use App\Services\Orders\OrderQueries;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Services\Orders\OrderQueries;
+use App\Actions\Orders\StorePaymentRecord;
 
 class SubscriptionController extends Controller
 {
@@ -109,6 +113,10 @@ class SubscriptionController extends Controller
                 $subscription->save();
 
                 (new StorePaymentRecord())->run($plan, $amount, $payment_id);
+                $admin = User::where('is_admin', 1)->get();
+                Mail::to($admin)->send(new AdminNotifyOrder($newOrder));
+                Mail::to(Auth::user()->email)->send(new OrderCreated($newOrder));
+
             }
             \Cart::session(auth()->id())->clear();
             $request->session()->forget('order');

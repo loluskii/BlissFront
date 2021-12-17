@@ -13,4 +13,9 @@ class UserController extends Controller
         $users = User::all();
         return view('admin.users.index')->with('users', $users);
     }
+
+    public function blockedUsers(){
+        $users = User::where('active',0);
+        return view('admin.users.blocked')->with('users', $users);
+    }
 }

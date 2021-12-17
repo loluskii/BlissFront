@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -481,9 +478,8 @@
                                 <tr>
                                     <td class="content-cell">
                                         <div class="f-fallback">
-                                            <h1>Hi {{ $newOrder->user->fname }},</h1>
-                                            <p>Thanks for joining us! This email is the receipt for your
-                                                purchase. No payment is due.</p>
+                                            <h1>Hi Admin,</h1>
+                                            A user has just placed an order. Please view the details of the order below
 
                                             <!-- Discount -->
 
@@ -491,7 +487,7 @@
                                                 role="presentation">
                                                 <tr>
                                                     <td>
-                                                        <h3>Order {{ $newOrder->order_number }}</h3>
+                                                        <h3>{{ $newOrder->order_number }}</h3>
                                                     </td>
                                                     <td>
                                                         <h3 class="align-right">{{ $newOrder->created_at }}</h3>
@@ -517,8 +513,8 @@
                                                                     </span>
                                                                 </td>
                                                                 <td class="align-right" width="20%"
-                                                                    class="purchase_item"><span
-                                                                        class="f-fallback">£{{ $item->pivot->price }} each</span></td>
+                                                                    class="purchase_item"><span class="f-fallback">£{{
+                                                                        $item->pivot->price }} each</span></td>
                                                             </tr>
                                                             @endforeach
 
@@ -530,39 +526,45 @@
                                                                         Subtotal</p>
                                                                 </td>
                                                                 <td width="20%" class="purchase_footer" valign="middle">
-                                                                    <p class="f-fallback purchase_total">£{{ number_format($newOrder->subtotal,2) }}</p>
+                                                                    <p class="f-fallback purchase_total">£{{
+                                                                        number_format($newOrder->subtotal,2) }}</p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="80%" class="purchase_footer" style="border: none;" valign="middle">
+                                                                <td width="80%" class="purchase_footer"
+                                                                    style="border: none;" valign="middle">
                                                                     <p
                                                                         class="f-fallback purchase_total purchase_total--label">
                                                                         Shipping Fee</p>
                                                                 </td>
-                                                                <td width="20%" class="purchase_footer" style="border: none;" valign="middle">
-                                                                    <p class="f-fallback purchase_total">£{{ number_format($newOrder->delivery_total,2) }}</p>
+                                                                <td width="20%" class="purchase_footer"
+                                                                    style="border: none;" valign="middle">
+                                                                    <p class="f-fallback purchase_total">£{{
+                                                                        number_format($newOrder->delivery_total,2) }}</p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="80%" class="purchase_footer" style="border: none;" valign="middle">
+                                                                <td width="80%" class="purchase_footer"
+                                                                    style="border: none;" valign="middle">
                                                                     <p
                                                                         class="f-fallback purchase_total purchase_total--label">
                                                                         Total</p>
                                                                 </td>
-                                                                <td width="20%" class="purchase_footer" style="border: none;" valign="middle">
-                                                                    <p class="f-fallback purchase_total">£{{ number_format($newOrder->grand_total,2) }}</p>
+                                                                <td width="20%" class="purchase_footer"
+                                                                    style="border: none;" valign="middle">
+                                                                    <p class="f-fallback purchase_total">£{{
+                                                                        number_format($newOrder->grand_total,2) }}</p>
                                                                 </td>
                                                             </tr>
                                                         </table>
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <p>If you have any questions about this receipt, simply reply to this email
-                                                or reach out to our support team for help.
-                                            </p>
+
                                             <p>Cheers,
                                                 <br>The Bliss Explorers Team
                                             </p>
+                                            <!-- Action -->
 
 
                                         </div>
@@ -580,9 +582,9 @@
                                         <p class="f-fallback sub align-center">&copy; 2021 Bliss Explorers. All rights
                                             reserved.</p>
                                         <p class="f-fallback sub align-center">
-                                            Bliss Explorers
+                                            [Company Name, LLC]
                                             <br>1234 Street Rd.
-                                            <br>United Kingdom
+                                            <br>Suite 1234
                                         </p>
                                     </td>
                                 </tr>

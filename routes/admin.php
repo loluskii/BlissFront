@@ -32,6 +32,7 @@ Route::middleware('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('products', [ProductController::class, 'index'])->name('products.index');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users/blocked',[UserController::class,'blockedUsers'])->name('users.blocked');
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{id}',[OrderController::class, 'show'])->name('orders.show');
     Route::post('products/create', [ProductController::class, 'store'])->name('product.store');
