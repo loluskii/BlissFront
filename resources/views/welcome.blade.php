@@ -351,12 +351,12 @@
                             <div class="col-md-4 px-0">
                                 <div class="card shadow-sm card-pricing text-center  px-3 mb-4 bg-light"> <span
                                         class="h6 w-60 mx-auto px-4 py-1 rounded-bottom text-white shadow-sm"
-                                        style="background-color: #2A707D">{{ $plan->name }}</span>
+                                        style="background-color: #2A707D"> {{ Str::before($plan->name, ' Subscription'); }}</span>
                                     <div class="bg-transparent card-header pt-4 border-0">
-                                        <h1 class="h5 font-weight-normal text-center mb-0">Every {{ $plan->interval_count }}
+                                        <h1 class="h6 font-weight-bold text-center mb-0">Every {{ $plan->interval_count }}
                                             Month(s)</h1>
                                     </div>
-                                    <div class="card-body pt-0">
+                                    <div class="card-body pt-0 px-1">
                                         <p class="mb-0">{{ $plan->description }} </p>
                                         {{-- <button type="button" class="btn btn-outline-secondary mb-3 hvr">Order
                                             now</button> --}}
