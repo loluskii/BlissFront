@@ -200,7 +200,7 @@
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
                     </p>
-                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Get Started</a>
+                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
                     <button type="submit" class="btn d-none d-md-block">Learn more</button>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
                     </p>
-                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Get Started</a>
+                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
                     <button type="submit" class="btn ">Learn more</button>
                 </div>
             </div>
