@@ -5,7 +5,7 @@
 #confirmation h1 {
   font-size: 42px;
   font-weight: 300;
-  color: #6863d8;
+  color:  #2A707D;
   letter-spacing: 0.3px;
   margin-bottom: 30px;
 }
@@ -33,6 +33,7 @@
       <h1>Thanks for your order!</h1>
       <p>Woot! You successfully made a payment with Stripe.</p>
       <p class="note">We just sent your receipt to your email address, and your items will be on their way shortly.</p>
+      <a href="{{ route('store.show') }}" class="btn btn-lg">Back to Store</a>
     </div>
 
 @endsection

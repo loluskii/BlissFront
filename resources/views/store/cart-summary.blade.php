@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 d-none d-md-block d-lg-block">
     <div class="ibox">
         <div class="ibox-title">
             <h4>Cart Summary</h4>

@@ -200,7 +200,7 @@
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
                     </p>
-                    <a href="{{ route('register') }}" type="submit" class="btn rounded btn-primary mr-2">Get Started</a>
+                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Get Started</a>
                     <button type="submit" class="btn d-none d-md-block">Learn more</button>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
                     </p>
-                    <a href="{{ route('register') }}" type="submit" class="btn rounded btn-primary mr-2">Get Started</a>
+                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Get Started</a>
                     <button type="submit" class="btn ">Learn more</button>
                 </div>
             </div>
@@ -475,10 +475,8 @@
                 <div class="d-flex justify-content-center">
                     <ul class="list-unstyled nav-links" style="display: inline-block;">
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Create Account</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="{{ route('store.show') }}">Shop</a></li>
+                        <li><a href="{{ route('register') }}">Create Account</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
