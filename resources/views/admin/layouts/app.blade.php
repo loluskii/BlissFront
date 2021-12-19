@@ -118,31 +118,16 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-    <!-- Bootstrap core JavaScript-->
     <script src="{{ secure_asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ secure_asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- Core plugin JavaScript-->
     <script src="{{ secure_asset('plugins/jquery-easing/jquery.easing.min.js') }}"></script>
-    <!-- Custom scripts for all pages-->
     <script src="{{ secure_asset('dist/js/sb-admin-2.min.js') }}"></script>
-    <!-- Page level plugins -->
     <script src="{{ secure_asset('plugins/chart.js/Chart.min.js') }}"></script>
-    <!-- Page level custom scripts -->
-    {{-- <script src="{{ secure_asset('plugins/chart.js/chart-area-demo.js') }}"></script> --}}
     <script src="{{ secure_asset('plugins/chart.js/chart-pie-demo.js') }}"></script>
     <script src="{{ secure_asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ secure_asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ secure_asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ secure_asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ secure_asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-    <script src="{{ secure_asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ secure_asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ secure_asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-    <!-- include summernote /js -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <!-- Select2 -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="{{ secure_asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 
     @yield('third_party_scripts')
