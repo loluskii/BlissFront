@@ -23,4 +23,12 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         return view('admin.orders.show')->with('order', $order);
     }
+
+    public function update($id){
+        $order = Order::find($id);
+        $order->status = "Completed";
+        $order->save();
+
+        return back()->with('success','Order Updated');
+    }
 }

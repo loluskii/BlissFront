@@ -14,8 +14,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 75px 0 275px;
-  max-width: 75%;
+  padding: 0 75px 0 75px;
+  max-width: 70%;
+  text-align: center;
   height: 350px;
   margin: 100px auto;
   background: #fff url(/images/order.svg) 75px center no-repeat;

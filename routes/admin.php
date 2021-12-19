@@ -33,9 +33,13 @@ Route::middleware('admin')->group(function () {
     Route::get('products', [ProductController::class, 'index'])->name('products.index');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/blocked',[UserController::class,'blockedUsers'])->name('users.blocked');
+    Route::get('users/{id}',[UserController::class,'show'])->name('users.show');
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{id}',[OrderController::class, 'show'])->name('orders.show');
+    Route::get('orders/update/{id}',[OrderController::class,'update'])->name('orders.update');
     Route::post('products/create', [ProductController::class, 'store'])->name('product.store');
+    Route::post('products/update/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
+    Route::get('product/delete/{id}',[ProductController::class,'deleteProduct'])->name('product.delete');
     Route::get('products/category',[ProductController::class, 'makeCategory'])->name('category.view');
     Route::post('category/create',[ProductController::class, 'addCategory'])->name('category.add');
     Route::get('category/delete/{id}',[ProductController::class,'deleteCategory'])->name('category.delete');

@@ -25,9 +25,14 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <h1 class="h3 mb-0 text-gray-800">Order {{ $order->order_number }}</h1>
+        @if ($order->status == "pending")
+            <a href="{{ route('admin.orders.update', $order->id) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-check fa-sm text-white-50"></i> Mark as Completed</a>
+        @else
+            <button disabled class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-check fa-sm text-white-50"></i> Mark as Comleted</button>
+        @endif
     </div>
 
     <!-- Content Row -->

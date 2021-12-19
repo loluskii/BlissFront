@@ -77,7 +77,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone_number ?? "Not Availble"}}</td>
                                             <td>{{ $user->is_admin == 0 ? 'Normal User' : 'Admin' }}</td>
-                                            <td><a href="" class="btn btn-primary btn-sm">View</a></td>
+                                            <td><a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary btn-sm">View</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

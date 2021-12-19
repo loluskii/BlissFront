@@ -62,6 +62,7 @@
                     <table class="table table-bordered" id="products">
                         <thead>
                             <tr>
+                                <th> Image</th>
                                 <th>Product ID</th>
                                 <th>Name</th>
                                 <th>Category</th>
@@ -73,14 +74,14 @@
                         <tbody>
                             @foreach ($products as $product)
                             <tr>
+                                <td><img src="{{ $product->cover_img }}" alt="" srcset="" style="height: 50px; width: 50px"></td>
                                 <td>{{ $product->product_ref }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name ?? 'No Category' }}</td>
                                 <td>£{{ number_format($product->price, 2) }}</td>
                                 <td>{{ $product->store->name ?? 'Admin' }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-info">Edit</a> <a href=""
-                                        class="btn btn-sm btn-danger">Delete</a>
+                                    @include('admin.products.product-action')
                                 </td>
                             </tr>
                             @endforeach
@@ -142,6 +143,7 @@
         </div>
     </div>
 </div>
+
 
 
 @endsection

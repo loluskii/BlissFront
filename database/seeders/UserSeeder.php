@@ -23,10 +23,10 @@ class UserSeeder extends Seeder
             'address' => 'address',
             'city' => 'city',
             'state' => 'state',
-            'email' => 'admin@blissexplorers.store',
+            'email' => 'sirdaw1@yahoo.com',
             'email_verified_at' => now(),
             'is_admin' => 1,
-            'password' => Hash::make('blissrouter'), // password
+            'password' => Hash::make('blissrouter'), // bllissrouter
             'remember_token' => Str::random(10),
         ]);
     }

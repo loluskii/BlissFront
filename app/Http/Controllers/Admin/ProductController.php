@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use Exception;
 use App\Models\Product;
 use App\Models\Category;
@@ -9,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Actions\Products\StoreProduct;
+use App\Actions\Products\UpdateProduct;
 
 class ProductController extends Controller
 {
@@ -44,6 +46,30 @@ class ProductController extends Controller
         }
     }
 
+    public function updateProduct(Request $request, $id){
+        try{
+            DB::beginTransaction();
+                $product = Product::find($id);
+                $product->name = $request->product_name ?? $product->name;
+                $product->price = $request->price ?? $product->price;
+                $product->category_id = $request->category ?? $product->category_id;
+                $product->save();
+            DB::commit();
+
+            return back()->with(
+                'success',
+                'Product updated successfully'
+            );
+
+        }catch(\Exception $e){
+            return back()->with(
+                'error',
+                $e->getMessage()
+            );
+        }
+
+    }
+
     public function makeCategory(){
         $categories = Category::all();
         return view('admin.category.index')->with('categories',$categories);
@@ -64,6 +90,11 @@ class ProductController extends Controller
     }
 
     public function deleteCategory(Category $id){
+        $id->delete();
+        return back()->with('success','Deleted successfully');
+    }
+
+    public function deleteProduct(Product $id){
         $id->delete();
         return back()->with('success','Deleted successfully');
     }

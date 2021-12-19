@@ -37,6 +37,10 @@ class PlanQueries{
         return Order::where('plan',$plan)->sum('subtotal');
     }
 
+    public function getUserTotalSubscriptions($id){
+        return PlanSubscription::distinct('plan_id')->where('user_id',$id)->count();
+    }
+
 }
 
 ?>

@@ -12,7 +12,9 @@ use App\Mail\OrderCreated;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
 use App\Models\PaymentRecord;
+use App\Jobs\SendOrderInvoice;
 use App\Mail\AdminNotifyOrder;
+use App\Jobs\NotifyAdminOnOrder;
 use App\Models\PlanSubscription;
 use App\Actions\Orders\StoreOrder;
 use Illuminate\Support\Facades\Auth;
@@ -114,8 +116,10 @@ class SubscriptionController extends Controller
 
                 (new StorePaymentRecord())->run($plan, $amount, $payment_id);
                 $admin = User::where('is_admin', 1)->get();
-                Mail::to($admin)->send(new AdminNotifyOrder($newOrder));
-                Mail::to(Auth::user()->email)->send(new OrderCreated($newOrder));
+                $user = Auth::user()->email;
+
+                NotifyAdminOnOrder::dispatch($newOrder, $admin);
+                SendOrderInvoice::dispatch($newOrder, $user)->delay(now()->addMinutes(3));
 
             }
             \Cart::session(auth()->id())->clear();

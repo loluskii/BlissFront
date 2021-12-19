@@ -104,7 +104,6 @@
                                     <th>Plan</th>
                                     <th>Status</th>
                                     <th>Actions</th>
-                                    <th>Invoice</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,7 +117,6 @@
                                         <td>{{ $item->plan }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td><a href="{{ route('admin.orders.show', $item->id) }}" class="btn btn-primary btn-sm">View</a></td>
-                                        <td></td>
                                     </tr>
                                 @endforeach
                             </tbody>
