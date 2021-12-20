@@ -25,6 +25,12 @@
     margin-bottom: 0;
     }
 
+    #payment-form {
+        border-radius: 4px;
+        border: 1px solid #e8e8fb;
+    }
+
+
     */
     /* Overall Container */
 
@@ -44,7 +50,6 @@
     #checkout {
         max-width: 480px;
         margin: 0 auto;
-        padding: 30px 0;
 
         /* opacity: 0; */
         transition: visibility 0s, opacity 0.5s linear 0.5s;
@@ -92,12 +97,6 @@
         opacity: 1;
     }
 
-    #payment-form {
-        margin: 0 -30px;
-        padding: 20px 30px 30px;
-        border-radius: 4px;
-        border: 1px solid #e8e8fb;
-    }
 
     /* Form */
 
@@ -147,7 +146,7 @@
     }
 
     fieldset label span {
-        min-width: 125px;
+        min-width: 105px;
         padding: 0 15px;
         text-align: right;
     }
@@ -288,6 +287,16 @@
         #main.checkout:not(.success):not(.error) {
             width: 100%;
         }
+        fieldset label span {
+            min-width: 125px;
+            padding: 0 15px;
+            text-align: right;
+        }
+
+        #payment-form {
+            border-radius: 4px;
+            border: none;
+        }
     }
 
     @media only screen and (max-width: 500px) {
@@ -309,95 +318,112 @@
         #checkout {
             margin-bottom: 0;
         }
+        fieldset label span {
+            min-width: 75px;
+            padding: 0 15px;
+            text-align: right;
+        }
+        #payment-form {
+            border-radius: 4px;
+            border: none;
+        }
     }
 </style>
 @endsection
 
 @section('content')
 <main id="main" class="loading">
-    <div id="checkout">
-        <div id="payment-request">
-            <div id="payment-request-button"></div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <div id="checkout">
+                    {{-- <div id="payment-request">
+                        <div id="payment-request-button"></div>
+                    </div> --}}
+                    <h3>Payment Information</h3>
+                    <form class="p-sm-4 p-2" id="payment-form" method="POST" action="{{ route('subscription.create', $plan->id) }}">
+                    @csrf
+                        <section>
+                            <h2>Shipping Information</h2>
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-body">
+                                    <h5>{{ $order->shipping_first_name }} {{ $order->shipping_last_name }}</h5>
+                                    <p class="mb-2">{{ $order->shipping_street_address }}, {{ $order->shipping_city }}</p>
+                                    <p class="mb-0">{{ $order->shipping_phone_number }}</p>
+                                </div>
+                            </div>
+                            <fieldset class="with-state">
+                                <label>
+                                    <span>Plan</span>
+                                    <input name="plan" class="field" disabled value="{{ $plan->name }}">
+                                </label>
+                                <input type="hidden" name="amount" value="{{ $cartTotal }}">
+                                {{-- <label>
+                                    <span>Name</span>
+                                    <input name="name" class="field" placeholder="Jenny Rosen" required>
+                                </label>
+                                <label>
+                                    <span>Email</span>
+                                    <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
+                                </label>
+                                <label>
+                                    <span>Address</span>
+                                    <input name="address" class="field" placeholder="185 Berry Street Suite 550">
+                                </label>
+                                <label>
+                                    <span>Phone No.</span>
+                                    <input name="phone_number" class="field" placeholder="+44 333 344 3443">
+                                </label>
+                                <label class="city">
+                                    <span>City</span>
+                                    <input name="city" class="field" placeholder="San Francisco">
+                                </label>
+                                <label class="state">
+                                    <span>State</span>
+                                    <input name="state" class="field" placeholder="CA">
+                                </label>
+                                <label class="zip">
+                                    <span>ZIP</span>
+                                    <input name="postal_code" class="field" placeholder="94107">
+                                </label> --}}
+                            </fieldset>
+                        </section>
+                        {{-- <section>
+                            <fieldset>
+                                <label class="select">
+                                    <span>Plan</span>
+                                    <div id="country" class="field US">
+                                        <select name="country">
+                                            <option value="AU">Weekly Subscsription for £50</option>
+                                            <option value="AT">Monthly Subscsription for £100</option>
+                                            <option value="BE">Quarterly Subscsription for £250</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </fieldset>
+                        </section> --}}
+                        <section>
+                            <div class="payment-info cards visible">
+                                <fieldset>
+                                    <label class="card_holder">
+                                        <span>Name</span>
+                                        <input name="card_holder_name" id="card_holder_name" class="field" required>
+                                    </label>
+                                    <label>
+                                        <span>Card</span>
+                                        <div id="card-element" class="field"></div>
+                                    </label>
+                                    <div id="card-errors" class="text-danger py-2 text-center" role="alert" style=""></div>
+                                </fieldset>
+                            </div>
+                        </section>
+                        <button class="payment-button" id="card-button" class="btn btn-dark" type="submit" data-secret="{{ $intent->client_secret }}" type="submit">Pay £{{ $cartTotal }} </button>
+                    </form>
+                    <div id="card-errors" class="element-errors"></div>
+                    <div><img src="https://paymentsplugin.com/assets/blog-images/stripe-badge-transparent.png" class="img-fluid" srcset=""></div>
+                </div>
+            </div>
         </div>
-        <form id="payment-form" method="POST" action="{{ route('subscription.create', $plan->id) }}">
-        @csrf
-            <section>
-                <h2>Shipping Information</h2>
-                <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-body">
-                        <h5>{{ $order->shipping_first_name }} {{ $order->shipping_last_name }}</h5>
-                        <p class="mb-2">{{ $order->shipping_street_address }}, {{ $order->shipping_city }}</p>
-                        <p class="mb-0">{{ $order->shipping_phone_number }}</p>
-                    </div>
-                </div>
-                <fieldset class="with-state">
-                    <label>
-                        <span>Plan</span>
-                        <input name="plan" class="field" disabled value="{{ $plan->name }}">
-                    </label>
-                    <input type="hidden" name="amount" value="{{ $cartTotal }}">
-                    {{-- <label>
-                        <span>Name</span>
-                        <input name="name" class="field" placeholder="Jenny Rosen" required>
-                    </label>
-                    <label>
-                        <span>Email</span>
-                        <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
-                    </label>
-                    <label>
-                        <span>Address</span>
-                        <input name="address" class="field" placeholder="185 Berry Street Suite 550">
-                    </label>
-                    <label>
-                        <span>Phone No.</span>
-                        <input name="phone_number" class="field" placeholder="+44 333 344 3443">
-                    </label>
-                    <label class="city">
-                        <span>City</span>
-                        <input name="city" class="field" placeholder="San Francisco">
-                    </label>
-                    <label class="state">
-                        <span>State</span>
-                        <input name="state" class="field" placeholder="CA">
-                    </label>
-                    <label class="zip">
-                        <span>ZIP</span>
-                        <input name="postal_code" class="field" placeholder="94107">
-                    </label> --}}
-                </fieldset>
-            </section>
-            {{-- <section>
-                <fieldset>
-                    <label class="select">
-                        <span>Plan</span>
-                        <div id="country" class="field US">
-                            <select name="country">
-                                <option value="AU">Weekly Subscsription for £50</option>
-                                <option value="AT">Monthly Subscsription for £100</option>
-                                <option value="BE">Quarterly Subscsription for £250</option>
-                            </select>
-                        </div>
-                    </label>
-                </fieldset>
-            </section> --}}
-            <section>
-                <div class="payment-info cards visible">
-                    <fieldset>
-                        <label class="card_holder">
-                            <span>Name</span>
-                            <input name="card_holder_name" id="card_holder_name" class="field" required>
-                        </label>
-                        <label>
-                            <span>Card</span>
-                            <div id="card-element" class="field"></div>
-                        </label>
-                        <div id="card-errors" role="alert"></div>
-                    </fieldset>
-                </div>
-            </section>
-            <button class="payment-button" id="card-button" class="btn btn-dark" type="submit" data-secret="{{ $intent->client_secret }}" type="submit">Pay £{{ $cartTotal }} </button>
-        </form>
-        <div id="card-errors" class="element-errors"></div>
     </div>
 </main>
 <!-- Stripe.js v3 for Elements -->

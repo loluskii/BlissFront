@@ -208,12 +208,12 @@
     }
 
     .checkbox-label .icon {
-        width: 15px;
-        height: 15px;
+        width: 10px;
+        height: 10px;
         border: solid 2px #e3e3e3;
         border-radius: 50%;
         position: absolute;
-        top: 17px;
+        top: 19px;
         left: 10px;
         transition: .3s ease-in-out all;
         transform: scale(1);
@@ -236,8 +236,8 @@
 
     .checkbox-label input:checked~.checkbox-content {
         box-shadow: 0 2px 4px 0 rgba(219, 215, 215, 0.5);
-        border: solid 1px #2A707D;
-        color: #2A707D;
+        /* border: solid 1px #2A707D; */
+        /* color: #2A707D; */
     }
 
     .checkbox-label input:checked~.checkbox-content h6 {
@@ -252,75 +252,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container" style="min-height: 70vh">
     <div class="row">
-        <div class="col-sm-4 col-md-3">
-            <div class="border-0">
-                <div class="card-body pb-0">
-                    <form class="shop__filter" action="{{ URL::current() }}" method="GET">
-                        {{-- <!-- Price -->
-                        <h4 class="headline">
-                            <span>Price</span>
-                        </h4>
-                        <div class="radio">
-                            <input type="radio" name="price" id="filter-price_1" value="less_than_10">
-                            <label for="filter-price_1">Under £10</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="price" id="filter-price_2" value="10to50">
-                            <label for="filter-price_2">£10 to £50</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" name="price" id="filter-price_3" value="50to100">
-                            <label for="filter-price_3">£50 to £100</label>
-                        </div> --}}
-                        <div class="mb-4">
-                            <h4 class="headline pb-3">
-                                <span>Categories</span>
-                            </h4>
-                            @if ($categories->count() > 0)
-                                @foreach ($categories as $category)
-                                    @php
-                                        $checked = [];
-                                        if(isset($_GET['category'])){
-                                            $checked = $_GET['category'];
-                                        }
-                                    @endphp
-                                    <label class="checkbox-label w-100 shadow-sm">
-                                        <input type="checkbox" value="{{ $category->id }}" name="category[]"
-                                            @if (in_array($category->id, $checked))
-                                                checked
-                                            @endif
-                                        />
-                                        <span class="icon"></span>
-                                        <div class="checkbox-content p-3">
-                                            <h6 class="font-weight-bold mb-0">{{ $category->name }}</h6>
-                                        </div>
-                                    </label>
-                                @endforeach
-                            @else
-                                <p>No Categories available</p>
-                            @endif
-                        </div>
-                        <!-- Radios -->
-                        <h4 class="headline">
-                            <span>Brands</span>
-                        </h4>
-                        @if ($stores->count() > 0)
-                        @foreach ($stores as $store)
-                        <label class="containers">{{ $store->name }}
-                            <input type="checkbox" value="{{ $store->id }}" id="{{ $store->slug }}" name="store[]">
-                            <span class="checkmark"></span>
-                        </label>
-                        @endforeach
-                        @else
-                        <p>No Stores Available</p>
-                        @endif
-                        <div class="mt-4">
-                            <button type="submit" class="btn btn-primary btn-block">Filter</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        @include('store.filter')
         <div class="col-sm-8 col-md-9">
             {{--
             <!-- Filters -->
