@@ -196,15 +196,15 @@
             <div class="col-md-6 mb-4 mt-sm-0 d-md-none d-sm-block">
                 <div class="pl-sm-5 hero">
                     <h2 class="mb-2">Personalize your shopping experience</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
+                    {{-- <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
-                    </p>
+                    </p> --}}
                     <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
-                    <button type="submit" class="btn d-none d-md-block">Learn more</button>
+                    {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-md-block d-none">
                 <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
                     class="img-fluid header-img" alt="" srcset="">
             </div>
@@ -221,7 +221,7 @@
             </div>
         </div>
     </div>
-    <div class="section py-5 my-5">
+    <div class="section py-5 my-5 d-md-block d-none">
         <div class="row h-100 justify-content-between">
             <div class="col-md-6 my-auto">
                 <div class="">
@@ -333,7 +333,7 @@
 
 </div>
 
-<div class="py-5 my-5 bg-white">
+<div class="py-5 my-5 bg-white d-md-block d-none">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -450,7 +450,7 @@
                 <div class="row h-100">
                     <div class="col-md-8" style="color: #4E2B1D;">
                         <h1>What are you waiting for?</h1>
-                        <p>Join now and automate your monthly shopping with Bliss. Click the button to start now</p>
+                        {{-- <p>Join now and automate your monthly shopping with Bliss. Click the button to start now</p> --}}
 
                     </div>
                     <div class="col-md-4 my-auto">
@@ -464,29 +464,6 @@
     </div>
 
 </div>
-
-<footer class="footer-16371 bg-white">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-9 text-center py-5">
-                <div class="footer-site-logo mb-4">
-                    <a href="#"><img src="{{ secure_asset('images/blissex.png') }}" height="30" alt=""></a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <ul class="list-unstyled nav-links" style="display: inline-block;">
-                        <li><a href="#">About</a></li>
-                        <li><a href="{{ route('store.show') }}">Shop</a></li>
-                        <li><a href="{{ route('register') }}">Create Account</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="copyright">
-                    <p class="mb-0"><small>©BlissExplorers. All Rights Reserved.</small></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 
 
