@@ -193,9 +193,9 @@
 <div class="container">
     <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
         <div class="row justify-content-center align-items-center">
-            <div class="col-md-6 mb-4 mt-sm-0">
-                <div class="pl-sm-5 hero">
-                    <h2 class="mb-2">Personalize your shopping experience</h2>
+            <div class="col-md-10 text-center mb-4 mt-sm-0 mx-auto">
+                <div class="pl-sm-5 hero text-center">
+                    <h1 class="display-4 mb-2">Personalize your shopping experience</h1>
                     {{-- <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
@@ -204,7 +204,7 @@
                     {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
                 </div>
             </div>
-            <div class="col-md-6 d-md-block d-none">
+            <div class="col-md-6 d-none">
                 <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
                     class="img-fluid header-img" alt="" srcset="">
             </div>
@@ -355,7 +355,7 @@
                     </div>
                     <div class="col-md-4 my-auto">
                         <p class="lead float-sm-right">
-                            <a class="btn btn-primary btn-sm rounded" href="#" role="button">Visit Store</a>
+                            <a class="btn btn-primary btn-sm rounded" href="{{ route('store.show') }}" role="button">Visit Store</a>
                         </p>
                     </div>
                 </div>
