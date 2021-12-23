@@ -208,7 +208,7 @@
                 <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
                     class="img-fluid header-img" alt="" srcset="">
             </div>
-            <div class="col-md-6 mt-4 mt-sm-0 d-none">
+            {{-- <div class="col-md-6 mt-4 mt-sm-0 d-none">
                 <div class="pl-sm-5 hero">
                     <h2 class="mb-2">Personalize your shopping experience</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
@@ -218,10 +218,10 @@
                     <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
                     <button type="submit" class="btn ">Learn more</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
-    <div class="section py-5 my-5 d-md-block d-none">
+    <div class="section py-5 my-5 d-none">
         <div class="row h-100 justify-content-between">
             <div class="col-md-6 my-auto">
                 <div class="">
@@ -245,34 +245,6 @@
         </div>
     </div>
 </div>
-{{-- <div class="py-5">
-    <div class="container section d-flex justify-content-center align-items-center" style="min-height: 70vh">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="text-center">
-                <h1>Our Products</h1>
-                <p>Lorem ipsum dolor sit amet conseqt accusamus officia rem.</p>
-                <div class="d-flex mt-5">
-                    <div class="col-md-4 col-sm-12 col-lg-4">
-                        <a href="{{ route('store.show') }}"><img
-                                src="https://images.pexels.com/photos/3326215/pexels-photo-3326215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                class="img-fluid middle-images" alt="" srcset=""></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-lg-4">
-                        <a href="{{ route('store.show') }}"><img
-                                src="https://images.pexels.com/photos/3326215/pexels-photo-3326215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                class="img-fluid middle-images" alt="" srcset=""></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-lg-4r">
-                        <a href="{{ route('store.show') }}"><img
-                                src="https://images.pexels.com/photos/4374579/pexels-photo-4374579.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                                class="img-fluid middle-images" alt="" srcset=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 <div style="background-color: #C6F4FD">
     <div class="container py-5">
         <div class="section">
@@ -371,91 +343,19 @@
         </div>
     </div>
 </div>
-{{-- <div class="container">
-    <div class="section mb-5">
-        <div class="section">
-            <div class="row justify-content-center align-items-center">
-                <div class="text-center mb-4">
-                    <h1>What Do you Want to Know?</h1>
-                </div>
-                <div class="col-md-12">
-                    <div class="faq" id="accordion">
-                        <div class="card">
-                            <div class="card-header" id="faqHeading-1">
-                                <div class="mb-0">
-                                    <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1"
-                                        data-aria-expanded="true" data-aria-controls="faqCollapse-1">
-                                        <span class="badge">1</span>What is Lorem Ipsum?
-                                    </h5>
-                                </div>
-                            </div>
-                            <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="faqHeading-2">
-                                <div class="mb-0">
-                                    <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2"
-                                        data-aria-expanded="false" data-aria-controls="faqCollapse-2">
-                                        <span class="badge">2</span> Where does it come from?
-                                    </h5>
-                                </div>
-                            </div>
-                            <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
-                                        in a piece of classical Latin literature from 45 BC, making it over 2000 years
-                                        old.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="faqHeading-3">
-                                <div class="mb-0">
-                                    <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-3"
-                                        data-aria-expanded="false" data-aria-controls="faqCollapse-3">
-                                        <span class="badge">3</span>Why do we use it?
-                                    </h5>
-                                </div>
-                            </div>
-                            <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3"
-                                data-parent="#accordion">
-                                <div class="card-body">
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here, content here.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div> --}}
 <div class="container mt-3">
     <div class="section">
         <div class="jumbotron p-sm-5 p-3 text-white" style="background-color: #F8D5C7; ">
             <div class="container">
-                <div class="row h-100">
+                <div class="row">
                     <div class="col-md-8" style="color: #4E2B1D;">
-                        <h1>What are you waiting for?</h1>
+                        <h3>What are you waiting for?</h3>
                         {{-- <p>Join now and automate your monthly shopping with Bliss. Click the button to start now</p> --}}
 
                     </div>
                     <div class="col-md-4 my-auto">
                         <p class="lead float-sm-right">
-                            <a class="btn btn-primary rounded" href="#" role="button">SIGN UP</a>
+                            <a class="btn btn-primary btn-sm rounded" href="#" role="button">Visit Store</a>
                         </p>
                     </div>
                 </div>
@@ -469,7 +369,7 @@
 
 @endsection
 
-@
+
 @push('more_scripts')
 @incl
 @endpush

@@ -28,15 +28,19 @@
                         <input type="text" name="price" class="form-control" value="{{ $product->price }}" required
                             aria-describedby="helpId">
                     </div>
+                    @if (request()->is('admin/products'))
                     <div class="form-group">
-                      <label for="">Select Category</label>
-                      <select class="form-control" name="category">
-                        {{-- <option value="{{ $product->category_id }}">{{ $product->category->name }}</option> --}}
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                      </select>
-                    </div>
+                        <label for="">Select Category</label>
+                        <select class="form-control" name="category">
+                          {{-- <option value="{{ $product->category_id }}">{{ $product->category->name }}</option> --}}
+                          @foreach ($categories as $category)
+                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    @else
+
+                    @endif
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

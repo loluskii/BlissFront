@@ -74,7 +74,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone_number ?? "Not Availble"}}</td>
                                             <td>{{ $user->is_admin == 0 ? 'Normal User' : 'Admin' }}</td>
-                                            <td><a href="" class="btn btn-danger btn-sm">Unblock</a></td>
+                                            <td><a href="{{ route('admin.users.unblock', $user->id) }}" class="btn btn-danger btn-sm">Unblock</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

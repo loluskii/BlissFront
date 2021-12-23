@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Store;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Actions\Store\CreateStore;
 use App\Http\Controllers\Controller;
@@ -58,9 +59,14 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function view($id)
     {
-        //
+
+        $store = Store::find($id);
+        $products = Product::where('store_id', $id)->get();
+
+        return view('admin.stores.show', compact('store', 'products'));
+
     }
 
     /**
@@ -83,7 +89,7 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -92,8 +98,9 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Store $id)
     {
-        //
+        $id->delete();
+        return redirect()->route('admin.store.index')->with('success','Deleted successfully');
     }
 }

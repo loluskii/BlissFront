@@ -17,8 +17,32 @@ class UserController extends Controller
         return view('admin.users.index')->with('users', $users);
     }
 
+    public function blockAUser($id){
+        try{
+            $user = User::find($id);
+            $user->active = 0;
+            $user->save();
+
+            return back()->with('success', 'User has been blocked');
+        }catch(\Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function unblockAUser($id){
+        try{
+            $user = User::find($id);
+            $user->active = 1;
+            $user->save();
+
+            return redirect()->route('admin.users.index')->with('success', 'User has been unblocked');
+        }catch(\Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
     public function blockedUsers(){
-        $users = User::where('active',0);
+        $users = User::where('active',0)->get();
         return view('admin.users.blocked')->with('users', $users);
     }
 

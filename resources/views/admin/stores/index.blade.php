@@ -61,8 +61,45 @@
                                     <td>{{ $store->city }}</td>
                                     <td>{{ $store->state }}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="#" role="button">View</a>
-                                        <a class="btn btn-info" href="#" role="button">Edit</a>
+                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.stores.view', $store->id) }}" role="button">View</a>
+                                        <a data-toggle="modal" data-target="#newStore{{ $store->id }}" class="btn btn-info btn-sm" href="#" role="button">Edit</a>
+                                        <div class="modal fade" id="newStore{{ $store->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">New Store</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('admin.store.update', $store->id) }}" method="POST" class="form" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label for="">Name</label>
+                                                                <input type="text" name="name" class="form-control" value="{{ $store->name }}"
+                                                                    required aria-describedby="helpId">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">City</label>
+                                                                <input type="text" name="city" class="form-control" value="{{ $store->city }}"
+                                                                    aria-describedby="helpId">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">State</label>
+                                                                <input type="text" name="state" class="form-control" value="{{ $store->state }}" required
+                                                                    aria-describedby="helpId">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
                             @endforeach

@@ -82,17 +82,19 @@
                                     <th>Email</th>
                                     <th>Phone Number</th>
                                     <th>Address</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @foreach ($subscribed_user as $user)
+                                    {{-- {{ $plan->id }} --}}
                                     <tr>
                                         <td>{{ $user->fname }} {{ $user->lname }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone_number ?? 'Not Available' }}</td>
                                         <td>{{ $user->address }} {{ $user->city }} {{ $user->state ?? 'Not Available' }}</td>
-                                        <td><a href="" class="btn btn-danger btn-sm">End Subscription</a></td>
+                                        {{-- <td><a href="{{ route('admin.plans.terminate', ['plan' => $plan->id, 'user' => $user->id] ) }}" class="btn btn-danger btn-sm">End Subscription</a></td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

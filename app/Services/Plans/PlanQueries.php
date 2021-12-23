@@ -29,6 +29,11 @@ class PlanQueries{
         return $users;
     }
 
+    public function getSubscribedUserOrderDetails($id){
+        $orders = DB::table('plan_subscriptions')->where('plan_id', $id)->pluck('order_id');
+        return $orders;
+    }
+
     public function getPlanRevenue($plan){
         return Order::where('plan',$plan)->sum('delivery_total');
     }

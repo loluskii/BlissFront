@@ -50,7 +50,7 @@
                                 <th>Description</th>
                                 <th>Delivery Fee</th>
                                 <th>Slug</th>
-                                <th>Action</th>
+                                <th style="width: 110px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,7 +62,7 @@
                                 <td>{{ $plan->description }}</td>
                                 <td>{{ $plan->delivery_fee }}</td>
                                 <td>{{ $plan->slug }}</td>
-                                <td><a href="{{ route('admin.plans.show', $plan->id) }}" class="btn btn-primary btn-sm">View</a></td>
+                                <td>@include('admin.plans.plan-action')</td>
                             </tr>
                             @endforeach
                         </tbody>

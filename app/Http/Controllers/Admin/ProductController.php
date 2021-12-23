@@ -70,6 +70,34 @@ class ProductController extends Controller
 
     }
 
+    public function updateCategory(Request $request, $id){
+        try{
+            DB::beginTransaction();
+                $category = Category::find($id);
+                $category->name = $request->name ?? $category->name;
+                $category->description = $request->desc ?? $category->description;
+                $category->save();
+            DB::commit();
+
+            return back()->with(
+                'success',
+                'Category updated successfully'
+            );
+
+        }catch(\Exception $e){
+            return back()->with(
+                'error',
+                $e->getMessage()
+            );
+        }
+    }
+
+    public function viewCategory($id){
+        $category = Category::find($id);
+        $products = Product::where('category_id', $id)->get();
+        return view('admin.category.show')->with('products', $products)->with('category', $category);
+    }
+
     public function makeCategory(){
         $categories = Category::all();
         return view('admin.category.index')->with('categories',$categories);
@@ -91,7 +119,7 @@ class ProductController extends Controller
 
     public function deleteCategory(Category $id){
         $id->delete();
-        return back()->with('success','Deleted successfully');
+        return redirect()->route('admin.category.view')->with('success', 'Category Deleted');
     }
 
     public function deleteProduct(Product $id){

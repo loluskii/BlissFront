@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Plans;
 use Illuminate\Http\Request;
 use App\Actions\Plans\StorePlan;
+use App\Models\PlanSubscription;
 use App\Services\Plans\PlanQueries;
 use App\Http\Controllers\Controller;
 
@@ -77,6 +80,13 @@ class PlanController extends Controller
         $users = (new PlanQueries())->getSubscribedUserDetails($id);
         $revenue = (new PlanQueries())->getPlanRevenue($plan->slug);
         $sales = (new PlanQueries())->getPlanTotalSales($plan->slug);
+        // $orders = (new PlanQueries())->getSubscribedUserOrderDetails($id);
+
+        // $order_details = array();
+        // foreach($orders as $order){
+        //     $order_details[] = Order::findOrFail($order);
+        // }
+
         $subscribed_user = array();
         foreach($users as $user){
             $subscribed_user[] = User::findOrFail($user);
@@ -88,6 +98,7 @@ class PlanController extends Controller
                                     ->with('subscribed_user', $subscribed_user)
                                     ->with('revenue', $revenue)
                                     ->with('sales', $sales);
+                                    // ->with('order_details', $order_details);
     }
 
     /**
@@ -110,8 +121,53 @@ class PlanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            DB::beginTransaction();
+                $plan = Plans::find($id);
+                $plan->name = $request->name ?? $plan->name;
+                $plan->slug = $request->slug ?? $category->slug;
+                $plan->interval = $request->interval_type ?? $plan->interval;
+                $plan->interval_count = $request->count ?? $plan->interval_count;
+                $plan->description = $request->desc ?? $plan->description;
+                $plan->delivery_fee = $request->delivery_fee ?? $plan->delivery_fee;
+                $plan->save();
+            DB::commit();
+
+            return back()->with(
+                'success',
+                'Plan updated successfully'
+            );
+
+        }catch(\Exception $e){
+            return back()->with(
+                'error',
+                $e->getMessage()
+            );
+        }
     }
+
+    // public function endSubscription($plan, $user){
+    //     $active_plan = Plans::find($plan);
+    //     $subscribed_user = User::find($user);
+
+    //     try{
+    //         // DB::beginTransaction();
+    //         //     $plan_subscriptions = PlanSubscription::where('user_id', $subscribed_user)->where('plan_id')
+
+    //         // DB::commit();
+
+    //         // return back()->with(
+    //         //     'success',
+    //         //     'Plan updated successfully'
+    //         // );
+
+    //     }catch(\Exception $e){
+    //         return back()->with(
+    //             'error',
+    //             $e->getMessage()
+    //         );
+    //     }
+    // }
 
     /**
      * Remove the specified resource from storage.
