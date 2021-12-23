@@ -193,7 +193,7 @@
 <div class="container">
     <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
         <div class="row justify-content-center align-items-center">
-            <div class="col-md-6 mb-4 mt-sm-0 d-md-none d-sm-block">
+            <div class="col-md-6 mb-4 mt-sm-0">
                 <div class="pl-sm-5 hero">
                     <h2 class="mb-2">Personalize your shopping experience</h2>
                     {{-- <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
@@ -208,7 +208,7 @@
                 <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
                     class="img-fluid header-img" alt="" srcset="">
             </div>
-            <div class="col-md-6 mt-4 mt-sm-0 d-md-block d-none">
+            <div class="col-md-6 mt-4 mt-sm-0 d-none">
                 <div class="pl-sm-5 hero">
                     <h2 class="mb-2">Personalize your shopping experience</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
@@ -468,3 +468,8 @@
 
 
 @endsection
+
+@
+@push('more_scripts')
+@incl
+@endpush
