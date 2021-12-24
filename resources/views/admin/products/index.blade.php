@@ -1,5 +1,31 @@
 @extends('admin.layouts.app')
 
+@section('third_party_stylesheets')
+<style>
+    #preview {
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+    }
+
+    #imgInp {
+        display: none;
+    }
+
+    .upload {
+        display: flex;
+        border: 2px solid #ECEEEE;
+        background-color: transparent;
+        height: 150px;
+        width: 174px;
+        border-radius: 8px;
+        align-items: center;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+</style>
+@endsection
 
 @section('content')
 <div class="container-fluid">
@@ -73,8 +99,11 @@
                         </thead>
                         <tbody>
                             @foreach ($products as $product)
+                            @php
+                            $newImage = 'images/products/'.$product->cover_img;
+                            @endphp
                             <tr>
-                                <td><img src="{{ $product->cover_img }}" alt="" srcset="" style="height: 50px; width: 50px"></td>
+                                <td><img src="{{ secure_asset($newImage) }}" alt="" srcset="" style="height: 30px; width: 30px"></td>
                                 <td>{{ $product->product_ref }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name ?? 'No Category' }}</td>
@@ -107,7 +136,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Product Image</label>
-                        <input type="file" class="form-control-file" name="featured_image" id="" placeholder=""
+                        <input type="file" class="form-control-file" name="product_image" id="" placeholder=""
                             aria-describedby="fileHelpId">
                     </div>
                     <div class="form-group">
@@ -117,7 +146,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Price</label>
-                        <input type="number" name="price" class="form-control" placeholder="" required
+                        <input type="text" name="price" class="form-control" placeholder="" required
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">

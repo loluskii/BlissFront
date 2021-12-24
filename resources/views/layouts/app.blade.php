@@ -41,6 +41,7 @@
         </main>
 
     </div>
+    
     <script src="{{ secure_asset('js/app.js') }}"></script>
     @include('layouts.partials.footer_scripts')
     @stack('more_scripts')

@@ -273,12 +273,12 @@
                             $newImage = 'images/products/'.$product->cover_img;
                             @endphp
                             <div class="shop-thumb__img mb-0">
-                                <img src="{{ secure_asset($product->cover_img) }}" class="img-responsive" alt="...">
+                                <img src="{{ secure_asset($newImage) }}" class="img-responsive" alt="...">
                             </div>
                             <div class="body p-2">
                                 <h5 class="shop-thumb__title text-left">{{ $product->name }}</h5>
                                 <div class="d-flex justify-content-between">
-                                    <p>${{ number_format($product->price,2) }}</p>
+                                    <p>£{{ number_format($product->price,2) }}</p>
                                     <a href="{{ route('cart.add', $product->id) }}"><img
                                             src="{{ secure_asset('images/plus.svg') }}"></a>
                                 </div>

@@ -19,11 +19,10 @@ class UserSeeder extends Seeder
         User::create([
             'fname' => 'Don',
             'lname' => 'Bills',
-            'email' => 'enterprise@enterprise',
             'address' => 'address',
             'city' => 'city',
             'state' => 'state',
-            'email' => 'sirdaw1@yahoo.com',
+            'email' => 'admin@blissexplorers.store',
             'email_verified_at' => now(),
             'is_admin' => 1,
             'password' => Hash::make('blissrouter'), // bllissrouter

@@ -1,3 +1,5 @@
+
+
 <a data-toggle="modal" data-target="#editProduct-{{ $product->product_ref }}" class="btn btn-sm btn-info">Edit</a>
 <a href="{{ route('admin.product.delete', $product->id) }}" onclick="return confirm('Are you sure you want to delete this record?')" class="btn btn-sm btn-danger">Delete</a>
 
@@ -14,11 +16,20 @@
             <form action="{{ route('admin.product.update', $product->id) }}" method="POST" class="form" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label for="">Product Image</label>
-                        <input type="file" class="form-control-file" name="featured_image" id="" placeholder=""
-                            aria-describedby="fileHelpId">
-                    </div> --}}
+                        <input type="file" name="featured_image" accept="image/*" id="imgInp" class="featured_image">
+                        <div class="upload">
+                            <div class="col my-auto text-center">
+                                <img src="{{secure_asset($newImage)}}"
+                                    class="img-fluid" srcset="">
+                                <p class="text-center">Edit</p>
+                            </div>
+                        </div>
+                        <div class="py-2">
+                            <img src="" alt="preview" class="img-fluid" id="preview">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="">Product Name</label>
                         <input type="text" name="product_name" class="form-control" value="{{ $product->name }}" required aria-describedby="helpId">
@@ -50,3 +61,18 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $('#preview').hide();
+    $('.upload').click(function(){ $('.featured_image').trigger('click'); });
+    imgInp.onchange = evt => {
+        const [file] = imgInp.files
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+            $('#preview').show();
+            $('.upload').css('display','none');
+            // console.log()
+        }
+    }
+</script>
