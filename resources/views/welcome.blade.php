@@ -230,8 +230,8 @@
         </div>
     </div>
 </div>
-<div class="container" id="how-it-works">
-    <div class="section py-5 my-5 d-none" >
+<div class="container d-none">
+    <div class="section py-5 my-5 " >
         <div class="row h-100 justify-content-between">
             <div class="col-md-6 my-auto">
                 <div class="">
@@ -255,7 +255,7 @@
         </div>
     </div>
 </div>
-<div style="background-color: #C6F4FD">
+<div id="how-it-works" style="background-color: #C6F4FD">
     <div class="container py-5">
         <div class="section">
             <div class="text-center">
@@ -315,7 +315,7 @@
 
 </div>
 
-<div class="py-5 my-5 bg-white d-md-block d-none">
+<div class="py-5 my-5 bg-white d-none">
     <div class="container">
         <div class="row">
             <div class="col-md-4">

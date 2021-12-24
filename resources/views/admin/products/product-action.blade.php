@@ -18,8 +18,8 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Product Image</label>
-                        <input type="file" name="featured_image" accept="image/*" id="imgInp" class="featured_image">
-                        <div class="upload">
+                        <input type="file" name="featured_image" accept="image/*" id="imgInp" class="form-control-file featured_image">
+                        {{-- <div class="upload">
                             <div class="col my-auto text-center">
                                 <img src="{{secure_asset($newImage)}}"
                                     class="img-fluid" srcset="">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="py-2">
                             <img src="" alt="preview" class="img-fluid" id="preview">
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="form-group">
                         <label for="">Product Name</label>

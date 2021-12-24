@@ -8,9 +8,9 @@
         object-fit: cover;
     }
 
-    #imgInp {
+    /* #imgInp {
         display: none;
-    }
+    } */
 
     .upload {
         display: flex;
@@ -136,7 +136,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Product Image</label>
-                        <input type="file" class="form-control-file" name="product_image" id="" placeholder=""
+                        <input type="file" class="form-control-file" name="featured_image" id="" placeholder=""
                             aria-describedby="fileHelpId">
                     </div>
                     <div class="form-group">
