@@ -23,7 +23,6 @@
         font-size: 13px;
         cursor: pointer;
     }
-
 </style>
 @endsection
 
@@ -33,8 +32,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Products</h1>
-        <a data-toggle="modal" data-target="#newProduct"
-            class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a data-toggle="modal" data-target="#newProduct" class=" btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Add Product</a>
     </div>
 
@@ -103,7 +101,8 @@
                             $newImage = 'images/products/'.$product->cover_img;
                             @endphp
                             <tr>
-                                <td><img src="{{ secure_asset($newImage) }}" alt="" srcset="" style="height: 30px; width: 30px"></td>
+                                <td><img src="{{ secure_asset($newImage) }}" alt="" srcset=""
+                                        style="height: 30px; width: 30px"></td>
                                 <td>{{ $product->product_ref }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name ?? 'No Category' }}</td>
@@ -141,8 +140,8 @@
                     </div>
                     <div class="form-group">
                         <label for="">Product Name</label>
-                        <input type="text" name="product_name" class="form-control" placeholder=""
-                            required aria-describedby="helpId">
+                        <input type="text" name="product_name" class="form-control" placeholder="" required
+                            aria-describedby="helpId">
                     </div>
                     <div class="form-group">
                         <label for="">Price</label>
@@ -150,13 +149,13 @@
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                      <label for="">Select Category</label>
-                      <select class="form-control" name="category">
-                        <option value="">Select one</option>
-                        @foreach ($categories as $category)
+                        <label for="">Select Category</label>
+                        <select class="form-control" name="category">
+                            <option value="">Select one</option>
+                            @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                      </select>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">Description</label>

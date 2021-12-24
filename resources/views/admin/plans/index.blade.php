@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.app')
 
 
@@ -8,7 +7,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Plans</h1>
-        <a data-toggle="modal" data-target="#newCategory" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a data-toggle="modal" data-target="#newCategory" class=" btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> New Plan</a>
     </div>
 
@@ -81,43 +80,47 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Create New Plan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <form action="{{ route('admin.plans.store') }}" method="POST">
-            @csrf
+                @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">Name:</label>
-                      <input type="text" name="name" class="form-control" id="recipient-name">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" name="name" class="form-control" id="recipient-name">
                     </div>
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">Description:</label>
-                      <textarea class="form-control" name="desc" id="message-text"></textarea>
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" name="desc" id="message-text"></textarea>
                     </div>
                     <div class="form-row">
                         <div class="col-9">
                             <div class="form-group">
-                              <label for="">Interval Type</label>
-                              <input type="text" name="interval_type" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                <label for="">Interval Type</label>
+                                <input type="text" name="interval_type" id="" class="form-control" placeholder=""
+                                    aria-describedby="helpId">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                              <label for="">Count</label>
-                              <input type="text" name="count" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                <label for="">Count</label>
+                                <input type="text" name="count" id="" class="form-control" placeholder=""
+                                    aria-describedby="helpId">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                      <label for="">Delivery Fee</label>
-                      <input type="text" name="delivery_fee" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                        <label for="">Delivery Fee</label>
+                        <input type="text" name="delivery_fee" id="" class="form-control" placeholder=""
+                            aria-describedby="helpId">
                     </div>
                     <div class="form-group">
                         <label for="">Slug</label>
-                        <input type="text" name="slug" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                      </div>
+                        <input type="text" name="slug" id="" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -133,7 +136,7 @@
 
 @section('third_party_scripts')
 <script>
-$('#products').DataTable({
+    $('#products').DataTable({
     "paging": true,
     "lengthChange": true,
     "searching": true,
@@ -145,5 +148,3 @@ $('#products').DataTable({
 </script>
 
 @endsection
-
-
