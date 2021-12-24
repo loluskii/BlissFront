@@ -61,7 +61,7 @@ Route::middleware('admin')->group(function () {
         Route::get('/',[PlanController::class,'index'])->name('plans.index');
         Route::post('store',[PlanController::class,'store'])->name('plans.store');
         Route::get('{id}',[PlanController::class,'show'])->name('plans.show');
-        Route::get('update/{id}',[PlanController::class,'update'])->name('plans.update');
+        Route::post('update/{id}',[PlanController::class,'update'])->name('plans.update');
         Route::get('terminate/{plan}/{user}',[PlanController::class,'endSubscription'])->name('plans.terminate');
     });
 });

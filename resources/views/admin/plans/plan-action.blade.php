@@ -1,4 +1,4 @@
-<a href="{{ route('admin.plans.show', $plan->id) }}" class="btn btn-primary btn-sm">View</a>
+<a href="{{ route('admin.plans.show', $plan->id) }}" class="btn btn-info btn-sm">View</a>
 
 <a data-toggle="modal" data-target="#plan{{ $plan->id }}"  class="btn btn-primary btn-sm">Edit</a>
 

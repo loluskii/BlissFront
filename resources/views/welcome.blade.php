@@ -163,7 +163,11 @@
     }
 
     .header-img{
-        height: 500px;
+        height: 400px;
+    }
+    .header-text{
+        font-size: 40px;
+        text-align: left;
     }
 
     @media (max-width: 991px) {
@@ -193,20 +197,20 @@
 <div class="container">
     <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
         <div class="row justify-content-center align-items-center">
-            <div class="col-md-10 text-center mb-4 mt-sm-0 mx-auto">
-                <div class="pl-sm-5 hero text-center">
-                    <h1 class="display-4 mb-2">Personalize your shopping experience</h1>
+            <div class="col-md-6 mb-4 mt-sm-0">
+                <div class="pl-sm-5 hero">
+                    <h1 class="header-text mb-3">Personalize your shopping experience</h1>
                     {{-- <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
                         incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
                         veritatis in atque amet iste!
                     </p> --}}
-                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
+                    <a href="#how-it-works" class="btn rounded btn-primary mr-2">How it works</a>
                     {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
                 </div>
             </div>
-            <div class="col-md-6 d-none">
+            <div class="col-md-6">
                 <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
-                    class="img-fluid header-img" alt="" srcset="">
+                    class="img-fluid header-img rounded" alt="" srcset="">
             </div>
             {{-- <div class="col-md-6 mt-4 mt-sm-0 d-none">
                 <div class="pl-sm-5 hero">
@@ -221,7 +225,9 @@
             </div> --}}
         </div>
     </div>
-    <div class="section py-5 my-5 d-none">
+</div>
+<div class="container" id="how-it-works">
+    <div class="section py-5 my-5 d-none" >
         <div class="row h-100 justify-content-between">
             <div class="col-md-6 my-auto">
                 <div class="">
@@ -392,5 +398,31 @@
 
 
 @push('more_scripts')
-@incl
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 @endpush
