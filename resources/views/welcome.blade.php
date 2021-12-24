@@ -163,7 +163,7 @@
     }
 
     .header-img{
-        height: 400px;
+        height: 300px;
     }
     .header-text{
         font-size: 40px;
@@ -184,9 +184,13 @@
     @media (max-width:600px){
         .header-img{
             height: auto;
-            border-radius: 50%;
+            /* border-radius: 50%; */
         }
         .hero{
+            text-align: center;
+        }
+        .header-text{
+            font-size: 30px;
             text-align: center;
         }
     }
@@ -209,8 +213,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="{{ secure_asset('images/freddie-collins-eLpnTMOHAkU-unsplash@2x.png') }}"
-                    class="img-fluid header-img rounded" alt="" srcset="">
+                <img src="{{ secure_asset('images/header.JPG') }}"
+                    class="img-fluid header-img " alt="" srcset="">
             </div>
             {{-- <div class="col-md-6 mt-4 mt-sm-0 d-none">
                 <div class="pl-sm-5 hero">
