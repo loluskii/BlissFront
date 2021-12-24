@@ -467,6 +467,7 @@
         var displayError = document.getElementById('card-errors');
         if (event.error) {
             displayError.textContent = event.error.message;
+            cardButton.textContent = "Pay"
         } else {
             displayError.textContent = '';
         }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use DB;
 use Exception;
+use App\Models\Store;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -17,7 +18,8 @@ class ProductController extends Controller
     public function index(){
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.products.index')->with('products',$products)->with('categories',$categories);
+        $stores = Store::all();
+        return view('admin.products.index')->with('products',$products)->with('categories',$categories)->with('stores', $stores);
 
     }
 

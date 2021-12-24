@@ -48,7 +48,16 @@
                               <option value="{{ $category->id }}">{{ $category->name }}</option>
                           @endforeach
                         </select>
-                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Select Store</label>
+                        <select class="form-control" name="category">
+                          {{-- <option value="{{ $product->category_id }}">{{ $product->category->name }}</option> --}}
+                          @foreach ($stores as $store)
+                              <option value="{{ $store->id }}">{{ $store->name }}</option>
+                          @endforeach
+                        </select>
+                    </div>
                     @else
 
                     @endif

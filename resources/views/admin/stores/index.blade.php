@@ -58,8 +58,8 @@
                                 <tr>
                                     <td>{{ $store->name }}</td>
                                     <td>{{ $store->products->count() }}</td>
-                                    <td>{{ $store->city }}</td>
-                                    <td>{{ $store->state }}</td>
+                                    <td>{{ $store->city ?? 'N/A' }}</td>
+                                    <td>{{ $store->state ?? 'N/A' }}</td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="{{ route('admin.stores.view', $store->id) }}" role="button">View</a>
                                         <a data-toggle="modal" data-target="#newStore{{ $store->id }}" class="btn btn-info btn-sm" href="#" role="button">Edit</a>
