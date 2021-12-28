@@ -125,7 +125,7 @@
                                     <td class="thick-line"></td>
                                     <td class="thick-line text-center"><strong>Subtotal</strong>
                                     </td>
-                                    <td class="thick-line text-right">£{{ number_format($order->subtotal) }}</td>
+                                    <td class="thick-line text-right">£{{ number_format($order->subtotal,2) }}</td>
                                 </tr>
                                 <tr>
                                     <td class="no-line"></td>
@@ -138,7 +138,7 @@
                                     <td class="thick-line2"></td>
                                     <td class="thick-line2"></td>
                                     <td class="thick-line2 text-center"><strong>Total</strong></td>
-                                    <td class="thick-line2 text-right">£{{ number_format($order->grand_total) }}</td>
+                                    <td class="thick-line2 text-right">£{{ number_format($order->grand_total,2) }}</td>
                                 </tr>
                             </tbody>
                         </table>
