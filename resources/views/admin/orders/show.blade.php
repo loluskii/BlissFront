@@ -67,7 +67,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Order Total</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">£{{ number_format($order->grand_total)
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">£{{ number_format($order->grand_total,2)
                                 }}</div>
                         </div>
                         <div class="col-auto">
