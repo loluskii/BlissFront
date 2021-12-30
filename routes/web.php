@@ -33,17 +33,16 @@ Auth::routes();
 
 Route::get('subscription', [PagesController::class, 'subscription'])->name('subscription');
 Route::get('/store', [PagesController::class, 'showStore'])->name('store.show');
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect('/');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('contact', function () {
+    return view('contact-us');
+})->name('contact');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/store/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
     Route::get('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::post('update-address/{id}', [CartController::class, 'updateAddress'])->name('cart.address.update');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::resource('orders', OrderController::class)->only('store');
     Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('pay');
@@ -54,10 +53,16 @@ Route::middleware(['auth'])->group(function () {
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/account', [UserController::class, 'index'])->name('user.home');
     Route::get('/details', [UserController::class, 'userDetails'])->name('user.details');
+    Route::post('update', [UserController::class, 'updateUserDetails'] )->name('user.update');
     Route::get('/address-book', [UserController::class, 'getAddresses'])->name('user.address_book');
-    Route::get('/payments', [UserController::class, 'getPaymentMethods'])->name('user.payment_methods');
+    Route::get('address/delete/{id}', [UserController::class, 'deleteAddress'])->name('user.address.delete');
+    Route::post('address/update/{id}', [UserController::class, 'updateAddress'])->name('user.address.update');
+    Route::post('new-address', [UserController::class, 'addNewAddress'])->name('user.new.address');
+    Route::get('/change-password', [UserController::class, 'changePassword'])->name('user.change-password');
+    Route::post('change-password', [UserController::class, 'updatePassword'])->name('user.update.password');
     Route::get('/subscriptions', [UserController::class, 'getOrders'])->name('user.my_orders');
     Route::get('/subscriptions/{id}', [OrderController::class, 'show'])->name('order.details');
+    Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
 // Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {

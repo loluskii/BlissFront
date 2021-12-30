@@ -269,11 +269,8 @@
                     @foreach ($products as $product)
                     <div class="col-sm-6 col-md-4 mb-3">
                         <div class="shop__thumb">
-                            @php
-                            $newImage = 'images/products/'.$product->cover_img;
-                            @endphp
                             <div class="shop-thumb__img mb-0">
-                                <img src="{{ secure_asset($newImage) }}" class="img-responsive" alt="...">
+                                <img src="{{ $product->cover_img }}" class="img-fluid" alt="...">
                             </div>
                             <div class="body p-2">
                                 <h5 class="shop-thumb__title text-left">{{ $product->name }}</h5>

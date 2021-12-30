@@ -40,7 +40,6 @@
                                         </div>
                                         <div class="col-auto mt-3">
                                             <a name="edit" class="btn btn-primary btn-sm rounded" href="{{ route('order.details', $item->order_id ) }}" role="button">View</a>
-                                            <a name="edit" class="btn btn-danger btn-sm rounded" href="#" role="button">Edit</a>
                                         </div>
                                     </div>
                                 </div>

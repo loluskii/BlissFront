@@ -9,6 +9,17 @@ class Address extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'shipping_fname',
+        'shipping_lname',
+        'shipping_city',
+        'shipping_address',
+        'shipping_state',
+        'shipping_landmark',
+        'shipping_phone',
+        'shipping_zipcode',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

@@ -347,9 +347,9 @@
                             <h2>Shipping Information</h2>
                             <div class="card border-0 shadow-sm mb-4">
                                 <div class="card-body">
-                                    <h5>{{ $order->shipping_first_name }} {{ $order->shipping_last_name }}</h5>
-                                    <p class="mb-2">{{ $order->shipping_street_address }}, {{ $order->shipping_city }}</p>
-                                    <p class="mb-0">{{ $order->shipping_phone_number }}</p>
+                                    <h5>{{ $order->shipping_fname }} {{ $order->shipping_lname }}</h5>
+                                    <p class="mb-2">{{ $order->shipping_address }}, {{ $order->shipping_city }}</p>
+                                    <p class="mb-0">{{ $order->shipping_phone }}</p>
                                 </div>
                             </div>
                             <fieldset class="with-state">

@@ -9,13 +9,13 @@
                     @if ($categories->count() > 0)
                         @foreach ($categories as $category)
                             @php
-                                $checked = [];
+                                $checked = array();
                                 if(isset($_GET['category'])){
-                                    $checked = $_GET['category'];
+                                    $checked[] = $_GET['category'];
                                 }
                             @endphp
                             <label class="checkbox-label w-100 shadow-sm">
-                                <input type="checkbox" value="{{ $category->id }}" name="category[]"
+                                <input type="radio" value="{{ $category->id }}" onclick="this.form.submit()" name="category"
                                     @if (in_array($category->id, $checked))
                                         checked
                                     @endif
@@ -35,12 +35,22 @@
                     <span>Brands</span>
                 </h4>
                 @if ($stores->count() > 0)
-                @foreach ($stores as $store)
-                <label class="containers">{{ $store->name }}
-                    <input type="checkbox" value="{{ $store->id }}" id="{{ $store->slug }}" name="store[]">
-                    <span class="checkmark"></span>
-                </label>
-                @endforeach
+                    @foreach ($stores as $store)
+                            @php
+                                $checked = array();
+                                if(isset($_GET['store'])){
+                                    $checked[] = $_GET['store'];
+                                }
+                            @endphp
+                        <label class="containers">{{ $store->name }}
+                            <input type="checkbox" value="{{ $store->id }}" onclick="this.form.submit()" id="{{ $store->slug }}" name="store[]"
+                                @if (in_array($store->id, $checked))
+                                    checked
+                                @endif
+                            >
+                            <span class="checkmark"></span>
+                        </label>
+                    @endforeach
                 @else
                 <p>No Stores Available</p>
                 @endif

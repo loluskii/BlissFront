@@ -56,9 +56,9 @@ class ProductController extends Controller
                 $product->price = $request->price ?? $product->price;
                 $product->category_id = $request->category ?? $product->category_id;
                 if($request->file()){
-                    $fileName = Str::slug($request['product_name']).'-'.time().'.'.$request->file('featured_image')->extension();
-                    $filePath = $request->file('featured_image')->move(public_path('images/products'), $fileName);
-                    $product->cover_img = $fileName;
+                    $path = cloudinary()->upload($request->file('featured_image')->getRealPath())->getSecurePath();
+
+                    $product->cover_img = $path;
                 }else{
                     $product->cover_img = $product->cover_img;
                 }

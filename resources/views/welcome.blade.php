@@ -386,7 +386,7 @@
                     <li><a href="#">About</a></li>
                     <li><a href="{{ route('store.show') }}">Shop</a></li>
                     <li><a href="{{ route('register') }}">Create Account</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
                 <div class="copyright">
                     <p class="mb-0"><small>©BlissExplorers. All Rights Reserved.</small></p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plans;
+use App\Models\Address;
 use App\Models\Product;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
@@ -59,7 +60,25 @@ class CartController extends Controller
         $plans = $this->retrievePlans();
         $cartItems = \Cart::session(auth()->id())->getContent();
         $cartTotalQuantity = \Cart::session(auth()->id())->getContent()->count();
-        return view('store.checkout', compact('cartItems','cartTotalQuantity','plans'));
+        $address = Address::where('user_id', auth()->id())->first();
+        return view('store.checkout', compact('cartItems','cartTotalQuantity','plans','address'));
+
+    }
+
+    public function updateAddress(Request $request, $id){
+        $address =  Address::findOrFail($id);
+        $address->shipping_fname = $request->shipping_fname ?? $address->shipping_fname;
+        $address->shipping_lname = $request->shipping_lname ?? $address->shipping_lname;
+        $address->shipping_address = $request->shipping_address ?? $address->shipping_address;
+        $address->shipping_city = $request->shipping_city ?? $address->shipping_city;
+        $address->shipping_landmark = $request->shipping_landmark ?? $address->shipping_landmark;
+        $address->shipping_state = $request->shipping_state ?? $address->shipping_state;
+        $address->shipping_zipcode = $request->shipping_zipcode ?? $address->shipping_zipcode;
+        $address->shipping_phone = $request->shipping_phone ?? $address->shipping_phone;
+        $address->update();
+
+        return back()->with('success','Shipping Details updated!');
+
     }
 }
 

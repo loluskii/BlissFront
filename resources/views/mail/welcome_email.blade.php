@@ -457,13 +457,13 @@
         <tr>
             <td align="center">
                 <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
+                    {{-- <tr>
                         <td class="email-masthead">
                             <a href="https://example.com" class="f-fallback email-masthead_name">
                                 BLISS EXPLORERS
                             </a>
                         </td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <td class="email-body" width="100%" cellpadding="0" cellspacing="0">
                             <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0"
@@ -500,7 +500,7 @@
                                                 </tr>
                                             </table>
                                             <p>If you have any questions, feel free to <a
-                                                    href="mailto:support_email}}">email</a> our customer success team.
+                                                    href="mailto:admin@blissexplorers.store">email</a> our customer success team.
                                                 (We're lightning quick at replying 🙂.) </p>
                                             <p>Thanks,
                                                 <br><b>The Bliss Explorers Team</b>
@@ -522,11 +522,11 @@
                                     <td class="content-cell" align="center">
                                         <p class="f-fallback sub align-center">&copy; 2021 Bliss Explorers. All rights
                                             reserved.</p>
-                                        <p class="f-fallback sub align-center">
+                                        {{-- <p class="f-fallback sub align-center">
 
                                             <br>1234 Street Rd.
-                                            <br>United Kingdom 
-                                        </p>
+                                            <br>United Kingdom
+                                        </p> --}}
                                     </td>
                                 </tr>
                             </table>

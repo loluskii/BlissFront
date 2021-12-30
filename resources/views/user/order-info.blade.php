@@ -52,8 +52,8 @@
                                         </tbody>
                                     </table>
                                     <div class="flex pt-2">
-                                    <a class="btn btn-primary rounded" href="" role="button">Go Back</a>
-                                    <a name="" id="" class="btn btn-danger rounded" href="#" role="button">Cancel Subscription</a>
+                                    <a class="btn btn-primary btn-sm rounded" href="{{ route('user.my_orders') }}" role="button">Go Back</a>
+                                    <a onclick="return confirm('Are you sure you want cancel this subscription ?')" id="" class="btn btn-danger btn-sm rounded" href="{{ route('subscription.delete', $subscription->id ) }}" role="button">Cancel Subscription</a>
                                     </div>
                                 </div>
                             </div>

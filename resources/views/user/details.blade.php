@@ -33,7 +33,8 @@
                     <p>Feel free to edit any of your details below so your account is totally up to date.</p>
 
                     <div class="py-4">
-                        <form action="" method="POST">
+                        <form action="{{ route('user.update') }}" method="POST">
+                            @csrf
                             <div class="form-row">
                                 <div class="col-6">
                                     <div class="form-group">

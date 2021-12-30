@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Laravel\Cashier\Billable;
 
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Billable;
 

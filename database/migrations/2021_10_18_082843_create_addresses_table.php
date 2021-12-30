@@ -20,7 +20,7 @@ class CreateAddressesTable extends Migration
             $table->string('shipping_fname');
             $table->string('shipping_lname');
             $table->string('shipping_address');
-            $table->string('shipping_apartment_suite');
+            $table->string('shipping_landmark');
             $table->string('shipping_city');
             $table->string('shipping_state');
             $table->string('shipping_zipcode');

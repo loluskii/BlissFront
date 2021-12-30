@@ -11,6 +11,7 @@ use App\Models\Plans;
 use App\Mail\OrderCreated;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
+use App\Jobs\SendOrderCancel;
 use App\Models\PaymentRecord;
 use App\Jobs\SendOrderInvoice;
 use App\Mail\AdminNotifyOrder;
@@ -71,6 +72,7 @@ class SubscriptionController extends Controller
         $order = $request->session()->get('order');
         $intent = $request->user()->createSetupIntent();
         $cartTotal = (\Cart::session(auth()->id())->getTotal() * $plan->interval_count) + $plan->delivery_fee;
+        // dd($order);
         return view('store.payments', compact('plan', 'intent', 'order','cartTotal'));
     }
 
@@ -140,5 +142,23 @@ class SubscriptionController extends Controller
             'intent' => $user->createSetupIntent(),
             'plans' => $plans
         ]);
+    }
+
+    public function cancelSubscription($id){
+        $subscription = PlanSubscription::findOrFail($id);
+        // $order = Order::findOrFail($subscription->order_id);
+        $subscription->end_date = NOW();
+        $subscription->update();
+        $user = Auth::user();
+
+
+        SendOrderCancel::dispatch($user);
+
+
+
+
+
+        return redirect()->route('user.my_orders')->with('success', 'Subscription cancelled successfully!');
+
     }
 }

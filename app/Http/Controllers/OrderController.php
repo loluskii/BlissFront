@@ -7,8 +7,10 @@ use App\Models\Address;
 use App\Mail\OrderCreated;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use App\Models\PlanSubscription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -39,17 +41,25 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $validatedData = $request->validate([
-            'shipping_first_name' => 'required',
-            'shipping_last_name' => 'required',
-            'shipping_street_address'  => 'required',
-            'shipping_city' => 'required',
-            'shipping_state' => 'required',
-            'shipping_phone_number' => 'required',
-            'shipping_apartment_suite' => 'required',
-            'plan' => 'required',
-            'shipping_postcode' => 'required',
-        ]);
+        if(request()->has('shipping_first_name')){
+            $validatedData = $request->validate([
+                'shipping_first_name' => 'required',
+                'shipping_last_name' => 'required',
+                'shipping_street_address'  => 'required',
+                'shipping_city' => 'required',
+                'shipping_state' => 'required',
+                'shipping_phone_number' => 'required',
+                'shipping_landmark' => 'required',
+                'plan' => 'required',
+                'shipping_postcode' => 'required',
+            ]);
+        }else{
+            $address = Address::findOrFail($request->address_id)->toArray();
+            $new = array_merge($request->toArray(), $address);
+            // dd($new);
+        }
+
+        // dd($validatedData);
 
         // $order = new Order();
         // $address = new Address();
@@ -62,7 +72,7 @@ class OrderController extends Controller
         // $order->shipping_state = $request->input('shipping_state');
         // $order->shipping_phone = $request->input('shipping_phone_number');
         // $order->shipping_zipcode = $request->input('shipping_postcode');
-        // $order->shipping_apartment_suite = $request->input('shipping_apartment_suite');
+        // $order->shipping_landmark = $request->input('shipping_landmark');
 
         // $order->grand_total = \Cart::session(auth()->id())->getTotal();
         // $order->item_count = \Cart::session(auth()->id())->getContent()->count();
@@ -75,7 +85,7 @@ class OrderController extends Controller
         //     $address->shipping_fname  = $request->input('shipping_first_name');
         //     $address->shipping_lname =  $request->input('shipping_last_name');
         //     $address->shipping_address =  $request->input('shipping_street_address');
-        //     $address->shipping_apartment_suite = $request->input('shipping_apartment_suite');
+        //     $address->shipping_landmark = $request->input('shipping_landmark');
         //     $address->shipping_city = $request->input('shipping_city');
         //     $address->shipping_state = $request->input('shipping_state');
         //     $address->shipping_zipcode = $request->input('shipping_postcode');
@@ -91,23 +101,16 @@ class OrderController extends Controller
 
         if(empty($request->session()->get('order'))){
             $order = new Order;
-            $order->fill($validatedData);
+            $order->fill($new);
             $request->session()->put('order', $order);
         }else{
             $order = $request->session()->get('order');
-            $order->fill($validatedData);
+            $order->fill($new);
             $request->session()->put('order', $order);
         }
-        return redirect()->route('pay',['plan' => $request->input('plan')]);
 
-        // else{
-        //     \Cart::session(auth()->id())->clear();
-        //     Mail::to(Auth::user()->email)->send(new OrderCreated($order));
-        //     return redirect()->route('home')->withMessage('Order has been placed');
-        //     //send email to user that order will be delivered => create order-success page
-        // }
-
-        // return redirect()->route('home')->withMessage('Order has been placed');
+        // dd(Session::get('order'));
+        return redirect()->route('pay',['plan' => $new['plan']]);
 
     }
 
@@ -120,7 +123,8 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
-        return view('user.order-info')->with('order',$order);
+        $subscription = PlanSubscription::findOrFail($id);
+        return view('user.order-info')->with('order',$order)->with('subscription',$subscription);
     }
 
     /**

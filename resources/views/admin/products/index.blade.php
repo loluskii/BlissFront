@@ -97,11 +97,8 @@
                         </thead>
                         <tbody>
                             @foreach ($products as $product)
-                            @php
-                            $newImage = 'images/products/'.$product->cover_img;
-                            @endphp
                             <tr>
-                                <td><img src="{{ secure_asset($newImage) }}" alt="" srcset=""
+                                <td><img src="{{ $product->cover_img }}" alt="" srcset=""
                                         style="height: 30px; width: 30px"></td>
                                 <td>{{ $product->product_ref }}</td>
                                 <td>{{ $product->name }}</td>

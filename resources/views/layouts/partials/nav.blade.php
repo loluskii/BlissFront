@@ -23,6 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-2">
+                    <a class="nav-link btn btn-sm py-1 my-1 px-3 rounded"
+                        href="{{ route('store.show') }}">{{ __('Visit Store') }}</a>
+                </li>
                     @if (Route::has('login'))
                     <li class="nav-item mx-2">
                         <a class="nav-link btn btn-dark btn-sm py-1 my-1 px-3 text-white rounded"
@@ -87,7 +91,7 @@
             </button>
             <div class="dropdown-menu dropend">
                 <a class="dropdown-item" href="{{ route('cart.index') }}">Your Cart <span class="badge badge-primary" style="background-color:#2A707D;">{{ Cart::session(auth()->id())->getContent()->count()}}</span></a>
-                <a class="dropdown-item" href="{{ route('home') }}">My Account</a>
+                <a class="dropdown-item" href="{{ route('user.home') }}">My Account</a>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
@@ -97,6 +101,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-2">
+                    <a class="nav-link py-1 my-1 px-3 rounded"
+                        href="{{ route('store.show') }}">{{ __('Visit Store') }}</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"
                             style="font-size: large;" aria-hidden="true"></i>

@@ -17,15 +17,20 @@ class PagesController extends Controller
         return view('subscription', compact('cartItems'));
     }
 
+    public function storeIndex(){
+        $categories = Category::all();
+        return view('store.i')->with('categories',$categories);
+    }
+
     public function showStore(){
         $categories = Category::all();
         $stores = Store::all();
         if(Request::get('category')){
             $checked = $_GET['category'];
-            $products = Product::whereIn('category_id', $checked)->paginate(9);
+            $products = Product::where('category_id', $checked)->paginate(9);
         }else if(Request::get('store')){
             $checked = $_GET['store'];
-            $products = Product::whereIn('store_id', $checked)->paginate(9);
+            $products = Product::where('store_id', $checked)->paginate(9);
         }else{
             $products = Product::paginate(9);
         }
