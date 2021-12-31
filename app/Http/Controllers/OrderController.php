@@ -55,22 +55,22 @@ class OrderController extends Controller
             ]);
         }else{
             $address = Address::findOrFail($request->address_id)->toArray();
-            $new = array_merge($request->toArray(), $address);
+            $validatedData = array_merge($request->toArray(), $address);
             // dd($new);
         }
 
         if(empty($request->session()->get('order'))){
             $order = new Order;
-            $order->fill($new);
+            $order->fill($validatedData);
             $request->session()->put('order', $order);
         }else{
             $order = $request->session()->get('order');
-            $order->fill($new);
+            $order->fill($validatedData);
             $request->session()->put('order', $order);
         }
 
         // dd(Session::get('order'));
-        return redirect()->route('pay',['plan' => $new['plan']]);
+        return redirect()->route('pay',['plan' => $validatedData['plan']]);
 
     }
 
