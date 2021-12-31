@@ -174,8 +174,8 @@
                                                     <tr>
                                                         <td>{{ $item->name }}</td>
                                                         <td>{{ $item->pivot->quantity }}</td>
-                                                        <td>{{ $item->pivot->price }}</td>
-                                                        <td> {{ $total }}</td>
+                                                        <td>{{ number_format($item->pivot->price, 2) }}</td>
+                                                        <td> {{ number_format($total, 2) }}</td>
                                                     </tr>
                                                     @endforeach
 
@@ -185,7 +185,7 @@
                                                         <td class="thick-line text-center"><strong>Subtotal</strong>
                                                         </td>
                                                         <td class="thick-line text-right">£{{
-                                                            number_format($order->subtotal) }}</td>
+                                                            number_format($order->subtotal,2) }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no-line"></td>
@@ -200,7 +200,7 @@
                                                         <td class="no-line"></td>
                                                         <td class="no-line text-center"><strong>Total</strong></td>
                                                         <td class="no-line text-right">£{{
-                                                            number_format($order->grand_total) }}</td>
+                                                            number_format($order->grand_total, 2) }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
