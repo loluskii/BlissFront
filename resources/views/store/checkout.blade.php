@@ -111,70 +111,7 @@ Address Details
                                                 <p>{{ $address->shipping_phone }}</p>
                                             </div>
                                         </div>
-                                        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Change Shipping Details</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="{{ route('cart.address.update', $address->id) }}" method="post">
-                                                            @csrf
-                                                            <div class="row">
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="street_address">First Name</label>
-                                                                    <input type="text" class="form-control" name="shipping_fname" placeholder="First Name"
-                                                                        value="{{ $address->shipping_fname }}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="city">Last Name</label>
-                                                                    <input type="text" class="form-control" name="shipping_lname" placeholder="Last Name"
-                                                                        value="{{ $address->shipping_lname }}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="street_address">Street address</label>
-                                                                    <input type="text" class="form-control" name="shipping_address"
-                                                                        placeholder="Street Address" value="{{ $address->shipping_address }}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="city">Town/City</label>
-                                                                    <input type="text" class="form-control" name="shipping_city" placeholder="Town/City"
-                                                                        value="{{ $address->shipping_city}}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="apartment_suite">Landmark</label>
-                                                                    <input type="text" class="form-control" name="shipping_landmark"
-                                                                        placeholder="Apartment, suite, unit etc" value="{{ $address->shipping_landmark}}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="state">State</label>
-                                                                    <input type="text" class="form-control" name="shipping_state" placeholder="State"
-                                                                        value="{{ $address->shipping_state}}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="postcode">Postcode/Zip</label>
-                                                                    <input type="text" class="form-control" name="shipping_zipcode"
-                                                                        placeholder="Postcode / Zip" value="{{ $address->shipping_zipcode}}">
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <label for="phone_number">Phone Number</label>
-                                                                    <input type="number" class="form-control" name="shipping_phone" min="0"
-                                                                        value="{{ $address->shipping_phone}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
 
-                                                </div>
-                                            </div>
-                                        </div>
 
                                     @else
                                         <h6 class="font-weight-bold mb-3">Please fill in your address details</h6>
@@ -260,9 +197,72 @@ Address Details
         </form>
     </div>
 </div>
+@if ($address != null)
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Shipping Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('cart.address.update', $address->id) }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="street_address">First Name</label>
+                                <input type="text" class="form-control" name="shipping_fname" placeholder="First Name"
+                                    value="{{ $address->shipping_fname }}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="city">Last Name</label>
+                                <input type="text" class="form-control" name="shipping_lname" placeholder="Last Name"
+                                    value="{{ $address->shipping_lname }}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="street_address">Street address</label>
+                                <input type="text" class="form-control" name="shipping_address"
+                                    placeholder="Street Address" value="{{ $address->shipping_address }}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="city">Town/City</label>
+                                <input type="text" class="form-control" name="shipping_city" placeholder="Town/City"
+                                    value="{{ $address->shipping_city}}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="apartment_suite">Landmark</label>
+                                <input type="text" class="form-control" name="shipping_landmark"
+                                    placeholder="Apartment, suite, unit etc" value="{{ $address->shipping_landmark}}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" name="shipping_state" placeholder="State"
+                                    value="{{ $address->shipping_state}}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="postcode">Postcode/Zip</label>
+                                <input type="text" class="form-control" name="shipping_zipcode"
+                                    placeholder="Postcode / Zip" value="{{ $address->shipping_zipcode}}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="number" class="form-control" name="shipping_phone" min="0"
+                                    value="{{ $address->shipping_phone}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
 
-<!-- Button trigger modal -->
-<!-- Modal -->
+            </div>
+        </div>
+    </div>
+@endif
 @endsection
 
 @push('more_scripts')
