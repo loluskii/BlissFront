@@ -255,7 +255,7 @@
                                     <td scope="row">{{ $order->user->fname }} {{ $order->user->lname }}</td>
                                     <td>{{ $order->order_number }}</td>
                                     <td>{{ $order->item_count }}</td>
-                                    <td>£{{ number_format($order->subtotal) }}</td>
+                                    <td>£{{ number_format($order->subtotal,2) }}</td>
                                     <td>{{ $order->status }}</td>
                                 </tr>
                                 @endforeach
