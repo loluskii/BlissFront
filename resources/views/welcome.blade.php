@@ -383,10 +383,10 @@
                     <a href="#"><img src="{{ secure_asset('images/blissex.png') }}" height="30" alt=""></a>
                 </div>
                 <ul class="list-unstyled nav-links" style="display: inline-block;">
-                    <li><a href="#">About</a></li>
+                    <li><a href="https://blissexplorers.com">Explore</a></li>
                     <li><a href="{{ route('store.show') }}">Shop</a></li>
                     <li><a href="{{ route('register') }}">Create Account</a></li>
-                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <li><a href="https://blissexplorers.com/about-us">About</a></li>
                 </ul>
                 <div class="copyright">
                     <p class="mb-0"><small>©BlissExplorers. All Rights Reserved.</small></p>
