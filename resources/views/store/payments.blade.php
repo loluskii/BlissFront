@@ -417,7 +417,7 @@
                                 </fieldset>
                             </div>
                         </section>
-                        <button class="payment-button" id="card-button" class="btn btn-dark" type="submit" data-secret="{{ $intent->client_secret }}" type="submit">Pay £{{ $cartTotal }} </button>
+                        <button class="payment-button" id="card-button" class="btn btn-dark" type="submit" data-secret="{{ $intent->client_secret }}" type="submit">Pay £{{ number_format($cartTotal,2) }} </button>
                     </form>
                     <div id="card-errors" class="element-errors"></div>
                     <div><img src="https://paymentsplugin.com/assets/blog-images/stripe-badge-transparent.png" class="img-fluid" srcset=""></div>

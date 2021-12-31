@@ -59,46 +59,6 @@ class OrderController extends Controller
             // dd($new);
         }
 
-        // dd($validatedData);
-
-        // $order = new Order();
-        // $address = new Address();
-
-        // $order->order_number = uniqid('ON');
-        // $order->shipping_fname = $request->input('shipping_first_name');
-        // $order->shipping_lname = $request->input('shipping_last_name');
-        // $order->shipping_address = $request->input('shipping_street_address');
-        // $order->shipping_city = $request->input('shipping_city');
-        // $order->shipping_state = $request->input('shipping_state');
-        // $order->shipping_phone = $request->input('shipping_phone_number');
-        // $order->shipping_zipcode = $request->input('shipping_postcode');
-        // $order->shipping_landmark = $request->input('shipping_landmark');
-
-        // $order->grand_total = \Cart::session(auth()->id())->getTotal();
-        // $order->item_count = \Cart::session(auth()->id())->getContent()->count();
-        // $order->user_id = auth()->id();
-        // $order->plan = $request->input('plan');
-        // $order->payment_method = 'stripe';
-
-        // if($request->has('save-info')){
-        //     $address->user_id = auth()->id();
-        //     $address->shipping_fname  = $request->input('shipping_first_name');
-        //     $address->shipping_lname =  $request->input('shipping_last_name');
-        //     $address->shipping_address =  $request->input('shipping_street_address');
-        //     $address->shipping_landmark = $request->input('shipping_landmark');
-        //     $address->shipping_city = $request->input('shipping_city');
-        //     $address->shipping_state = $request->input('shipping_state');
-        //     $address->shipping_zipcode = $request->input('shipping_postcode');
-        //     $address->shipping_phone = $request->input('shipping_phone_number');
-        //     $address->save();
-        // }
-
-        // $order->save();
-        // $cartItems =  \Cart::session(auth()->id())->getContent();
-        // foreach($cartItems as $item){
-        //     $order->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
-        // }
-
         if(empty($request->session()->get('order'))){
             $order = new Order;
             $order->fill($new);

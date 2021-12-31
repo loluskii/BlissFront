@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="">First Name</label>
+                                        <label for="">Last Name</label>
                                         <input type="text" name="lname" class="form-control" value="{{ $user->lname }}" aria-describedby="helpId">
                                     </div>
                                 </div>
