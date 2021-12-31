@@ -30,7 +30,7 @@
             </div>
             @else
             <div class="text-center">
-                <img src="{{ secure_asset('images/empty-cart.svg') }}" class="img-fluid mb-4" srcset="">
+                <img src="{{ secure_asset('images/empty-cart.svg') }}" class="img-fluid mb-4" srcset=""> <br>
                 <small>You have not added any items to your cart! When you do, you'll see them here!</small>
             </div>
             @endif
