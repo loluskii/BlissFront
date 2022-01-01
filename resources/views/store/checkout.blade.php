@@ -101,7 +101,7 @@ Address Details
                                         <div class="d-flex justify-content-between">
                                             <h6 class="font-weight-bold mb-2">Address Details</h6>
                                             <a data-toggle="modal" data-target="#modelId" role="button" class="btn btn-sm d-none d-md-block">Change Address</a>
-                                            <button type="button" class="d-md-none d-sm-block btn btn-primary btn-sm"><i class="fa fa-pen"></i></button>
+                                            <a data-toggle="modal" data-target="#modelId"  class="d-md-none d-sm-block btn btn-primary btn-sm"><i class="fa fa-pen"></i></a>
                                         </div>
                                         <div class="card mt-2">
                                             <div class="card-body pb-0">

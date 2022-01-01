@@ -41,36 +41,40 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        if(request()->has('shipping_first_name')){
-            $validatedData = $request->validate([
-                'shipping_first_name' => 'required',
-                'shipping_last_name' => 'required',
-                'shipping_street_address'  => 'required',
-                'shipping_city' => 'required',
-                'shipping_state' => 'required',
-                'shipping_phone_number' => 'required',
-                'shipping_landmark' => 'required',
-                'plan' => 'required',
-                'shipping_postcode' => 'required',
-            ]);
-        }else{
-            $address = Address::findOrFail($request->address_id)->toArray();
-            $validatedData = array_merge($request->toArray(), $address);
-            // dd($new);
-        }
+        try {
+            if(request()->has('shipping_first_name')){
+                $validatedData = $request->validate([
+                    'shipping_first_name' => 'required',
+                    'shipping_last_name' => 'required',
+                    'shipping_street_address'  => 'required',
+                    'shipping_city' => 'required',
+                    'shipping_state' => 'required',
+                    'shipping_phone_number' => 'required',
+                    'shipping_landmark' => 'required',
+                    'plan' => 'required',
+                    'shipping_postcode' => 'required',
+                ]);
+            }else{
+                $address = Address::findOrFail($request->address_id)->toArray();
+                $validatedData = array_merge($request->toArray(), $address);
+                // dd($new);
+            }
 
-        if(empty($request->session()->get('order'))){
-            $order = new Order;
-            $order->fill($validatedData);
-            $request->session()->put('order', $order);
-        }else{
-            $order = $request->session()->get('order');
-            $order->fill($validatedData);
-            $request->session()->put('order', $order);
-        }
+            if(empty($request->session()->get('order'))){
+                $order = new Order;
+                $order->fill($validatedData);
+                $request->session()->put('order', $order);
+            }else{
+                $order = $request->session()->get('order');
+                $order->fill($validatedData);
+                $request->session()->put('order', $order);
+            }
 
-        // dd(Session::get('order'));
-        return redirect()->route('pay',['plan' => $validatedData['plan']]);
+            // dd(Session::get('order'));
+            return redirect()->route('pay',['plan' => $validatedData['plan']]);
+        } catch (\Exception $e) {
+            return back()->with('error', 'Ensure you fill all required fields and choose a plan');
+        }
 
     }
 
