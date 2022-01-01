@@ -63,5 +63,6 @@ Route::middleware('admin')->group(function () {
         Route::get('{id}',[PlanController::class,'show'])->name('plans.show');
         Route::post('update/{id}',[PlanController::class,'update'])->name('plans.update');
         Route::get('terminate/{plan}/{user}',[PlanController::class,'endSubscription'])->name('plans.terminate');
+        Route::get('delete/{id}',[PlanController::class,'destroy'])->name('plan.delete');
     });
 });

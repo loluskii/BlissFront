@@ -8,6 +8,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Plans</h1>
+        <a href="{{ route('admin.plan.delete', $plan->id) }}" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> Delete Plan</a>
     </div>
 
     <!-- Content Row -->

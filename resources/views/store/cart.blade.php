@@ -44,7 +44,7 @@ View Cart
                                                             <td>
                                                                 {{ $item->name }}
                                                             </td>
-                                                            <td>${{ $item->price }}</td>
+                                                            <td>£{{ number_format($item->price,2) }}</td>
                                                             <td>
                                                                 <div class="row h-100 justify-content-center">
                                                                     <form action="{{route('cart.update', $item->id)}}" method="POST">

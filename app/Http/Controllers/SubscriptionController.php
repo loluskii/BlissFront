@@ -68,12 +68,16 @@ class SubscriptionController extends Controller
     }
 
     public function finalCheckout(Request $request,Plans $plan){
-        $paymentMethods = $request->user()->paymentMethods();
-        $order = $request->session()->get('order');
-        $intent = $request->user()->createSetupIntent();
-        $cartTotal = (\Cart::session(auth()->id())->getTotal() * $plan->interval_count) + $plan->delivery_fee;
-        // dd($order);
-        return view('store.payments', compact('plan', 'intent', 'order','cartTotal'));
+        try {
+            $paymentMethods = $request->user()->paymentMethods();
+            $order = $request->session()->get('order');
+            $intent = $request->user()->createSetupIntent();
+            $cartTotal = (\Cart::session(auth()->id())->getTotal() * $plan->interval_count) + $plan->delivery_fee;
+            // dd($order);
+            return view('store.payments', compact('plan', 'intent', 'order','cartTotal'));
+        } catch (\Exception $e) {
+            return back()->with('error', 'Please check tour internet connection and try again');
+        }
     }
 
     public function createSubscription(Request $request,$id)
@@ -145,20 +149,17 @@ class SubscriptionController extends Controller
     }
 
     public function cancelSubscription($id){
-        $subscription = PlanSubscription::findOrFail($id);
-        // $order = Order::findOrFail($subscription->order_id);
-        $subscription->end_date = NOW();
-        $subscription->update();
-        $user = Auth::user();
-
-
-        SendOrderCancel::dispatch($user);
-
-
-
-
-
-        return redirect()->route('user.my_orders')->with('success', 'Subscription cancelled successfully!');
+        try {
+            $subscription = PlanSubscription::findOrFail($id);
+            // $order = Order::findOrFail($subscription->order_id);
+            $subscription->end_date = NOW();
+            $subscription->update();
+            $user = Auth::user();
+            SendOrderCancel::dispatch($user);
+            return redirect()->route('user.my_orders')->with('success', 'Subscription cancelled successfully!');
+        } catch (\Exception $e) {
+            return back()->with('error','Please check your internet connection');
+        }
 
     }
 }
