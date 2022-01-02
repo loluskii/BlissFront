@@ -25,6 +25,7 @@ class PagesController extends Controller
     public function showStore(){
         $categories = Category::all();
         $stores = Store::all();
+        $data = Request::all();
         if(Request::get('category')){
             $checked = $_GET['category'];
             $products = Product::where('category_id', $checked)->paginate(9);
@@ -34,7 +35,7 @@ class PagesController extends Controller
         }else{
             $products = Product::paginate(9);
         }
-        return view('store.index')->with('products', $products)->with('categories',$categories)->with('stores',$stores);
+        return view('store.index')->with('data',$data)->with('products', $products)->with('categories',$categories)->with('stores',$stores);
     }
 
     public function viewCart(){

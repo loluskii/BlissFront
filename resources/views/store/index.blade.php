@@ -296,7 +296,7 @@
                 @endif
             </div> <!-- / .row -->
             <div class="d-flex justify-content-end">
-                {{ $products->links() }}
+                {{ $products->appends($data)->links() }}
             </div>
             <!-- Pagination -->
 
