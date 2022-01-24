@@ -76,47 +76,48 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="products">
-                        <thead>
-                            <tr>
-                                <th> Image</th>
-                                <th>Product ID</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Store Owner</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($products as $product)
-                            <tr>
-                                <td><img src="{{ $product->cover_img }}" alt="" srcset=""
-                                        style="height: 30px; width: 30px"></td>
-                                <td>{{ $product->product_ref }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->category->name ?? 'No Category' }}</td>
-                                <td>£{{ number_format($product->price, 2) }}</td>
-                                <td>{{ $product->store->name ?? 'Admin' }}</td>
-                                <td>
-                                    @include('admin.products.product-action')
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="products">
+                            <thead>
+                                <tr>
+                                    <th> Image</th>
+                                    <th>Product ID</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Store Owner</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($products as $product)
+                                <tr>
+                                    <td><img src="{{ $product->cover_img }}" alt="" srcset=""
+                                            style="height: 30px; width: 30px"></td>
+                                    <td>{{ $product->product_ref }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->category->name ?? 'No Category' }}</td>
+                                    <td>£{{ number_format($product->price, 2) }}</td>
+                                    <td>{{ $product->store->name ?? 'Admin' }}</td>
+                                    <td>
+                                        @include('admin.products.product-action')
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
 
 <div class="modal fade" id="newProduct" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">

@@ -198,7 +198,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container d-none">
     <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 mb-4 mt-sm-0">
@@ -359,8 +359,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8" style="color: #4E2B1D;">
-                        <h3>What are you waiting for?</h3>
-                        {{-- <p>Join now and automate your monthly shopping with Bliss. Click the button to start now</p> --}}
+                        {{-- <h3>What are you waiting for?</h3> --}}
+                        <p>Subscription is activated between 24hrs to 48hrs after receipt of payment. Once you pay, you agree that the items selected are what you'll receive.</p>
 
                     </div>
                     <div class="col-md-4 my-auto">

@@ -139,7 +139,7 @@ Address Details
                                             <div class="col-md-6 mb-3">
                                                 <label for="apartment_suite">Landmark</label>
                                                 <input type="text" class="form-control" name="shipping_landmark"
-                                                    placeholder="Apartment, suite, unit etc" value="">
+                                                    placeholder="Landmark/ Bank Account" value="">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="state">State</label>
