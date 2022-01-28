@@ -349,7 +349,8 @@
                                 <div class="card-body">
                                     <h5>{{ $order->shipping_fname }} {{ $order->shipping_lname }}</h5>
                                     <p class="mb-2">{{ $order->shipping_address }}, {{ $order->shipping_city }}</p>
-                                    <p class="mb-0">{{ $order->shipping_phone }}</p>
+                                    <p class="mb-2">{{ $order->shipping_phone }}</p>
+                                    <p class="mb-0">{{ $order->shipping_landmark }}</p>
                                 </div>
                             </div>
                             <fieldset class="with-state">

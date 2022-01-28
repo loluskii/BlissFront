@@ -118,17 +118,17 @@ Address Details
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="first_name">First Name</label>
-                                                <input type="text" class="form-control" name="shipping_first_name"
+                                                <input type="text" class="form-control" name="shipping_fname"
                                                     placeholder="First Name" value="" required="">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="last_name">Last Name</label>
-                                                <input type="text" class="form-control" name="shipping_last_name"
+                                                <input type="text" class="form-control" name="shipping_lname"
                                                     placeholder="Last Name" value="" required="">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="street_address">Street address</label>
-                                                <input type="text" class="form-control" name="shipping_street_address"
+                                                <input type="text" class="form-control" name="shipping_address"
                                                     placeholder="Street Address" value="">
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -137,9 +137,9 @@ Address Details
                                                     placeholder="Town/City" value="">
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="apartment_suite">Landmark</label>
+                                                <label for="more_details">More Details</label>
                                                 <input type="text" class="form-control" name="shipping_landmark"
-                                                    placeholder="Landmark/ Bank Account" value="">
+                                                    placeholder="Landmark/ Account Details(Pocket Money)" value="">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="state">State</label>
@@ -153,7 +153,7 @@ Address Details
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="phone_number">Phone Number</label>
-                                                <input type="number" class="form-control" name="shipping_phone_number"
+                                                <input type="number" class="form-control" name="shipping_phone"
                                                     min="0" value="">
                                             </div>
                                         </div>
@@ -234,7 +234,7 @@ Address Details
                             <div class="col-md-6 mb-3">
                                 <label for="apartment_suite">Landmark</label>
                                 <input type="text" class="form-control" name="shipping_landmark"
-                                    placeholder="Apartment, suite, unit etc" value="{{ $address->shipping_landmark}}">
+                                    placeholder="Landmark " value="{{ $address->shipping_landmark}}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="state">State</label>
