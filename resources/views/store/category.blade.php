@@ -190,7 +190,7 @@
             text-align: center;
         }
         .header-text{
-            font-size: 25px;
+            font-size: 30px;
             text-align: center;
         }
     }
@@ -198,113 +198,49 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-6 mb-4 mt-sm-0">
-                <div class="pl-sm-5 hero">
-                    <h3 class="header-text mb-3">Subscription Service for Africans in Diaspora</h3>
-                    <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for loved ones back home. </p>
-                    <a href="#how-it-works" class="btn rounded btn-primary mr-2">How it works</a>
-                    {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="{{ secure_asset('images/header.JPG') }}"
-                    class="img-fluid header-img " alt="" srcset="">
-            </div>
-            {{-- <div class="col-md-6 mt-4 mt-sm-0 d-none">
-                <div class="pl-sm-5 hero">
-                    <h2 class="mb-2">Personalize your shopping experience</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
-                        incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
-                        veritatis in atque amet iste!
-                    </p>
-                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
-                    <button type="submit" class="btn ">Learn more</button>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-</div>
-<div class="container d-none">
-    <div class="section py-5 my-5 " >
-        <div class="row h-100 justify-content-between">
-            <div class="col-md-6 my-auto">
-                <div class="">
-                    <h1>Our Services</h1>
-                    <p>Ease you can always rely on. </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="services__type-item services__type-food shadow p-3 rounded"
-                    style="background-color: #48bbcf52">
-                    <h3 data-v-4241bfd6="">🥘</h3>
-                    <h5 data-v-4241bfd6="">Groceries</h5>
-                    <p data-v-4241bfd6="">
-                        High-quality groceries from the best and most popular stores around you
-                    </p>
-                    <div class="services__type-bg" data-v-4241bfd6=""><img
-                            src="https://res.cloudinary.com/eden-life-inc/image/upload/v1611318743/eden-website-v2/food-img1_ls530a.png"
-                            alt="food" style="" class="img-fluid"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="how-it-works" style="background-color: #C6F4FD">
     <div class="container py-5">
         <div class="section">
             <div class="text-center">
-                <h1 class="">How it Works</h1>
-                <p>Follow these simple three steps</p>
+                <h1 class="">Our Categories</h1>
+                <p></p>
                 <div class="mt-5">
                 </div>
             </div>
 
             <div class="row text-center">
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow h-100">
-                        {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
-                        <div class="card-body">
-                            <div>
-                                <img src="{{ secure_asset('images/select-items.svg') }}" class="img-fluid"
-                                    style="height: 200px" alt="" srcset="">
-                            </div>
-                            <h4 class="text-center pb-2">Select your items</h4>
-                            <p class="card-text">Choose from our vast lists of categories or stores, items
-                                you'll need on a constant basis </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow h-100">
+                <div class="col-md-2"></div>
+                <div class="col-md-4 mx-auto mb-3">
+                    <div class="card shadow">
                         {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
                         <div class="card-body">
                             <div>
                                 <img src="{{ secure_asset('images/choose-interval.svg') }}"
                                     style="height: 200px" class="img-fluid" alt="">
                             </div>
-                            <h4 class="card-title">Choose a Plan</h4>
+                            <h4 class="card-title">Groceries</h4>
                             <p class="card-text">Choose from one of our plans, the interval that fits your exact
                                 needs and add your delivery details</p>
+                                <a name="" id="" class="btn btn-primary rounded" href="#" role="button">Visit</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="card shadow h-100">
+                    <div class="card shadow">
                         {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
                         <div class="card-body">
                             <div>
                                 <img src="{{ secure_asset('images/relax.svg') }}" class="img-fluid"
                                     style="height: 200px" alt="">
                             </div>
-                            <h4 class="card-title">Sit back and relax</h4>
+                            <h4 class="card-title">Pocket Money</h4>
                             <p class="card-text">No need for monthly grocery runs anymore. Your items will be
                                 delivered to you according to your plan. We got you!</p>
+                                <a name="" id="" class="btn btn-primary rounded" href="#" role="button">Visit</a>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-2"></div>
 
             </div>
         </div>
@@ -312,65 +248,6 @@
 
 </div>
 
-<div class="py-5 my-5 bg-white d-none">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="heading text-left pt-2 pb-5">
-                    <h1 class="display-4">Our Plans</h1>
-                    <p class="my-1">Bliss offers five subscription plans, each carefully crafted to suit your shopping
-                        needs, leaving you with one less thing to worry about</p>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="pricing card-deck">
-                            @foreach ($plans as $plan)
-                            <div class="col-md-4 px-0">
-                                <div class="card shadow-sm card-pricing text-center  px-3 mb-4 bg-light"> <span
-                                        class="h6 w-60 mx-auto px-4 py-1 rounded-bottom text-white shadow-sm"
-                                        style="background-color: #2A707D"> {{ Str::before($plan->name, ' Subscription'); }}</span>
-                                    <div class="bg-transparent card-header pt-4 border-0">
-                                        <h1 class="h6 font-weight-bold text-center mb-0">Every {{ $plan->interval_count }}
-                                            Month(s)</h1>
-                                    </div>
-                                    <div class="card-body pt-0 px-1">
-                                        <p class="mb-0">{{ $plan->description }} </p>
-                                        {{-- <button type="button" class="btn btn-outline-secondary mb-3 hvr">Order
-                                            now</button> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container mt-3">
-    <div class="section">
-        <div class="jumbotron p-sm-5 p-3 text-white" style="background-color: #F8D5C7; ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8" style="color: #4E2B1D;">
-                        {{-- <h3>What are you waiting for?</h3> --}}
-                        <p>Subscription is activated between 24hrs to 48hrs after receipt of payment. Once you pay, you agree that the items selected are what you'll receive.</p>
-
-                    </div>
-                    <div class="col-md-4 my-auto">
-                        <p class="lead float-sm-right">
-                            <a class="btn btn-primary btn-sm rounded" href="{{ route('store.show') }}" role="button">Visit Store</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
 
 <footer class="footer-16371 bg-white">
     <div class="container">

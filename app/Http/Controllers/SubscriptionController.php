@@ -82,6 +82,7 @@ class SubscriptionController extends Controller
 
     public function createSubscription(Request $request,$id)
     {
+        // dd($request->all());
         $plan = Plans::findOrFail($id);
         $user = $request->user();
         $paymentMethod = $request->paymentMethod;
@@ -133,6 +134,7 @@ class SubscriptionController extends Controller
             return view('order.order-success');
 
         } catch (\Exception $e) {
+            DB::rollback();
             return view('order.order-failure')->with('error',$e->getMessage());
         }
     }
