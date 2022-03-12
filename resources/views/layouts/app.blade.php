@@ -36,7 +36,7 @@
 <body>
     <div id="app">
         @include('layouts.partials.nav')
-        <main class="">
+        <main class="py-4">
             @yield('content')
         </main>
 
