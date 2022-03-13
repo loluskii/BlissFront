@@ -19,6 +19,12 @@ class OrderController extends Controller
         return view('admin.orders.index')->with('order', $order)->with('subscriptions', $subscriptions)->with('sales', $sales)->with('profit', $profit);
     }
 
+    public function pmOrders(){
+        $orders = Order::where('has_pm_package',true)->get();
+        // dd($orders);
+        return view('admin.orders.pm-orders',compact('orders'));
+    }
+
     public function show($id){
         $order = Order::findOrFail($id);
         return view('admin.orders.show')->with('order', $order);

@@ -18,6 +18,7 @@ use App\Mail\AdminNotifyOrder;
 use App\Jobs\NotifyAdminOnOrder;
 use App\Models\PlanSubscription;
 use App\Actions\Orders\StoreOrder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Services\Orders\OrderQueries;

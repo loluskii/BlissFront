@@ -18,6 +18,13 @@ class Order extends Model
         'shipping_landmark' ,
         'plan' ,
         'shipping_zipcode',
+        'pm_fname',
+        'pm_lname',
+        'pm_country',
+        'pm_phone_no',
+        'pm_bank_name',
+        'pm_acct_no',
+        'has_pm_package',
     ];
 
 

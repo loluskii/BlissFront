@@ -40,6 +40,7 @@ Route::middleware('admin')->group(function () {
 
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{id}',[OrderController::class, 'show'])->name('orders.show');
+    Route::get('pm',[OrderController::class,'pmOrders'])->name('orders.pm');
     Route::get('orders/update/{id}',[OrderController::class,'update'])->name('orders.update');
 
     Route::post('products/create', [ProductController::class, 'store'])->name('product.store');

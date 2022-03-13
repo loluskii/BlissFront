@@ -58,7 +58,7 @@
     <div id="orders" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin.orders.index') }}">All Orders</a>
-            <a class="collapse-item" href="">Pending Orders</a>
+            <a class="collapse-item" href="{{ route('admin.orders.pm') }}">Pocket Money Orders</a>
         </div>
     </div>
 </li>

@@ -24,7 +24,7 @@ class StoreOrder{
         $newOrder->shipping_state = $order->shipping_state;
         $newOrder->shipping_phone = $order->shipping_phone;
         $newOrder->shipping_zipcode = $order->shipping_zipcode;
-        $newOrder->shipping_landmark = $order->shipping_landmark;
+        $newOrder->shipping_landmark = $order->shipping_landmark ?? 'none';
         $newOrder->subtotal = $subamount;
         $newOrder->grand_total = $amount;
         $newOrder->item_count = \Cart::session(auth()->id())->getContent()->count();
@@ -34,6 +34,15 @@ class StoreOrder{
         $newOrder->delivery_total = $delivery_fee;
         $newOrder->is_paid = 1;
         $newOrder->order_reference = $ref;
+        if($order->has_pm_package){
+            $newOrder->has_pm_package = true;
+            $newOrder->pm_fname = $order->pm_fname;
+            $newOrder->pm_lname = $order->pm_lname;
+            $newOrder->pm_country = $order->pm_country;
+            $newOrder->pm_phone_no = $order->pm_phone_no;
+            $newOrder->pm_bank_name = $order->pm_bank_name;
+            $newOrder->pm_acct_no = $order->pm_acct_no;
+        }
 
         $user_address = Address::where([
             ['user_id', '=' , auth()->id() ],
@@ -53,14 +62,14 @@ class StoreOrder{
         } else {
             $hasDefaultAddress = Address::where('user_id',auth()->id())->where('is_default',1);
             $address->user_id = auth()->id();
-            $address->shipping_fname  = $order->shipping_first_name;
-            $address->shipping_lname =  $order->shipping_last_name;
-            $address->shipping_address =  $order->shipping_street_address;
-            $address->shipping_landmark = $order->shipping_landmark;
+            $address->shipping_fname  = $order->shipping_fname;
+            $address->shipping_lname =  $order->shipping_lname;
+            $address->shipping_address =  $order->shipping_address;
+            $address->shipping_landmark = $order->shipping_landmark ?? 'none';
             $address->shipping_city = $order->shipping_city;
             $address->shipping_state = $order->shipping_state;
-            $address->shipping_zipcode = $order->shipping_postcode;
-            $address->shipping_phone = $order->shipping_phone_number;
+            $address->shipping_zipcode = $order->shipping_zipcode;
+            $address->shipping_phone = $order->shipping_phone;
             if($hasDefaultAddress){
                 $address->is_default = 0;
             }
