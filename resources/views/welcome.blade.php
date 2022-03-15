@@ -204,7 +204,7 @@
             <div class="col-md-6 mb-4 mt-sm-0">
                 <div class="pl-sm-5 hero">
                     <h3 class="header-text mb-3">Subscription Service for Africans in Diaspora</h3>
-                    <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for loved ones back home. </p>
+                    <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for loved ones anywhere in Nigeria 🇳🇬 and Ghana 🇬🇭 at the moment. More to follow </p>
                     <a href="#how-it-works" class="btn rounded btn-primary mr-2">How it works</a>
                     {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
                 </div>
@@ -357,7 +357,7 @@
                 <div class="row">
                     <div class="col-md-8" style="color: #4E2B1D;">
                         {{-- <h3>What are you waiting for?</h3> --}}
-                        <p>Subscription is activated between 24hrs to 48hrs after receipt of payment. Once you pay, you agree that the items selected are what you'll receive.</p>
+                        <p>Subscription is activated between 48hrs to 72hrs after receipt of payment. Once you pay, you agree that the items selected are what you'll receive.</p>
 
                     </div>
                     <div class="col-md-4 my-auto">

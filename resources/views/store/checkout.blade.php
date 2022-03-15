@@ -152,7 +152,7 @@
                                                         placeholder="State" value="">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
-                                                    <label for="postcode">Postcode/Zip</label>
+                                                    <label for="postcode">Street Number</label>
                                                     <input type="text" class="form-control" name="shipping_zipcode"
                                                         placeholder="Postcode / Zip" value="">
                                                 </div>
@@ -178,12 +178,12 @@
                                                 <div class="col-md-6 mb-3">
                                                     <label for="last_name">Recipient First Name</label>
                                                     <input type="text" class="form-control" name="pm_fname"
-                                                        placeholder="Last Name" value="" required="">
+                                                        placeholder="First Name" value="" required="">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="street_address">Recipient Last Name</label>
                                                     <input type="text" class="form-control" name="pm_lname"
-                                                        placeholder="Street Address" value="">
+                                                        placeholder="Last Name" value="">
                                                 </div>
                                             </div>
                                             <div class="form-row">
