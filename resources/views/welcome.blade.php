@@ -203,7 +203,7 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 mb-4 mt-sm-0">
                 <div class="pl-sm-5 hero">
-                    <h3 class="header-text mb-3">Subscription Service for Africans in Diaspora</h3>
+                    <h3 class="header-text mb-3">Subscription Errand Service for Africans in Diaspora</h3>
                     <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for loved ones anywhere in Nigeria 🇳🇬 and Ghana 🇬🇭 at the moment. More to follow </p>
                     <a href="#how-it-works" class="btn rounded btn-primary mr-2">How it works</a>
                     {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
