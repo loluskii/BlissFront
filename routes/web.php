@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/subscribe/{id}', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
     Route::any('filter',[PagesController::class,'filter'])->name('filter');
     Route::get('/success', function () {
+        \Cart::session(auth()->id())->clear();
         return view('order.order-success');
     })->name('order.success');
 

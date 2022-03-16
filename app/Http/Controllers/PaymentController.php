@@ -56,7 +56,7 @@ class PaymentController extends Controller
         try {
             $data = $request->all();
             switch ($data['type']) {
-                case 'charge.succeeded';
+                case 'charge.succeeded':
                     $plan = Plans::findOrFail($data['data']['metadata']['plan_id']);
                     $subamount = $data['data']['metadata']['subamount'];
                     $delivery_fee = $plan->delivery_fee;
