@@ -49,8 +49,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::resource('orders', OrderController::class)->only('store');
     Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('pay');
+
+    //Redirect to Stripe Checkout
+    Route::post('/stripe-checkout',[PaymentController::class, 'initPayment'])->name('stripe.checkout');
+
     Route::post('/subscribe/{id}', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
     Route::any('filter',[PagesController::class,'filter'])->name('filter');
+    Route::get('/success', function () {
+        return view('order.order-success');
+    })->name('order.success');
+
+    Route::get('/failure', function () {
+        return view('order.order-failure');
+    })->name('order.failure');
+
+
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
@@ -68,52 +81,5 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
-Route::get('/success', function () {
-    return view('order.order-success');
-})->name('order.success');
-
-Route::get('/failure', function () {
-    return view('order.order-failure');
-})->name('order.failure');
-
 // Route::stripeWebhooks('stripe-webhook');
 
-Route::post('/stripe-checkout', function (Request $request) {
-    // $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-    $plan = Plans::findOrFail($request->plan_id);
-    $user = $request->user();
-    $paymentMethod = $request->paymentMethod;
-    $amount = $request->amount;
-    $order = $request->session()->get('order');
-    $subamount = \Cart::session(auth()->id())->getTotal() * $plan->interval_count;
-
-    $checkout_session = \Stripe\Checkout\Session::create([
-        'line_items' => [[
-            'price_data' => [
-                'currency' => 'gbp',
-                'product_data' => [
-                    'name' => 'Bliss Explorers Subscription Package',
-                ],
-                'unit_amount' => $request->amount * 100,
-            ],
-            'quantity' => 1,
-        ]],
-        'payment_intent_data' => [
-            'metadata' => [
-                'plan_id' => $plan->id,
-                'order' => $order,
-                'subamount' => $subamount,
-            ]
-        ],
-        'mode' => 'payment',
-        'success_url' => route('order.success'),
-        'cancel_url' => route('order.failure'),
-    ]);
-
-    // header("HTTP/1.1 303 See Other");
-    // header("Location: " . $checkout_session->url);
-    return redirect()->away($checkout_session->url);
-
-
-})->name('stripe.checkout');
