@@ -2,7 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Plans;
 use Illuminate\Http\Request;
+use App\Jobs\SendOrderInvoice;
+use App\Jobs\NotifyAdminOnOrder;
+use App\Models\PlanSubscription;
+use App\Actions\Orders\StoreOrder;
+use Illuminate\Support\Facades\Auth;
+use App\Services\Orders\OrderQueries;
+use App\Actions\Orders\StorePaymentRecord;
 
 class PaymentController extends Controller
 {
@@ -46,7 +57,7 @@ class PaymentController extends Controller
             $data = $request->all();
             switch ($data['type']) {
                 case 'charge.succeeded';
-                    $plan = Plan::findOrFail($data['data']['metadata']['plan_id']);
+                    $plan = Plans::findOrFail($data['data']['metadata']['plan_id']);
                     $subamount = $data['data']['metadata']['subamount'];
                     $delivery_fee = $plan->delivery_fee;
                     $amount = $data['data']['object']['amount'] / 100;
