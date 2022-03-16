@@ -111,8 +111,9 @@ Route::post('/stripe-checkout', function (Request $request) {
         'cancel_url' => route('order.failure'),
     ]);
 
-    header("HTTP/1.1 303 See Other");
-    header("Location: " . $checkout_session->url);
+    // header("HTTP/1.1 303 See Other");
+    // header("Location: " . $checkout_session->url);
+    return redirect()->away($checkout_session->url);
 
 
 })->name('stripe.checkout');
