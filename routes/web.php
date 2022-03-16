@@ -80,7 +80,7 @@ Route::get('/failure', function () {
 
 Route::post('/stripe-checkout', function (Request $request) {
     // $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    // \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     $plan = Plans::findOrFail($request->plan_id);
     $user = $request->user();
     $paymentMethod = $request->paymentMethod;
