@@ -116,9 +116,3 @@ Route::post('/stripe-checkout', function (Request $request) {
 
 
 })->name('stripe.checkout');
-`
-
-
-
-
-
