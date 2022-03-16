@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Plans;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -36,6 +37,8 @@ Route::get('/store', [PagesController::class, 'showStore'])->name('store.show');
 Route::get('contact', function () {
     return view('contact-us');
 })->name('contact');
+Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/store/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
@@ -65,9 +68,55 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
-// Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
-//     Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
-// });
+Route::get('/success', function () {
+    return view('order.order-success');
+})->name('order.success');
+
+Route::get('/failure', function () {
+    return view('order.order-failure');
+})->name('order.failure');
+
+// Route::stripeWebhooks('stripe-webhook');
+
+Route::post('/stripe-checkout', function (Request $request) {
+    // $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    $plan = Plans::findOrFail($request->plan_id);
+    $user = $request->user();
+    $paymentMethod = $request->paymentMethod;
+    $amount = $request->amount;
+    $order = $request->session()->get('order');
+    $subamount = \Cart::session(auth()->id())->getTotal() * $plan->interval_count;
+
+    $checkout_session = \Stripe\Checkout\Session::create([
+        'line_items' => [[
+            'price_data' => [
+                'currency' => 'gbp',
+                'product_data' => [
+                    'name' => 'Bliss Explorers Subscription Package',
+                ],
+                'unit_amount' => $request->amount * 100,
+            ],
+            'quantity' => 1,
+        ]],
+        'payment_intent_data' => [
+            'metadata' => [
+                'plan_id' => $plan->id,
+                'order' => $order,
+                'subamount' => $subamount,
+            ]
+        ],
+        'mode' => 'payment',
+        'success_url' => route('order.success'),
+        'cancel_url' => route('order.failure'),
+    ]);
+
+    header("HTTP/1.1 303 See Other");
+    header("Location: " . $checkout_session->url);
+
+
+})->name('stripe.checkout');
+`
 
 
 

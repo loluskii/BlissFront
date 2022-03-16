@@ -178,7 +178,7 @@
                                                 <div class="col-md-6 mb-3">
                                                     <label for="last_name">Recipient First Name</label>
                                                     <input type="text" class="form-control" name="pm_fname"
-                                                        placeholder="First Name" value="" required="">
+                                                        placeholder="First Name" value="">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="street_address">Recipient Last Name</label>

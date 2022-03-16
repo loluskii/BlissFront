@@ -16,7 +16,10 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "stripe/stripe-php": "^7.100"
+        "league/omnipay": "^3.2",
+        "omnipay/stripe": "^3.1",
+        "spatie/laravel-stripe-webhooks": "^3.1",
+        "stripe/stripe-php": "^7.116"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

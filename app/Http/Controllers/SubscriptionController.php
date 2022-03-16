@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Services\Orders\OrderQueries;
 use App\Actions\Orders\StorePaymentRecord;
+use Laravel\Cashier\Exceptions\IncompletePayment;
 
 class SubscriptionController extends Controller
 {
@@ -72,10 +73,10 @@ class SubscriptionController extends Controller
         try {
             $paymentMethods = $request->user()->paymentMethods();
             $order = $request->session()->get('order');
-            $intent = $request->user()->createSetupIntent();
+            // $intent = $request->user()->createSetupIntent();
             $cartTotal = (\Cart::session(auth()->id())->getTotal() * $plan->interval_count) + $plan->delivery_fee;
             // dd($order);
-            return view('store.payments', compact('plan', 'intent', 'order','cartTotal'));
+            return view('store.payments', compact('plan', 'order','cartTotal'));
         } catch (\Exception $e) {
             return back()->with('error', 'Please check tour internet connection and try again');
         }
@@ -91,21 +92,36 @@ class SubscriptionController extends Controller
         $order = $request->session()->get('order');
 
         try {
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $checkout_session = \Stripe\Checkout\Session::create([
+                'line_items' => [[
+                    'price_data' => [
+                        'currency' => 'gbp',
+                        'product_data' => [
+                            'name' => 'T-shirt',
+                        ],
+                        'unit_amount' => $amount,
+                    ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'success_url' => route('order.success'),
+                'cancel_url' => route('order.failure'),
+
+
+            ]);
+
+            header("HTTP/1.1 303 See Other");
+            header("Location: " . $checkout_session->url);
+            dd($checkout_session);
+        } catch (\Exception $th) {
+            //throw $th;
+        }
+
+        try {
             $user->createOrGetStripeCustomer();
             $user->updateDefaultPaymentMethod($paymentMethod);
-            // $stripeCharge = $this->stripe->charges->create([
-            //     'amount' => $amount * 100,
-            //     'currency' => 'gbp',
-            //     'customer' => $customer['id'],
-            //     'source' => $paymentMethod,
-            //     'description' => 'Payment for '.$plan->name,
-            //     'receipt_email' => $user->email,
-            //     'shipping' => [
-            //         'address' => $order->shipping_street_address.' ,'.$order->shipping_city.', '.$order->shipping_state,
-            //         'name' => $order->shipping_first_name.' '.$order->shipping_last_name,
-            //         'phone' => $order->shipping_phone_number,
-            //     ]
-            // ]);
+
             $stripeCharge = $user->charge($amount * 100, $paymentMethod,['receipt_email' => $user->email]);
             $payment_id= $stripeCharge->jsonSerialize()['id'];
             $subamount = \Cart::session(auth()->id())->getTotal() * $plan->interval_count;
@@ -134,9 +150,20 @@ class SubscriptionController extends Controller
             $request->session()->forget('order');
             return view('order.order-success');
 
-        } catch (\Exception $e) {
-            DB::rollback();
-            return view('order.order-failure')->with('error',$e->getMessage());
+        } catch (IncompletePayment $e) {
+            return redirect()->route(
+                'cashier.payment',
+                [$e->payment->id, 'redirect' => route('home')]
+            );
+            // DB::rollback();
+            // return view('order.order-failure')->with('error',$e->getMessage());
+        }
+    }
+
+    public function getResponse(Request $request){
+        $status = request()->success;
+        if($status){
+
         }
     }
 
