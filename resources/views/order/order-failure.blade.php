@@ -9,7 +9,7 @@
                     <div class="status success card-body text-center">
                         <h1 style="color: #2A707D;">An Error Occurred! 😕</h1>
                         <p>It's not you, it's us. We're Sorry your order didn't go through. Please try again</p> <br>
-                        <span class="text-danger">{{ $error }}</span>
+                        {{-- <span class="text-danger">{{ $error }}</span> --}}
 
                         <p><a href="{{ route('store.show') }}" class="btn btn-lg">Back to Store</a></p>
                     </div>
