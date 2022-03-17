@@ -424,7 +424,7 @@
                                         <input type="hidden" name="email" value="{{ Auth::user()->email }}">
                                         <input type="hidden" name="orderID" value="345">
                                         <input type="hidden" name="currency" value="GBP">
-                                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+                                        <input type="hidden" name="reference" value="">
                                         <p> <button type="submit" disabled class="btn btn-primary ">Continue to Paystack</button>
                                         </p>
                                         <p class="text-muted"> Note: After clicking on the button, you will be directed
