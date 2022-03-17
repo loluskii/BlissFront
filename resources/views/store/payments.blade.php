@@ -420,18 +420,7 @@
                                     <form role="form" method="POST" action="{{ route('stripe.checkout') }}">
                                         @csrf
                                         <input type="hidden" name="amount" value="{{ $cartTotal }}">
-                                        <div class="form-group"> <label for="username">
-                                                <h6>Card Owner</h6>
-                                            </label> <input type="text" name="username" placeholder="Card Owner Name"
-                                                required class="form-control "> </div>
-                                        <div class="form-group">
-                                            <label for="username">
-                                                <h6>Email</h6>
-                                            </label>
-                                            <input type="email" name="email" placeholder="Email" required
-                                                class="form-control ">
-                                        </div>
-                                        <p> <button type="submit" class="btn btn-primary ">Continue</button> </p>
+                                        <p> <button type="submit" class="btn btn-primary ">Continue to Flutterwave</button> </p>
                                         <p class="text-muted"> Note: After clicking on the button, you will be directed
                                             to a secure gateway for payment. After completing the payment process, you will
                                             be redirected back to the website to view details of your order. </p>
@@ -455,18 +444,7 @@
                                         @csrf
                                         <input type="hidden" name="amount" value="{{ $cartTotal }}">
                                         <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-                                        <div class="form-group"> <label for="username">
-                                                <h6>Card Owner</h6>
-                                            </label> <input type="text" name="username" placeholder="Card Owner Name"
-                                                required class="form-control "> </div>
-                                        <div class="form-group">
-                                            <label for="username">
-                                                <h6>Email</h6>
-                                            </label>
-                                            <input type="email" name="email" placeholder="Email" required
-                                                class="form-control ">
-                                        </div>
-                                        <p> <button type="submit" class="btn btn-primary ">Continue to Checkout</button> </p>
+                                        <p> <button type="submit" class="btn btn-primary ">Continue to Stripe</button> </p>
                                         <p class="text-muted"> Note: After clicking on the button, you will be directed
                                             to a secure gateway for payment. After completing the payment process, you will
                                             be redirected back to the website to view details of your order. </p>
