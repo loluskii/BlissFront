@@ -37,7 +37,6 @@ Route::get('/store', [PagesController::class, 'showStore'])->name('store.show');
 Route::get('contact', function () {
     return view('contact-us');
 })->name('contact');
-Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
 
 
 Route::middleware(['auth'])->group(function () {
@@ -48,10 +47,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('update-address/{id}', [CartController::class, 'updateAddress'])->name('cart.address.update');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::resource('orders', OrderController::class)->only('store');
-    Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('pay');
+    Route::get('/pay/{plan}', [SubscriptionController::class, 'finalCheckout'])->name('payment');
 
     //Redirect to Stripe Checkout
     Route::post('/stripe-checkout',[PaymentController::class, 'initPayment'])->name('stripe.checkout');
+    Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
+
+    //Paystack Checkout
+    Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
 
     Route::post('/subscribe/{id}', [SubscriptionController::class, 'createSubscription'])->name('subscription.create');
     Route::any('filter',[PagesController::class,'filter'])->name('filter');

@@ -71,7 +71,7 @@ class SubscriptionController extends Controller
 
     public function finalCheckout(Request $request,Plans $plan){
         try {
-            $paymentMethods = $request->user()->paymentMethods();
+            // $paymentMethods = $request->user()->paymentMethods();
             $order = $request->session()->get('order');
             // $intent = $request->user()->createSetupIntent();
             $cartTotal = (\Cart::session(auth()->id())->getTotal() * $plan->interval_count) + $plan->delivery_fee;

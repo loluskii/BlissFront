@@ -6,8 +6,8 @@ use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Plans;
-use App\Models\PaymentRecord;
 use Illuminate\Http\Request;
+use App\Models\PaymentRecord;
 use App\Jobs\SendOrderInvoice;
 use App\Jobs\NotifyAdminOnOrder;
 use App\Models\PlanSubscription;
@@ -15,7 +15,9 @@ use App\Actions\Orders\StoreOrder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Orders\OrderQueries;
+use Illuminate\Support\Facades\Redirect;
 use App\Actions\Orders\StorePaymentRecord;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 class PaymentController extends Controller
 {
@@ -101,6 +103,13 @@ class PaymentController extends Controller
         }
     }
 
-    public function initRave(){
+    public function redirectToGateway(Request $request)
+    {
+        try{
+            return Paystack::getAuthorizationUrl()->redirectNow();
+        }catch(\Exception $e) {
+        return $e;
+            // return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
+        }
     }
 }

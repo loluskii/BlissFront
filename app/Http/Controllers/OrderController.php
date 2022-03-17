@@ -62,7 +62,7 @@ class OrderController extends Controller
             }
 
             // dd(Session::get('order'));
-            return redirect()->route('pay',['plan' => $validatedData['plan']]);
+            return redirect()->route('payment',['plan' => $validatedData['plan']]);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

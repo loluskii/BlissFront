@@ -19,7 +19,8 @@
         "league/omnipay": "^3.2",
         "omnipay/stripe": "^3.1",
         "spatie/laravel-stripe-webhooks": "^3.1",
-        "stripe/stripe-php": "^7.116"
+        "stripe/stripe-php": "^7.116",
+        "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

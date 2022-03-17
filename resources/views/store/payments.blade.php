@@ -3,9 +3,9 @@
 @section('css')
     <style>
         /**
-         * store.css
-         * Stripe Payments Demo. Created by Romain Huet (@romainhuet).
-         */
+             * store.css
+             * Stripe Payments Demo. Created by Romain Huet (@romainhuet).
+             */
 
         * {
             margin: 0;
@@ -391,12 +391,12 @@
             <!-- For demo purpose -->
             <div class="row">
                 <div class="col-lg-6 mx-auto">
-                    <div class="card">
+                    <div class="card bg-white">
                         <div class="card-header">
                             <div class="pt-4 pl-2 pr-2 pb-2">
                                 <!-- Credit card form tabs -->
                                 <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill">
-                                    <li class="nav-item"> <a data-toggle="pill" href="#credit-card"
+                                    <li class="nav-item"> <a data-toggle="pill" href="#paystack"
                                             class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Pay with
                                             Flutterwave </a> </li>
                                     <li class="nav-item"> <a data-toggle="pill" href="#stripe" class="nav-link ">
@@ -405,8 +405,9 @@
                             </div> <!-- End -->
                             <!-- Credit card form content -->
                             <div class="tab-content">
-                                <!-- Flutterwave -->
-                                <div id="flutterwave" class="tab-pane fade show active pt-3">
+
+                                <!-- Paystack -->
+                                <div id="paystack" class="tab-pane fade show active pt-3">
                                     <div class="card border-0 shadow-sm mb-4">
                                         <div class="card-body">
                                             <h5>{{ $order->shipping_fname }} {{ $order->shipping_lname }} |
@@ -414,13 +415,18 @@
                                             <p class="mb-2">{{ $order->shipping_address }},
                                                 {{ $order->shipping_city }}</p>
                                             <p class="mb-2">{{ $order->shipping_phone }}</p>
-                                            <p class="mb-0">{{ $order->shipping_landmark }}</p>
+                                            <h5>Order Total: £{{ $cartTotal }}</h5>
                                         </div>
                                     </div>
-                                    <form role="form" method="POST" action="{{ route('stripe.checkout') }}">
+                                    <form role="form" method="POST" action="{{ route('pay') }}">
                                         @csrf
                                         <input type="hidden" name="amount" value="{{ $cartTotal }}">
-                                        <p> <button type="submit" class="btn btn-primary ">Continue to Flutterwave</button> </p>
+                                        <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                        <input type="hidden" name="orderID" value="345">
+                                        <input type="hidden" name="currency" value="GBP">
+                                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+                                        <p> <button type="submit" disabled class="btn btn-primary ">Continue to Paystack</button>
+                                        </p>
                                         <p class="text-muted"> Note: After clicking on the button, you will be directed
                                             to a secure gateway for payment. After completing the payment process, you will
                                             be redirected back to the website to view details of your order. </p>
@@ -437,7 +443,7 @@
                                             <p class="mb-2">{{ $order->shipping_address }},
                                                 {{ $order->shipping_city }}</p>
                                             <p class="mb-2">{{ $order->shipping_phone }}</p>
-                                            <p class="mb-0">{{ $order->shipping_landmark }}</p>
+                                            <h5>Order Total: £{{ $cartTotal }}</h5>
                                         </div>
                                     </div>
                                     <form role="form" method="POST" action="{{ route('stripe.checkout') }}">
@@ -452,8 +458,8 @@
                                     </form>
 
 
-                                </div> <!-- End -->
-                                <!-- Paypal info -->
+                                </div>
+                                <!-- Stripe -->
                             </div>
                         </div>
                     </div>
