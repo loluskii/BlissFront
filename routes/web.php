@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
         return view('order.order-success');
     })->name('order.success');
 
+
     Route::get('/failure', function () {
         return view('order.order-failure');
     })->name('order.failure');
@@ -82,5 +83,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
-// Route::stripeWebhooks('stripe-webhook');
+Route::get('/truncate', function () {
+    Order::truncate();
+    PaymentRecord::truncate();
+    Address::truncate();
+    PlanSubscription::truncate();
+
+    return 'done';
+});
 

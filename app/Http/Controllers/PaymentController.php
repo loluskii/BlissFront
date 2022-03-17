@@ -54,6 +54,8 @@ class PaymentController extends Controller
         ]);
         return redirect()->away($checkout_session->url);
     }
+
+    //Handle Stripe Webhook
     public function webhook(Request $request)
     {
         try {
@@ -80,7 +82,7 @@ class PaymentController extends Controller
                         $subscription->save();
 
                         DB::beginTransaction();
-                            if(!PaymentRecord::where('payment_id', $payment_id)->first()){
+                            if(PaymentRecord::where('payment_id', $payment_id)->first()){
                                 throw new Exception('Payment Already made!');
                             }
                             (new StorePaymentRecord())->run($plan, $amount, $payment_id, $user_id);
@@ -97,5 +99,8 @@ class PaymentController extends Controller
         } catch (Exception $e) {
             return $e;
         }
+    }
+
+    public function initRave(){
     }
 }
