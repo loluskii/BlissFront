@@ -11,7 +11,7 @@ use Exception;
 class OrderQueries{
 
     public function findByRef($ref){
-        return Order::firstWhere('order_reference', $ref);
+        return Order::where('order_reference', $ref)->firstOrFail();
     }
     public function getUserOrderDetails($id){
         $orders = DB::table('orders')->where('user_id', $id)->pluck('id');

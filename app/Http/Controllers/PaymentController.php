@@ -55,18 +55,20 @@ class PaymentController extends Controller
     {
         try {
             $data = $request->all();
+            $metadata = $data['data']['object']['metadata'];
+            $user_id = $metadata['user_id'];
             switch ($data['type']) {
                 case 'charge.succeeded':
-                    $plan = Plans::findOrFail($data['data']['metadata']['plan_id']);
-                    $subamount = $data['data']['metadata']['subamount'];
+                    $plan = Plans::findOrFail($metadata['plan_id']);
+                    $subamount = $metadata['subamount'];
                     $delivery_fee = $plan->delivery_fee;
                     $amount = $data['data']['object']['amount'] / 100;
                     $payment_id = $data['data']['object']['id'];
-                    $res = (new StoreOrder())->run($data['data']['metadata']['order'], $amount, $subamount, $delivery_fee);
+                    $res = (new StoreOrder())->run(json_decode($metadata['order']), $amount, $subamount, $delivery_fee, $user_id);
                     $newOrder = (new OrderQueries())->findByRef($res);
-                    if ($res) {
+                    if ($newOrder) {
                         $subscription = new PlanSubscription();
-                        $subscription->user_id = $user->id;
+                        $subscription->user_id = $user_id;
                         $subscription->plan_id = $plan->id;
                         $subscription->order_id = $newOrder->id;
                         $subscription->start_date = Carbon::today();
@@ -74,20 +76,24 @@ class PaymentController extends Controller
                         $subscription->created_at = Carbon::today();
                         $subscription->save();
 
-                        (new StorePaymentRecord())->run($plan, $amount, $payment_id);
+                        DB::beginTransaction();
+                            if(PaymentRecord::where('payment_ref', $transactionID)->first()){
+                                break;
+                            }else{
+                                (new StorePaymentRecord())->run($plan, $amount, $payment_id, $user_id);
+                            }
+                            DB::commit();
                         $admin = User::where('is_admin', 1)->get();
-                        $user = Auth::user()->email;
-
+                        $user = User::findOrFail($user_id)->email;
                         NotifyAdminOnOrder::dispatch($newOrder, $admin);
                         SendOrderInvoice::dispatch($newOrder, $user)->delay(now()->addMinutes(3));
-
                     }
                     break;
                 default:
                     return 'webhook event not found';
             }
         } catch (Exception $e) {
-
+            return $e;
         }
     }
 }
