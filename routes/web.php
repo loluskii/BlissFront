@@ -43,7 +43,7 @@ Route::get('contact', function () {
     return view('contact-us');
 })->name('contact');
 
-
+Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/store/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -56,7 +56,6 @@ Route::middleware(['auth'])->group(function () {
 
     //Redirect to Stripe Checkout
     Route::post('/stripe-checkout',[PaymentController::class, 'initPayment'])->name('stripe.checkout');
-    Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
 
     //Paystack Checkout
     Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
