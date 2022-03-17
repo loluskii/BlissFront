@@ -1,7 +1,12 @@
 <?php
 
+use App\Models\Order;
 use App\Models\Plans;
+use App\Models\Address;
 use Illuminate\Http\Request;
+use App\Models\PaymentRecord;
+use App\Models\PlanSubscription;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -87,11 +92,13 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });
 
 Route::get('/truncate', function () {
-    Order::truncate();
-    PaymentRecord::truncate();
-    Address::truncate();
-    PlanSubscription::truncate();
-
+    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+    DB::table('orders')->truncate();
+    DB::table('order_items')->truncate();
+    DB::table('payment_records')->truncate();
+    DB::table('addresses')->truncate();
+    DB::table('plan_subscriptions')->truncate();
+    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     return 'done';
 });
 
