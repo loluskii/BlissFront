@@ -11,6 +11,7 @@ use App\Jobs\SendOrderInvoice;
 use App\Jobs\NotifyAdminOnOrder;
 use App\Models\PlanSubscription;
 use App\Actions\Orders\StoreOrder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Orders\OrderQueries;
 use App\Actions\Orders\StorePaymentRecord;
@@ -78,11 +79,10 @@ class PaymentController extends Controller
                         $subscription->save();
 
                         DB::beginTransaction();
-                            if(PaymentRecord::where('payment_ref', $transactionID)->first()){
-                                break;
-                            }else{
-                                (new StorePaymentRecord())->run($plan, $amount, $payment_id, $user_id);
+                            if(!PaymentRecord::where('payment_id', $payment_id)->first()){
+                                throw new Exception('Payment Already made!');
                             }
+                            (new StorePaymentRecord())->run($plan, $amount, $payment_id, $user_id);
                             DB::commit();
                         $admin = User::where('is_admin', 1)->get();
                         $user = User::findOrFail($user_id)->email;
