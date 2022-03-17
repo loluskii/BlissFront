@@ -6,6 +6,7 @@ use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Plans;
+use App\Models\PaymentRecord;
 use Illuminate\Http\Request;
 use App\Jobs\SendOrderInvoice;
 use App\Jobs\NotifyAdminOnOrder;
