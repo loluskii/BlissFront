@@ -43,6 +43,7 @@ class PaymentController extends Controller
                     'plan_id' => $plan->id,
                     'order' => $order,
                     'subamount' => $subamount,
+                    'user_id' => auth()->id(),
                 ],
             ],
             'mode' => 'payment',
