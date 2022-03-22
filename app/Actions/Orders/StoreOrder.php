@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class StoreOrder{
 
-    public function run($order, $amount, $subamount, $delivery_fee, $user_id = null){
+    public function run($order, $amount, $subamount, $delivery_fee, $user_id = null, $orderItems = null){
         $newOrder = new Order();
         $ref = Str::random(20);
         $address = new Address();
@@ -27,7 +27,7 @@ class StoreOrder{
         $newOrder->shipping_landmark = $order->shipping_landmark ?? 'none';
         $newOrder->subtotal = $subamount;
         $newOrder->grand_total = $amount;
-        $newOrder->item_count = \Cart::session(auth()->check() ? auth()->id() : $user_id)->getContent()->count();
+        $newOrder->item_count = auth()->check() ? \Cart::session(auth()->id())->getContent()->count() : count($orderItems);
         $newOrder->user_id = auth()->check() ? auth()->id() : $user_id;
         $newOrder->plan = $order->plan;
         $newOrder->payment_method = 'stripe';
@@ -54,7 +54,7 @@ class StoreOrder{
 
         if ($user_address != null) {
             $newOrder->save();
-            $cartItems = \Cart::session(auth()->check() ? auth()->id() : $user_id)->getContent();
+            $cartItems = auth()->check() ? \Cart::session(auth()->id())->getContent() : $orderItems;
             foreach($cartItems as $item){
                 $newOrder->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
             }
@@ -75,7 +75,7 @@ class StoreOrder{
             }
             $address->save();
             $newOrder->save();
-            $cartItems =  \Cart::session(auth()->check() ? auth()->id() : $user_id)->getContent();
+            $cartItems =  auth()->check() ? \Cart::session(auth()->id())->getContent() : $orderItems;
             foreach($cartItems as $item){
                 $newOrder->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
             }

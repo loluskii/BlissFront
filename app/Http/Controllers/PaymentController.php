@@ -48,6 +48,7 @@ class PaymentController extends Controller
                     'order' => $order,
                     'subamount' => $subamount,
                     'user_id' => auth()->id(),
+                    'order_items' => \Cart::session(auth()->id())->getContent(),
                 ],
             ],
             'mode' => 'payment',
@@ -71,7 +72,8 @@ class PaymentController extends Controller
                     $delivery_fee = $plan->delivery_fee;
                     $amount = $data['data']['object']['amount'] / 100;
                     $payment_id = $data['data']['object']['id'];
-                    $res = (new StoreOrder())->run(json_decode($metadata['order']), $amount, $subamount, $delivery_fee, $user_id);
+                    $order_items = $metadata['order_items'];
+                    $res = (new StoreOrder())->run(json_decode($metadata['order']), $amount, $subamount, $delivery_fee, $user_id, json_decode($metadata['order_items']) );
                     $newOrder = (new OrderQueries())->findByRef($res);
                     if ($newOrder) {
                         $subscription = new PlanSubscription();
@@ -88,7 +90,7 @@ class PaymentController extends Controller
                                 throw new Exception('Payment Already made!');
                             }
                             (new StorePaymentRecord())->run($plan, $amount, $payment_id, $user_id);
-                            DB::commit();
+                        DB::commit();
                         $admin = User::where('is_admin', 1)->get();
                         $user = User::findOrFail($user_id)->email;
                         NotifyAdminOnOrder::dispatch($newOrder, $admin);

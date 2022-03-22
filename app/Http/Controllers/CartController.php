@@ -24,10 +24,6 @@ class CartController extends Controller
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => 1,
-            'attributes' => array(
-                'image' => $product->image,
-            ),
-            'associatedModel' => $product
         ));
 
         return back();
