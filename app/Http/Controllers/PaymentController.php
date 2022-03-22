@@ -73,7 +73,7 @@ class PaymentController extends Controller
                     $amount = $data['data']['object']['amount'] / 100;
                     $payment_id = $data['data']['object']['id'];
                     $order_items = $metadata['order_items'];
-                    $res = (new StoreOrder())->run(json_decode($metadata['order']), $amount, $subamount, $delivery_fee, $user_id, json_decode($metadata['order_items']) );
+                    $res = (new StoreOrder())->run(json_decode($metadata['order'], true), $amount, $subamount, $delivery_fee, $user_id, json_decode($metadata['order_items'], true) );
                     $newOrder = (new OrderQueries())->findByRef($res);
                     if ($newOrder) {
                         $subscription = new PlanSubscription();
