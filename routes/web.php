@@ -91,18 +91,13 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });
 
 Route::get('/truncate', function () {
-    // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    // DB::table('orders')->truncate();
-    // DB::table('order_items')->truncate();
-    // DB::table('payment_records')->truncate();
-    // DB::table('addresses')->truncate();
-    // DB::table('plan_subscriptions')->truncate();
-    // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-    $x = \Cart::session(auth()->id())->getContent();
-    return $x->count();
-    // foreach($x as $y){
-    //     return json_encode($y);
-    // }
+    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+    DB::table('orders')->truncate();
+    DB::table('order_items')->truncate();
+    DB::table('payment_records')->truncate();
+    DB::table('addresses')->truncate();
+    DB::table('plan_subscriptions')->truncate();
+    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 });
 
