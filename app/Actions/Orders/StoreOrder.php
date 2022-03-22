@@ -27,7 +27,7 @@ class StoreOrder{
         $newOrder->shipping_landmark = $order->shipping_landmark ?? 'none';
         $newOrder->subtotal = $subamount;
         $newOrder->grand_total = $amount;
-        $newOrder->item_count = auth()->check() ? \Cart::session(auth()->id())->getContent()->count() : count($orderItems);
+        $newOrder->item_count = auth()->check() ? \Cart::session(auth()->id())->getContent()->count() : $orderItems->count();
         $newOrder->user_id = auth()->check() ? auth()->id() : $user_id;
         $newOrder->plan = $order->plan;
         $newOrder->payment_method = 'stripe';
