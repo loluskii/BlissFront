@@ -56,7 +56,7 @@ class StoreOrder{
             $newOrder->save();
             $cartItems = auth()->check() ? \Cart::session(auth()->id())->getContent() : $orderItems;
             foreach($cartItems as $item){
-                $newOrder->items()->attach($item->id, ['price'=> $item->price, 'quantity'=> $item->quantity]);
+                $newOrder->items()->attach($item['id'], ['price'=> $item->price, 'quantity'=> $item->quantity]);
             }
             return $ref;
         } else {
