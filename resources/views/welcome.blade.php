@@ -125,7 +125,7 @@
           <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
             <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
               <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">NIN Booking</a></h4>
+              <h4 class="title"><a href="{{ route('nin.index') }}">NIN Booking</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
           </div>
