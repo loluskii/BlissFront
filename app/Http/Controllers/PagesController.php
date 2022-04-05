@@ -12,11 +12,6 @@ use App\Services\Filters\FilterQueries;
 
 class PagesController extends Controller
 {
-    public function subscription(){
-        $cartItems = \Cart::session(auth()->id())->getContent();
-        return view('subscription', compact('cartItems'));
-    }
-
     public function storeIndex(){
         $categories = Category::all();
         return view('store.i')->with('categories',$categories);
@@ -35,19 +30,14 @@ class PagesController extends Controller
         }else{
             $products = Product::paginate(9);
         }
-        return view('store.index')->with('data',$data)->with('products', $products)->with('categories',$categories)->with('stores',$stores);
+        return view('ses.store.index')->with('data',$data)->with('products', $products)->with('categories',$categories)->with('stores',$stores);
     }
 
     public function viewCart(){
-        return view('store.cart');
+        return view('ses.store.cart');
     }
 
-    public function subscribe(){
-        $cartItems = \Cart::session(auth()->id())->getContent();
-        return view('store.subscribe', compact('cartItems'));
-    }
-
-    public function filter(){
+public function filter(){
 
     }
 }

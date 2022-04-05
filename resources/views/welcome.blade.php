@@ -1,429 +1,228 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('css')
-<style>
-    .card {
-        border: none;
-    }
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    body {
-        background-color: white;
-    }
+  <title>BLISSITECH</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    .services__type-bg img {
-        height: 200px;
-        width: 100%;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 15px;
-        border-bottom-left-radius: 5px;
-    }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <!-- Vendor CSS Files -->
+  <link href="{{ secure_asset('assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ secure_asset('assets/css/style.css') }}" rel="stylesheet">
+</head>
 
+<body>
 
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    .card-pricing.popular {
-        z-index: 1;
-        border: 1px solid #2A707D;
+      <div class="logo">
+        <h1><a href="index.html">BLISSITECH</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
 
-    }
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-    .card-pricing .list-unstyled li {
-        padding: .5rem 0;
-        color: #6c757d;
-        font-weight: 300;
-        color: #4E2B1D;
-    }
-
-    .btn {
-        border-radius: 1px;
-        font-weight: 300
-    }
-
-    .hvr:hover {
-        color: #fff;
-        background-color: #2A707D;
-        border: 1px solid #2A707D !important
-    }
-
-    .faq-section {
-        /* background: #fdfdfd; */
-        min-height: 100vh;
-        padding: 10vh 0 0;
-    }
-
-    .faq-title h2 {
-        position: relative;
-        margin-bottom: 45px;
-        display: inline-block;
-        font-weight: 600;
-        line-height: 1;
-    }
-
-    .faq-title h2::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        width: 60px;
-        height: 2px;
-        background: #E91E63;
-        bottom: -25px;
-        margin-left: -30px;
-    }
-
-    .faq-title p {
-        padding: 0 190px;
-        margin-bottom: 10px;
-    }
-
-    .faq {
-        /* background: #FFFFFF; */
-        /* box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06); */
-        border-radius: 4px;
-    }
-
-    .faq .card {
-        border: none;
-        background: none;
-        border-bottom: 1px dashed #CEE1F8;
-    }
-
-    .faq .card .card-header {
-        padding: 0px;
-        border: none;
-        background: none;
-        -webkit-transition: all 0.3s ease 0s;
-        -moz-transition: all 0.3s ease 0s;
-        -o-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-    }
-
-    /* .faq .card .card-header:hover {
-    background: rgba(233, 30, 99, 0.1);
-    padding-left: 10px;
-} */
-    .faq .card .card-header .faq-title {
-        width: 100%;
-        text-align: left;
-        padding: 0px;
-        padding-left: 30px;
-        padding-right: 30px;
-        font-weight: 400;
-        font-size: 15px;
-        letter-spacing: 1px;
-        color: #3B566E;
-        text-decoration: none !important;
-        -webkit-transition: all 0.3s ease 0s;
-        -moz-transition: all 0.3s ease 0s;
-        -o-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-        cursor: pointer;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .faq .card .card-header .faq-title .badge {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 14px;
-        float: left;
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px;
-        border-radius: 100px;
-        text-align: center;
-        background: #EB8258;
-        color: #fff;
-        font-size: 12px;
-        margin-right: 20px;
-    }
-
-    footer ul li {
-        display: inline-block;
-        padding: 10px;
-        font-weight: bold;
-    }
-
-
-    .faq .card .card-body {
-        padding: 30px;
-        padding-left: 35px;
-        padding-bottom: 16px;
-        font-weight: 400;
-        font-size: 16px;
-        color: #6F8BA4;
-        line-height: 28px;
-        letter-spacing: 1px;
-        border-top: 1px solid #F3F8FF;
-    }
-
-    .faq .card .card-body p {
-        margin-bottom: 14px;
-    }
-
-    .header-img{
-        height: 300px;
-    }
-    .header-text{
-        font-size: 40px;
-        text-align: left;
-    }
-
-    @media (max-width: 991px) {
-        .faq {
-            margin-bottom: 30px;
-        }
-
-        .faq .card .card-header .faq-title {
-            line-height: 26px;
-            margin-top: 10px;
-        }
-    }
-
-    @media (max-width:600px){
-        .header-img{
-            height: auto;
-            /* border-radius: 50%; */
-        }
-        .hero{
-            text-align: center;
-        }
-        .header-text{
-            font-size: 25px;
-            text-align: center;
-        }
-    }
-</style>
-@endsection
-
-@section('content')
-<div class="container">
-    <div class="section d-flex justify-content-center align-items-center" style="min-height: 80vh">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-6 mb-4 mt-sm-0">
-                <div class="pl-sm-5 hero">
-                    <h3 class="header-text mb-3">Subscription Errand Service for Africans in Diaspora</h3>
-                    <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for loved ones anywhere in Nigeria 🇳🇬 and Ghana 🇬🇭 at the moment. More to follow </p>
-                    <a href="#how-it-works" class="btn rounded btn-primary mr-2">How it works</a>
-                    {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="{{ secure_asset('images/header.JPG') }}"
-                    class="img-fluid header-img " alt="" srcset="">
-            </div>
-            {{-- <div class="col-md-6 mt-4 mt-sm-0 d-none">
-                <div class="pl-sm-5 hero">
-                    <h2 class="mb-2">Personalize your shopping experience</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipis corporis. Tenetur, laboriosam laborum. Nihil,
-                        incidunt? Ipsa distinctio libero molestiae facere.Illo assumenda dignissimos voluptatum ratione
-                        veritatis in atque amet iste!
-                    </p>
-                    <a href="{{ route('store.show') }}" class="btn rounded btn-primary mr-2">Visit Store</a>
-                    <button type="submit" class="btn ">Learn more</button>
-                </div>
-            </div> --}}
-        </div>
     </div>
-</div>
-<div class="container d-none">
-    <div class="section py-5 my-5 " >
-        <div class="row h-100 justify-content-between">
-            <div class="col-md-6 my-auto">
-                <div class="">
-                    <h1>Our Services</h1>
-                    <p>Ease you can always rely on. </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="services__type-item services__type-food shadow p-3 rounded"
-                    style="background-color: #48bbcf52">
-                    <h3 data-v-4241bfd6="">🥘</h3>
-                    <h5 data-v-4241bfd6="">Groceries</h5>
-                    <p data-v-4241bfd6="">
-                        High-quality groceries from the best and most popular stores around you
-                    </p>
-                    <div class="services__type-bg" data-v-4241bfd6=""><img
-                            src="https://res.cloudinary.com/eden-life-inc/image/upload/v1611318743/eden-website-v2/food-img1_ls530a.png"
-                            alt="food" style="" class="img-fluid"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="how-it-works" style="background-color: #C6F4FD">
-    <div class="container py-5">
-        <div class="section">
-            <div class="text-center">
-                <h1 class="">How it Works</h1>
-                <p>Follow these simple three steps</p>
-                <div class="mt-5">
-                </div>
-            </div>
+  </header><!-- End Header -->
 
-            <div class="row text-center">
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow h-100">
-                        {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
-                        <div class="card-body">
-                            <div>
-                                <img src="{{ secure_asset('images/select-items.svg') }}" class="img-fluid"
-                                    style="height: 200px" alt="" srcset="">
-                            </div>
-                            <h4 class="text-center pb-2">Select your items</h4>
-                            <p class="card-text">Choose from our vast lists of categories or stores, items
-                                you'll need on a constant basis </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow h-100">
-                        {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
-                        <div class="card-body">
-                            <div>
-                                <img src="{{ secure_asset('images/choose-interval.svg') }}"
-                                    style="height: 200px" class="img-fluid" alt="">
-                            </div>
-                            <h4 class="card-title">Choose a Plan</h4>
-                            <p class="card-text">Choose from one of our plans, the interval that fits your exact
-                                needs and add your delivery details</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow h-100">
-                        {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
-                        <div class="card-body">
-                            <div>
-                                <img src="{{ secure_asset('images/relax.svg') }}" class="img-fluid"
-                                    style="height: 200px" alt="">
-                            </div>
-                            <h4 class="card-title">Sit back and relax</h4>
-                            <p class="card-text">No need for monthly grocery runs anymore. Your items will be
-                                delivered to you according to your plan. We got you!</p>
-                        </div>
-                    </div>
-                </div>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
 
-            </div>
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH</span></h2>
+          <p class="animate__animated fanimate__adeInUp">We are an innovative agency, tasked with creating apps to bridge the gap between worlds, by creating simple solutions for complex needs.</p>
+          <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
         </div>
+      </div>
+
+      <!-- Slide 2 -->
+
+
+      <!-- <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+      </a> -->
+
     </div>
 
-</div>
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
 
-<div class="py-5 my-5 bg-white d-none">
-    <div class="container">
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Services</h2>
+          <p>What we do offer</p>
+        </div>
+
         <div class="row">
-            <div class="col-md-4">
-                <div class="heading text-left pt-2 pb-5">
-                    <h1 class="display-4">Our Plans</h1>
-                    <p class="my-1">Bliss offers five subscription plans, each carefully crafted to suit your shopping
-                        needs, leaving you with one less thing to worry about</p>
-                </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box" data-aos="zoom-in-left">
+              <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="">BE Directory</a></h4>
+              <p class="description">Experience Finger licking dishes, top-notch restaurants, one stop grocery stores, fabric stores & lots more from African & Caribbean vendors</p>
             </div>
-            <div class="col-md-8">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="pricing card-deck">
-                            @foreach ($plans as $plan)
-                            <div class="col-md-4 px-0">
-                                <div class="card shadow-sm card-pricing text-center  px-3 mb-4 bg-light"> <span
-                                        class="h6 w-60 mx-auto px-4 py-1 rounded-bottom text-white shadow-sm"
-                                        style="background-color: #2A707D"> {{ Str::before($plan->name, ' Subscription'); }}</span>
-                                    <div class="bg-transparent card-header pt-4 border-0">
-                                        <h1 class="h6 font-weight-bold text-center mb-0">Every {{ $plan->interval_count }}
-                                            Month(s)</h1>
-                                    </div>
-                                    <div class="card-body pt-0 px-1">
-                                        <p class="mb-0">{{ $plan->description }} </p>
-                                        {{-- <button type="button" class="btn btn-outline-secondary mb-3 hvr">Order
-                                            now</button> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+              <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div>
+              <h4 class="title"><a href="{{ route('ses') }}">Subscription/Errand Services</a></h4>
+              <p class="description">Subscription 📦 errand services built for Africans in Diaspora. Personalize your shopping experience from Buying groceries and setting up pocket money plan for love once anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</p>
             </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+              <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="">NIN Booking</a></h4>
+              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            </div>
+          </div>
+
         </div>
-    </div>
-</div>
-<div class="container mt-3">
-    <div class="section">
-        <div class="jumbotron p-sm-5 p-3 text-white" style="background-color: #F8D5C7; ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8" style="color: #4E2B1D;">
-                        {{-- <h3>What are you waiting for?</h3> --}}
-                        <p>Subscription is activated between 48hrs to 72hrs after receipt of payment. Once you pay, you agree that the items selected are what you'll receive.</p>
 
-                    </div>
-                    <div class="col-md-4 my-auto">
-                        <p class="lead float-sm-right">
-                            <a class="btn btn-primary btn-sm rounded" href="{{ route('store.show') }}" role="button">Visit Store</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </section><!-- End Services Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Contact</h2>
+          <p>Contact Us</p>
         </div>
-    </div>
 
-</div>
+        <div class="row mt-5">
 
-<footer class="footer-16371 bg-white">
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-9 text-center py-5">
-                <div class="footer-site-logo mb-4">
-                    <a href="#"><img src="{{ secure_asset('images/blissex.png') }}" height="30" alt=""></a>
-                </div>
-                <ul class="list-unstyled nav-links" style="display: inline-block;">
-                    <li><a href="https://blissexplorers.com">Explore</a></li>
-                    <li><a href="{{ route('store.show') }}">Shop</a></li>
-                    <li><a href="{{ route('register') }}">Create Account</a></li>
-                    <li><a href="https://blissexplorers.com/about-us">About</a></li>
-                </ul>
-                <div class="copyright">
-                    <p class="mb-0"><small>©BlissExplorers. All Rights Reserved.</small></p>
-                </div>
-            </div>
-        </div>
+      <h3>BLISSITECH</h3>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
+      </div>
     </div>
-</footer>
+  </footer><!-- End Footer -->
 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Vendor JS Files -->
+  <script src="{{ secure_asset('assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ secure_asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ secure_asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
-@endsection
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
-
-@push('more_scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
-</script>
-@endpush
+</body>

@@ -29,18 +29,21 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    $plans = Plans::all();
-    return view('welcome')->with('plans',$plans);
+    return view('welcome');
 })->name('home');
+
+Route::get('/ses', function () {
+    $plans = Plans::all();
+    return view('ses.welcome')->with('plans',$plans);
+})->name('ses');
 
 Auth::routes();
 
 Route::get('subscription', [PagesController::class, 'subscription'])->name('subscription');
 Route::get('/store', [PagesController::class, 'showStore'])->name('store.show');
 Route::get('contact', function () {
-    return view('contact-us');
+    return view('ses.contact-us');
 })->name('contact');
 
 Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
@@ -64,12 +67,12 @@ Route::middleware(['auth'])->group(function () {
     Route::any('filter',[PagesController::class,'filter'])->name('filter');
     Route::get('/success', function () {
         \Cart::session(auth()->id())->clear();
-        return view('order.order-success');
+        return view('ses.order.order-success');
     })->name('order.success');
 
 
     Route::get('/failure', function () {
-        return view('order.order-failure');
+        return view('ses.order.order-failure');
     })->name('order.failure');
 
 
@@ -90,14 +93,17 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
+Route::view('/nin-enrollment','nin.index')->name('nin.index');
+Route::view('/nin-enrollment/application','nin.application-page')->name('nin.apply');
+
 Route::get('/truncate', function () {
-    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    DB::table('orders')->truncate();
-    DB::table('order_items')->truncate();
-    DB::table('payment_records')->truncate();
-    DB::table('addresses')->truncate();
-    DB::table('plan_subscriptions')->truncate();
-    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+    // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+    // DB::table('orders')->truncate();
+    // DB::table('order_items')->truncate();
+    // DB::table('payment_records')->truncate();
+    // DB::table('addresses')->truncate();
+    // DB::table('plan_subscriptions')->truncate();
+    // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 });
 

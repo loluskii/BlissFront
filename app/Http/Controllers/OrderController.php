@@ -79,7 +79,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $subscription = PlanSubscription::findOrFail($id);
-        return view('user.order-info')->with('order',$order)->with('subscription',$subscription);
+        return view('ses.user.order-info')->with('order',$order)->with('subscription',$subscription);
     }
 
     /**

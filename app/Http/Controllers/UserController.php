@@ -19,13 +19,13 @@ class UserController extends Controller
         $user = Auth::user();
         $subscriptions = (new PlanQueries())->getUserSubscriptionDetails();
         $order_count = $user->orders->count();
-        return view('user.home')->with('subscriptions', $subscriptions)
+        return view('ses.user.home')->with('subscriptions', $subscriptions)
                                 ->with('order_count', $order_count);
     }
 
     public function userDetails(){
         $user = Auth::user();
-        return view('user.details')->with('user', $user);
+        return view('ses.user.details')->with('user', $user);
     }
 
     public function updateUserDetails(Request $request){
@@ -46,7 +46,7 @@ class UserController extends Controller
         $user = Auth::user();
         $address = Address::where('user_id', $user->id)->get();
 
-        return view('user.address-book', compact('address'));
+        return view('ses.user.address-book', compact('address'));
     }
 
     public function addNewAddress(Request $request){
@@ -94,7 +94,7 @@ class UserController extends Controller
 
     public function changePassword(){
 
-        return view('user.change-password');
+        return view('ses.user.change-password');
     }
 
     public function updatePassword(Request $request){
@@ -112,7 +112,7 @@ class UserController extends Controller
 
     public function getOrders(){
         $subscriptions = (new PlanQueries())->getUserSubscriptionDetails();
-        return view('user.my-orders')->with('subscriptions', $subscriptions);
+        return view('ses.user.my-orders')->with('subscriptions', $subscriptions);
     }
 
     // public function getOrderDetails($id){

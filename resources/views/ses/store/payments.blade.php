@@ -422,7 +422,7 @@
                                         @csrf
                                         <input type="hidden" name="amount" value="{{ $cartTotal }}">
                                         <input type="hidden" name="email" value="{{ Auth::user()->email }}">
-                                        <input type="hidden" name="orderID" value="345">
+                                        {{-- <input type="hidden" name="orderID" value="345"> --}}
                                         <input type="hidden" name="currency" value="GBP">
                                         <input type="hidden" name="reference" value="">
                                         <p> <button type="submit" disabled class="btn btn-primary ">Continue to Paystack</button>
@@ -452,7 +452,7 @@
                                         <input type="hidden" name="plan_id" value="{{ $plan->id }}">
                                         <p> <button type="submit" class="btn btn-primary ">Continue to Stripe</button> </p>
                                         <p class="text-muted"> Note: After clicking on the button, you will be directed
-                                            to a secure gateway for payment. After completing the payment process, you will
+                                            to a secure gateway for payment. After completing the payment process, you  pwill
                                             be redirected back to the website to view details of your order. </p>
 
                                     </form>

@@ -32,7 +32,7 @@ class CartController extends Controller
     public function index(){
         $cartTotalQuantity = \Cart::session(auth()->id())->getContent()->count();
         $cartItems = \Cart::session(auth()->id())->getContent();
-        return view('store.cart', compact('cartItems', 'cartTotalQuantity'));
+        return view('ses.store.cart', compact('cartItems', 'cartTotalQuantity'));
     }
 
     public function update($id){
@@ -59,7 +59,7 @@ class CartController extends Controller
         $cartItems = \Cart::session(auth()->id())->getContent();
         $cartTotalQuantity = \Cart::session(auth()->id())->getContent()->count();
         $address = Address::where('user_id', auth()->id())->first();
-        return view('store.checkout', compact('cartItems','cartTotalQuantity','plans','address'));
+        return view('ses.store.checkout', compact('cartItems','cartTotalQuantity','plans','address'));
 
     }
 
