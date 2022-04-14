@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -194,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #fff;
@@ -680,7 +680,6 @@ section {
   transition: 0.5s;
 }
 .services .title {
-  margin-left: 40px;
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
@@ -694,7 +693,6 @@ section {
 }
 .services .description {
   font-size: 14px;
-  margin-left: 40px;
   line-height: 24px;
   margin-bottom: 0;
 }

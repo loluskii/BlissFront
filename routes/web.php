@@ -47,6 +47,8 @@ Route::get('contact', function () {
 })->name('contact');
 
 Route::post('/stripe-webhook', [PaymentController::class,'webhook']);
+Route::post('/nin-booking-webhook', [PagesController::class,'ninBookingWebhook']);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/store/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -94,7 +96,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });
 
 Route::view('/nin-enrollment','nin.index')->name('nin.index');
-Route::view('/nin-enrollment/application','nin.application-page')->name('nin.apply');
+Route::get('/nin-enrollment/application',[PagesController::class,'ninEnrolment'])->name('nin.apply');
+Route::post('/get-location',[PagesController::class,'getLocation'])->name('nin.get-location'); //getTime
+Route::post('/get-time',[PagesController::class,'getTime'])->name('nin.get-time');
+Route::post('/submit',[PagesController::class,'submitBooking'])->name('nin.submit');
+Route::get('nin/booking-success', [PagesController::class, 'bookingSuccess'])->name('nin.success');
+Route::get('nin/booking-failure', [PagesController::class, 'bookingFailure'])->name('nin.failure');
 
 Route::get('/truncate', function () {
     // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
