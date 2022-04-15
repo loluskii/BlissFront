@@ -129,7 +129,7 @@
               {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div> --}}
               <h4 class="title"><a href="{{ route('nin.index') }}">BlissSub</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              <a href="{{ route('nin.index') }}" class="btn btn-dark mt-3">Booking</a>
+              <a href="{{ route('nin.index') }}" class="btn btn-dark mt-3">Book Now</a>
             </div>
           </div>
 
