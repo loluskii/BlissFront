@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserSeeder::class,
-            CategorySeed::class,
-            PlanSeed::class,
-            StoreSeeder::class,
+            // UserSeeder::class,
+            // CategorySeed::class,
+            // PlanSeed::class,
+            // StoreSeeder::class,
             NINLocationSeeder::class,
             NINServiceCenterSeed::class,
             NINBookingTimeSeed::class,

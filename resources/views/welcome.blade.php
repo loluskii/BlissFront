@@ -127,12 +127,11 @@
           <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
             <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
               {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div> --}}
-              <h4 class="title"><a href="{{ route('nin.index') }}">BlissSub</a></h4>
+              <h4 class="title"><a href="{{ route('nin.index') }}">Nigerian Pre-application Form</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              <a href="{{ route('nin.index') }}" class="btn btn-dark mt-3">Book Now</a>
+              <a href="{{ route('nin.index') }}" class="align-items-baseline btn btn-dark mt-3">Book</a>
             </div>
           </div>
-
         </div>
 
       </div>
