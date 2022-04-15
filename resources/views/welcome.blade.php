@@ -209,9 +209,9 @@
   <footer id="footer">
     <div class="container">
       <h3>BLISSITECH</h3>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
-      </div>
+      {{-- <div class="copyright">
+        {{-- &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved --}}
+      </div> --}}
     </div>
   </footer><!-- End Footer -->
 
