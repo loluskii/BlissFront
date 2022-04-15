@@ -112,7 +112,7 @@
               {{-- <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div> --}}
               <h4 class="title"><a href="">Blissitech Hub</a></h4>
               <p class="description">Experience Finger licking dishes, top-notch restaurants, one stop grocery stores, fabric stores & lots more from African & Caribbean vendors</p>
-              <button class="btn btn-dark mt-3">Visit</button>
+              <a href="#" class="btn btn-dark mt-3">Visit</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
@@ -120,7 +120,7 @@
               {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
               <h4 class="title"><a href="{{ route('ses') }}">BlissExplorers</a></h4>
               <p class="description">Subscription 📦 errand services built for Africans in Diaspora. Personalize your shopping experience from Buying groceries and setting up pocket money plan for love once anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</p>
-              <button class="btn btn-dark mt-3">Visit</button>
+              <a href="{{ route('ses') }}" class="btn btn-dark mt-3">Visit</a>
             </div>
           </div>
 
@@ -129,7 +129,7 @@
               {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div> --}}
               <h4 class="title"><a href="{{ route('nin.index') }}">BlissSub</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              <button class="btn btn-dark mt-3">Visit</button>
+              <a href="{{ route('nin.index') }}" class="btn btn-dark mt-3">Booking</a>
             </div>
           </div>
 
