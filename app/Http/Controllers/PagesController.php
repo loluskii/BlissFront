@@ -64,60 +64,11 @@ class PagesController extends Controller
 
     public function submitBooking(Request $request)
     {
-        $res = (new StoreBooking())->run($request);
+        $res = (new StoreBooking())->store($request);
         if ($res) {
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-            $amount = 40;
-            $checkout_session = \Stripe\Checkout\Session::create([
-                'line_items' => [[
-                    'price_data' => [
-                        'currency' => 'gbp',
-                        'product_data' => [
-                            'name' => 'NIN Registration Booking',
-                        ],
-                        'unit_amount' => $amount * 100,
-                    ],
-                    'quantity' => 1,
-                ]],
-                'payment_intent_data' => [
-                    'metadata' => [
-                        'booking_id'=> $res,
-                    ],
-                ],
-                'mode' => 'payment',
-                'success_url' => route('nin.success'),
-                'cancel_url' => route('nin.failure'),
-            ]);
-            return redirect()->away($checkout_session->url);
-        }
-    }
-
-    public function ninBookingWebhook(Request $request)
-    {
-        try {
-            $data = $request->all();
-            $metadata = $data['data']['object']['metadata'];
-            switch ($data['type']) {
-                case 'charge.succeeded':
-                    $amount = $data['data']['object']['amount'] / 100;
-                    $payment_id = $data['data']['object']['id'];
-                    $booking_id = $metadata['booking_id'];
-                    DB::beginTransaction();
-                        $booking = NINBooking::findOrFail($booking_id);
-                        $booking->payment_status = "paid";
-                        $booking->update();
-
-                        if(PaymentRecord::where('payment_id', $payment_id)->first()){
-                            throw new Exception('Payment Already made!');
-                        }
-                        (new StorePaymentRecord())->run($amount, $payment_id, $user_id);
-                    DB::commit();
-                    break;
-                default:
-                    return 'webhook event not found';
-            }
-        } catch (Exception $e) {
-            return $e;
+            return redirect()->route('nin.success')->with('success', 'Booking Receieved!');
+        }else{
+            return redirect()->route('nin.failure')->with('error', 'An Error occured!');
         }
     }
 

@@ -31,43 +31,41 @@
             <p>Please select service. Kindly ensure that you select the same service location and centre. We open from
                 9.30am in all service centres.</p>
             <div class="row mt-3">
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Location</label>
-                        <select class="form-control" name="location" id="location">
-                            <option>Select location</option>
-                            @foreach ($locations as $location)
-                            <option value={{ $location->id }}>{{ $location->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-4 col-lg-4">
                     <div class="mb-3">
                         <label for="" class="form-label">Category</label>
                         <select class="form-control" name="category" id="">
                             <option>Select category</option>
-                            <option value="NIN Registration for Nigerians in Diaspora">NIN Registration for Nigerians in
-                                Diaspora</option>
+                            <option value="NIN Registration for Adults">NIN Registration for Adults</option>
+                            <option value="NIN Registration for Children">NIN Registration for Children (0-16 years)</option>
+                            <option value="New Passport for Adults">New Passport for Adults</option>
+                            <option value="New Passport for Children">New Passport for Children</option>
+                            <option value="Passport Renewal for Adult">Passport Renewal for Adult</option>
+                            <option value="Passport Renewal for Children">Passport Renewal for Children</option>
+                            <option value="Visa for Adults">Visa for Adults</option>
+                            <option value="Visa for Children">Visa for Children</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-4 col-lg-4">
                     <div class="mb-3">
                         <label for="" class="form-label">Service</label>
                         <select class="form-control" name="service" id="">
                             <option>Select service</option>
-                            <option value="NIN Registration for Nigerians in Diaspora - Adult">NIN Registration for
-                                Nigerians in Diaspora - Adult</option>
-                            <option value="NIN Registration for Nigerians in Diaspora - Children">NIN Registration for
-                                Nigerians in Diaspora - Children</option>
+                            <option value="NIN Registration">NIN Registration </option>
+                            <option value="Passport Services">Passport Services</option>
+                            <option value="Passport Services">Visa Services</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-4 col-lg-4">
                     <div class="mb-3">
                         <label for="" class="form-label">Service Center</label>
-                        <select class="form-control" name="service_center_id" id="service_center">
+                        <select class="form-control" name="service_center" id="service_center">
+                        <option value="">Select Service Center</option>
+                        <option value="London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom">London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom</option>
+                        <option value="London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham">London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham</option>
+                        <option value="Scotland - 100 West George street, Glasgow, G2 1PP, GBR">Scotland - 100 West George street, Glasgow, G2 1PP, GBR</option>
                         </select>
                     </div>
                 </div>
@@ -127,16 +125,40 @@
                 </div>
             </div>
             <br>
-            <h3>Section 4: Payment</h3>
-            <div class="row mt-3">
-                <div class="col">
-                    <p>Payment is required for this service at a total fee of £40. Are you willing to proceed?</p>
-                    <button type="submit" id="submit" class="btn btn-lg btn-dark">Proceed to Payment</button>
-
-                </div>
-            </div>
-
+            <button type="submit" id="submit" class="btn btn-lg btn-dark">Submit</button>
         </form>
     </div>
 </section>
 @endsection
+
+@push('more_scripts')
+<script>
+    $(document).ready(function (){
+                $('#date').on('change', function(){
+            let date = $(this).val();
+            $.ajax({
+                url: "/get-time",
+                type: "POST",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    date: date,
+                },
+                success: function(response) {
+                    loadTimes(response.message);
+                },
+                error: function(response) {},
+            })
+        })
+
+        function loadTimes(params) {
+            $('#time').empty();
+            $('#time').append('<option value="">Select a time slot...</option>');
+
+            params.forEach(function(entry){
+                $('#time').append('<option value="' + entry.id+ '">' + entry.time + '</option>');
+            });
+        }
+    })
+</script>
+@endpush
+
