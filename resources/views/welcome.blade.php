@@ -117,9 +117,10 @@
                             --}}
                             <h4 class="title"><a href="{{ route('nin.index') }}">Nigerian Pre-application Form</a></h4>
                             <ul class="description">
-                                <li>NIN Registration</li>
+                                <li>Quick NIN Registration & Upload</li>
                                 <li>Passport Services</li>
-                                <li>Nigerian Visa</li>
+                                <li>Visa Services</li>
+                                <li>Emergency Travel Documents</li>
                             </ul>
                             <a href="{{ route('nin.index') }}" class="align-items-baseline btn btn-dark mt-3">Book</a>
                         </div>
