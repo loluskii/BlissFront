@@ -137,13 +137,19 @@
                             <h4 class="title"><a href="{{ route('ses') }}">Visa Services</a></h4>
                             <ul class="description" style="padding-bottom: 48px">
                                 <li>Help with Visa Application and Appointment</li>
-                                
+
                             </ul>
                             {{-- <a href="{{ route('ses') }}" class="btn btn-dark w-100 mt-3">Book</a> --}}
                         </div>
                     </div>
 
 
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <a href="{{ route('nin.apply') }}" class="btn btn-outline-dark w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
+                    </div>
                 </div>
 
             </div>

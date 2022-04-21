@@ -39,7 +39,7 @@ class PagesController extends Controller
     public function ninEnrolment()
     {
         $locations = NINLocation::all();
-        return view('nin.application-page', compact('locations'));
+        return view('nin.index', compact('locations'));
     }
 
     public function getLocation(Request $request)

@@ -95,8 +95,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
-Route::view('/nin-enrollment','nin.index')->name('nin.index');
-Route::get('/nin-enrollment/application',[PagesController::class,'ninEnrolment'])->name('nin.apply');
+Route::get('/booking',[PagesController::class,'ninEnrolment'])->name('nin.apply');
 Route::post('/get-location',[PagesController::class,'getLocation'])->name('nin.get-location'); //getTime
 Route::post('/get-time',[PagesController::class,'getTime'])->name('nin.get-time');
 Route::post('/submit',[PagesController::class,'submitBooking'])->name('nin.submit');
