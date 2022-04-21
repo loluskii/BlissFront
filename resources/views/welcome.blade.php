@@ -5,13 +5,11 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>BLISSTECH</title>
+    <title>BLISSITECH HUB</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -37,7 +35,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="index.html">BLISSTECH</a></h1>
+                <h1><a href="index.html">BLISSITECH HUB</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -62,10 +60,9 @@
             <!-- Slide 1 -->
             <div class="carousel-item active">
                 <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSTECH</span></h2>
-                    <p class="animate__animated fanimate__adeInUp">We are an innovative agency, tasked with creating
-                        apps to bridge the gap between worlds, by creating simple solutions for complex needs.</p>
-                    <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
+                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
+                    <p class="animate__animated fanimate__adeInUp">We offer rapid solutions for Africans in Diaspora</p>
+                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Book Now</a>
                 </div>
             </div>
 
@@ -115,33 +112,33 @@
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
                             {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
                             --}}
-                            <h4 class="title"><a href="{{ route('nin.index') }}">Nigerian Pre-application Form</a></h4>
-                            <ul class="description">
+                            <h4 class="title"><a href="{{ route('nin.index') }}">NIN Pre-application Form</a></h4>
+                            <ul class="description" style="padding-bottom: 48px">
                                 <li>Quick NIN Registration & Upload</li>
-                                <li>Passport Services</li>
-                                <li>Visa Services</li>
-                                <li>Emergency Travel Documents</li>
                             </ul>
-                            <a href="{{ route('nin.index') }}" class="align-items-baseline btn btn-dark mt-3">Book</a>
+                            {{-- <a href="{{ route('nin.index') }}" class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="icon-box" data-aos="zoom-in-left">
                             {{-- <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div> --}}
-                            <h4 class="title"><a href="">Bliss Directory</a></h4>
-                            <p class="description">Experience Finger licking dishes, top-notch restaurants, one stop
-                                grocery stores, fabric stores & lots more from African & Caribbean vendors</p>
-                            <a href="#" class="btn btn-dark mt-3">Visit</a>
+                            <h4 class="title"><a href="">Passport Services</a></h4>
+                            <ul class="description">
+                                <li>Passport Review</li>
+                                <li>Help with Passport Payment</li>
+                                <li>Passport Appointment Booking</li>
+                            </ul>
+                            {{-- <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
                             {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
-                            <h4 class="title"><a href="{{ route('ses') }}">Bliss Sub</a></h4>
-                            <p class="description">Subscription 📦 errand services built for Africans in Diaspora.
-                                Personalize your shopping experience from Buying groceries and setting up pocket money
-                                plan for love once anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</p>
-                            <a href="{{ route('ses') }}" class="btn btn-dark mt-3">Visit</a>
+                            <h4 class="title"><a href="{{ route('ses') }}">Visa Services</a></h4>
+                            <ul class="description" style="padding-bottom: 48px">
+                                <li>Help with Visa Application and Appointment</li>
+                            </ul>
+                            {{-- <a href="{{ route('ses') }}" class="btn btn-dark w-100 mt-3">Book</a> --}}
                         </div>
                     </div>
 
@@ -165,19 +162,18 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom</p>
-                            </div>
-
-                            <div class="email">
-                                <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom</p>
+                                <p class="mb-2"><b>London:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham</p>
+                                <p><b>Scotland: </b>100 West George street, Glasgow, G2 1PP, GBR</p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
                                 <p>07306399602</p>
+                                <p>07470334864</p>
+                                <p>07493133871</p>
+                                <p>07555539781</p>
                             </div>
 
                         </div>
@@ -225,7 +221,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>BLISSTECH</h3>
+            <h3>BLISSITECH HUB</h3>
         </div>
     </footer><!-- End Footer -->
 
