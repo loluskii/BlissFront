@@ -62,7 +62,7 @@
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
                     <p class="animate__animated fanimate__adeInUp">We offer rapid solutions for Africans in Diaspora</p>
-                    <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
+                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Book Now</a>
                 </div>
             </div>
 
@@ -116,7 +116,7 @@
                             <ul class="description" style="padding-bottom: 48px">
                                 <li>Quick NIN Registration & Upload</li>
                             </ul>
-                            <a href="{{ route('nin.index') }}" class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a>
+                            {{-- <a href="{{ route('nin.index') }}" class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -128,7 +128,7 @@
                                 <li>Help with Passport Payment</li>
                                 <li>Passport Appointment Booking</li>
                             </ul>
-                            <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a>
+                            {{-- <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
@@ -138,7 +138,7 @@
                             <ul class="description" style="padding-bottom: 48px">
                                 <li>Help with Visa Application and Appointment</li>
                             </ul>
-                            <a href="{{ route('ses') }}" class="btn btn-dark w-100 mt-3">Book</a>
+                            {{-- <a href="{{ route('ses') }}" class="btn btn-dark w-100 mt-3">Book</a> --}}
                         </div>
                     </div>
 
