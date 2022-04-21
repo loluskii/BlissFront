@@ -112,7 +112,7 @@
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
                             {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
                             --}}
-                            <h4 class="title"><a href="{{ route('nin.index') }}">NIN Pre-application Form</a></h4>
+                            <h4 class="title"><a href="">NIN Pre-application Form</a></h4>
                             <ul class="description" style="padding-bottom: 48px">
                                 <li>Quick NIN Registration & Upload</li>
                             </ul>
@@ -134,7 +134,7 @@
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
                             {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
-                            <h4 class="title"><a href="{{ route('ses') }}">Visa Services</a></h4>
+                            <h4 class="title"><a >Visa Services</a></h4>
                             <ul class="description" style="padding-bottom: 48px">
                                 <li>Help with Visa Application and Appointment</li>
 
