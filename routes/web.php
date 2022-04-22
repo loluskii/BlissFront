@@ -104,12 +104,13 @@ Route::get('nin/booking-success', [PagesController::class, 'bookingSuccess'])->n
 Route::get('nin/booking-failure', [PagesController::class, 'bookingFailure'])->name('nin.failure');
 
 Route::get('/truncate', function () {
-    // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
     Schema::dropIfExists('n_i_n_service_centers');
     Schema::dropIfExists('n_i_n_bookings');
     Schema::dropIfExists('n_i_n_locations');
-    // DB::table('plan_subscriptions')->truncate();
-    // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+    DB::table('n_i_n_booking_times')->truncate();
+    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 });
 
