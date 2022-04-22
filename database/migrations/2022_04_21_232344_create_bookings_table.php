@@ -18,7 +18,6 @@ class CreateBookingsTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email');
-            $table->string('phone_no');
             $table->string('location')->nullable();
             $table->string('category');
             $table->string('service');

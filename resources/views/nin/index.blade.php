@@ -64,7 +64,7 @@
                         <select class="form-control" name="service_center" id="service_center">
                         <option value="">Select Service Center</option>
                         <option value="London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom">London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom</option>
-                        <option value="London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham">London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham</option>
+                        <option value="London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham">Birmingham - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham</option>
                         <option value="Scotland - 100 West George street, Glasgow, G2 1PP, GBR">Scotland - 100 West George street, Glasgow, G2 1PP, GBR</option>
                         </select>
                     </div>
