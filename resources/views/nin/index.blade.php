@@ -1,4 +1,3 @@
-
 @extends('nin.layout')
 
 
@@ -6,7 +5,8 @@
 
 <section>
     <div class="container">
-        <p>Please take note of the list of required documents for any desired service. We open from 9.30am - 4pm, Monday to Friday in all service centres.</p>
+        <p>Please take note of the list of required documents for any desired service. We open from 9.30am - 4pm, Monday
+            to Friday in all service centres.</p>
         <ul>
             <li>Nigerian International Passport (Valid or Expired)</li>
             <li>Nigerian Birth Certificate</li>
@@ -27,7 +27,8 @@
                         <select class="form-control" name="category" id="">
                             <option>Select category</option>
                             <option value="NIN Registration for Adults">NIN Registration for Adults</option>
-                            <option value="NIN Registration for Children">NIN Registration for Children (0-16 years)</option>
+                            <option value="NIN Registration for Children">NIN Registration for Children (0-16 years)
+                            </option>
                             <option value="New Passport for Adults">New Passport for Adults</option>
                             <option value="New Passport for Children">New Passport for Children</option>
                             <option value="Passport Renewal for Adult">Passport Renewal for Adult</option>
@@ -52,10 +53,16 @@
                     <div class="mb-3">
                         <label for="" class="form-label">Service Center</label>
                         <select class="form-control" name="service_center" id="service_center">
-                        <option value="">Select Service Center</option>
-                        <option value="London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom">London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom</option>
-                        <option value="London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham">Birmingham - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham</option>
-                        <option value="Scotland - 100 West George street, Glasgow, G2 1PP, GBR">Scotland - 100 West George street, Glasgow, G2 1PP, GBR</option>
+                            <option value="">Select Service Center</option>
+                            <option
+                                value="London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom">
+                                London - Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United
+                                Kingdom</option>
+                            <option
+                                value="London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, London">
+                                London - Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, London</option>
+                            <option value="Scotland - 100 West George street, Glasgow, G2 1PP, GBR">Scotland - 100 West
+                                George street, Glasgow, G2 1PP, GBR</option>
                         </select>
                     </div>
                 </div>
@@ -67,7 +74,8 @@
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Date</label>
-                        <input type="date" class="form-control" name="booking_date" id="date" aria-describedby="helpId" placeholder="">
+                        <input type="date" class="form-control" name="booking_date" id="date" aria-describedby="helpId"
+                            placeholder="">
                         <small>Please note that we don't open on weekends</small>
                     </div>
                 </div>
@@ -86,19 +94,22 @@
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="mb-3">
                         <label for="" class="form-label">First Name</label>
-                        <input type="text" class="form-control" name="fname" id="" required aria-describedby="helpId" placeholder="">
+                        <input type="text" class="form-control" name="fname" id="" required aria-describedby="helpId"
+                            placeholder="">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" name="lname" id="" required aria-describedby="helpId" placeholder="">
+                        <input type="text" class="form-control" name="lname" id="" required aria-describedby="helpId"
+                            placeholder="">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Email</label>
-                        <input type="text" class="form-control" name="email" id="" required aria-describedby="helpId" placeholder="">
+                        <input type="text" class="form-control" name="email" id="" required aria-describedby="helpId"
+                            placeholder="">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
@@ -167,4 +178,3 @@
     })
 </script>
 @endpush
-

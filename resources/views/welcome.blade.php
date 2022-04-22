@@ -37,7 +37,8 @@
             <div class="logo">
                 {{-- <h1><a href="index.html">BLISSITECH HUB</a></h1> --}}
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="{{ route('home') }}"><img src="{{ secure_asset('logo.png') }}" style="height: 100px" alt="" class="my-2 img-fluid"></a>
+                <a href="{{ route('home') }}"><img src="{{ secure_asset('logo.png') }}" style="height: 100px" alt=""
+                        class="my-2 img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar">
@@ -45,7 +46,7 @@
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <!-- <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
                     <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
-                    <li><a class="nav-link scrollto" href="#contact">Book an Appointment</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('nin.apply') }}">Book an Appointment</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -61,8 +62,10 @@
             <div class="carousel-item active">
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
-                    <p class="animate__animated fanimate__adeInUp">We offer rapid solutions for Africans in Diaspora</p>
-                    <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services </a>
+                    <p class="animate__animated fanimate__adeInUp">We offer rapid solutions for Nigerians in Diaspora
+                    </p>
+                    <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services
+                    </a>
                 </div>
             </div>
 
@@ -116,7 +119,8 @@
                             <ul class="description">
                                 <li>Quick NIN Registration & Upload</li>
                             </ul>
-                            {{-- <a href="{{ route('nin.index') }}" class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
+                            {{-- <a href="{{ route('nin.index') }}"
+                                class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -132,7 +136,7 @@
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
                             {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
-                            <h4 class="title"><a >Visa Services</a></h4>
+                            <h4 class="title"><a>Visa Services</a></h4>
                             <ul class="description">
                                 <li>Help with Visa Application and Appointment</li>
 
@@ -146,7 +150,8 @@
 
                 <div class="row mt-5">
                     <div class="col-md-4 mx-auto">
-                        <a href="{{ route('nin.apply') }}" class="btn btn-outline-dark w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
+                        <a href="{{ route('nin.apply') }}"
+                            class="btn btn-outline-dark w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
                     </div>
                 </div>
 
@@ -167,8 +172,10 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater London, WC2N 4JF United Kingdom</p>
-                                <p class="mb-2"><b>London:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6 4NT, Birmingham</p>
+                                <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater
+                                    London, WC2N 4JF United Kingdom</p>
+                                <p class="mb-2"><b>London:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6
+                                    4NT, London</p>
                                 <p><b>Scotland: </b>100 West George street, Glasgow, G2 1PP, GBR</p>
                             </div>
 

@@ -162,10 +162,11 @@
         margin-bottom: 14px;
     }
 
-    .header-img{
+    .header-img {
         height: 300px;
     }
-    .header-text{
+
+    .header-text {
         font-size: 40px;
         text-align: left;
     }
@@ -181,15 +182,17 @@
         }
     }
 
-    @media (max-width:600px){
-        .header-img{
+    @media (max-width:600px) {
+        .header-img {
             height: auto;
             /* border-radius: 50%; */
         }
-        .hero{
+
+        .hero {
             text-align: center;
         }
-        .header-text{
+
+        .header-text {
             font-size: 25px;
             text-align: center;
         }
@@ -203,15 +206,15 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 mb-4 mt-sm-0">
                 <div class="pl-sm-5 hero">
-                    <h3 class="header-text mb-3">Subscription Errand Service for Africans in Diaspora</h3>
-                    <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for loved ones anywhere in Nigeria 🇳🇬 and Ghana 🇬🇭 at the moment. More to follow </p>
+                    <h3 class="header-text mb-3">Subscription Errand Service for Nigerians in Diaspora</h3>
+                    <p>Personalize your shopping experience from buying groceries and setting up pocket money plans for
+                        loved ones anywhere in Nigeria 🇳🇬 and Ghana 🇬🇭 at the moment. More to follow </p>
                     <a href="#how-it-works" class="btn rounded btn-primary mr-2">How it works</a>
-                    {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button>  --}}
+                    {{-- <button type="submit" class="btn d-none d-md-block">Learn more</button> --}}
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="{{ secure_asset('images/header.JPG') }}"
-                    class="img-fluid header-img " alt="" srcset="">
+                <img src="{{ secure_asset('images/header.JPG') }}" class="img-fluid header-img " alt="" srcset="">
             </div>
             {{-- <div class="col-md-6 mt-4 mt-sm-0 d-none">
                 <div class="pl-sm-5 hero">
@@ -228,7 +231,7 @@
     </div>
 </div>
 <div class="container d-none">
-    <div class="section py-5 my-5 " >
+    <div class="section py-5 my-5 ">
         <div class="row h-100 justify-content-between">
             <div class="col-md-6 my-auto">
                 <div class="">
@@ -282,8 +285,8 @@
                         {{-- <img class="card-img-top" src="holder.js/100x180/" alt=""> --}}
                         <div class="card-body">
                             <div>
-                                <img src="{{ secure_asset('images/choose-interval.svg') }}"
-                                    style="height: 200px" class="img-fluid" alt="">
+                                <img src="{{ secure_asset('images/choose-interval.svg') }}" style="height: 200px"
+                                    class="img-fluid" alt="">
                             </div>
                             <h4 class="card-title">Choose a Plan</h4>
                             <p class="card-text">Choose from one of our plans, the interval that fits your exact
@@ -330,9 +333,11 @@
                             <div class="col-md-4 px-0">
                                 <div class="card shadow-sm card-pricing text-center  px-3 mb-4 bg-light"> <span
                                         class="h6 w-60 mx-auto px-4 py-1 rounded-bottom text-white shadow-sm"
-                                        style="background-color: #2A707D"> {{ Str::before($plan->name, ' Subscription'); }}</span>
+                                        style="background-color: #2A707D"> {{ Str::before($plan->name, ' Subscription');
+                                        }}</span>
                                     <div class="bg-transparent card-header pt-4 border-0">
-                                        <h1 class="h6 font-weight-bold text-center mb-0">Every {{ $plan->interval_count }}
+                                        <h1 class="h6 font-weight-bold text-center mb-0">Every {{ $plan->interval_count
+                                            }}
                                             Month(s)</h1>
                                     </div>
                                     <div class="card-body pt-0 px-1">
@@ -357,12 +362,14 @@
                 <div class="row">
                     <div class="col-md-8" style="color: #4E2B1D;">
                         {{-- <h3>What are you waiting for?</h3> --}}
-                        <p>Subscription is activated between 48hrs to 72hrs after receipt of payment. Once you pay, you agree that the items selected are what you'll receive.</p>
+                        <p>Subscription is activated between 48hrs to 72hrs after receipt of payment. Once you pay, you
+                            agree that the items selected are what you'll receive.</p>
 
                     </div>
                     <div class="col-md-4 my-auto">
                         <p class="lead float-sm-right">
-                            <a class="btn btn-primary btn-sm rounded" href="{{ route('store.show') }}" role="button">Visit Store</a>
+                            <a class="btn btn-primary btn-sm rounded" href="{{ route('store.show') }}"
+                                role="button">Visit Store</a>
                         </p>
                     </div>
                 </div>
@@ -401,7 +408,7 @@
 @push('more_scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
 
