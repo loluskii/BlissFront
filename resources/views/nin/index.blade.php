@@ -17,7 +17,7 @@
 <hr width="auto">
 <section>
     <div class="container">
-        <p>Please take note of the list of required documents for NIN Enrolment. NOTE YOU ARE REQUIRED TO BRING ONLY ONE OF THE LISTED DOCUMENTS ALONG WITH YOUR BVN IF YOU DO HAVE ONE</p>
+        <p>Please take note of the list of required documents for NIN Enrolment. NOTE YOU ARE REQUIRED TO BRING ONLY ONE OF THE LISTED DOCUMENTS</p>
         <ul>
             <li>Nigerian International Passport (Valid or Expired)</li>
             <li>Nigerian Birth Certificate</li>
@@ -29,7 +29,7 @@
         <form action="{{ route('nin.submit') }}" method="POST">
             @csrf
             <p>Please select service. Kindly ensure that you select the same service location and centre. We open from
-                9.30am in all service centres.</p>
+                9.30am - 4pm, Monday to Friday in all service centres.</p>
             <div class="row mt-3">
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="mb-3">
@@ -78,6 +78,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label">Date</label>
                         <input type="date" class="form-control" name="booking_date" id="date" aria-describedby="helpId" placeholder="">
+                        <small>Please note that we don't open on weekends</small>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
@@ -112,8 +113,8 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="mb-3">
-                        <label for="" class="form-label">Confirm Email</label>
-                        <input type="text" class="form-control" name="c_email" id="" required aria-describedby="helpId"
+                        <label for="" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" name="phone_no" id="" required aria-describedby="helpId"
                             placeholder="">
                     </div>
                 </div>

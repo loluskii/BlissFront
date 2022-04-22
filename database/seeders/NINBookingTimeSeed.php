@@ -87,6 +87,32 @@ class NINBookingTimeSeed extends Seeder
         NINBookingTime::create([
             'time' => '14:00pm',
         ]);
+        NINBookingTime::create([
+            'time' => '14:15pm',
+        ]);
+        NINBookingTime::create([
+            'time' => '14:30pm',
+        ]);
+        NINBookingTime::create([
+            'time' => '14:45pm',
+        ]);
+        NINBookingTime::create([
+            'time' => '15:00pm',
+        ]);
+
+        NINBookingTime::create([
+            'time' => '15:15pm',
+        ]);
+        NINBookingTime::create([
+            'time' => '15:30pm',
+        ]);
+        NINBookingTime::create([
+            'time' => '15:45pm',
+        ]);
+        NINBookingTime::create([
+            'time' => '16:00pm',
+        ]);
+
 
     }
 }

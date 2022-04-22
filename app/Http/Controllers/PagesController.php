@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\NIN\StoreBooking;
+use App\Models\Store;
+use App\Models\Product;
+use App\Models\Bookings;
 use App\Models\Category;
 use App\Models\NINBooking;
-use App\Models\NINBookingTime;
 use App\Models\NINLocation;
-use App\Models\NINServiceCenters;
-use App\Models\Product;
-use App\Models\Store;
 use Illuminate\Http\Request;
+use App\Models\NINBookingTime;
+use App\Actions\NIN\StoreBooking;
+use App\Models\NINServiceCenters;
 
 class PagesController extends Controller
 {
@@ -38,21 +39,13 @@ class PagesController extends Controller
 
     public function ninEnrolment()
     {
-        $locations = NINLocation::all();
-        return view('nin.index', compact('locations'));
-    }
-
-    public function getLocation(Request $request)
-    {
-        $location_id = $request->location;
-        $service_centers = NINServiceCenters::where('location_id', $location_id)->get();
-        return response()->json(['status' => 'success', 'message' => $service_centers]);
+        return view('nin.index');
     }
 
     public function getTime(Request $request)
     {
         $date = $request->date;
-        $booked = NINBooking::select('booking_time_id')->where('booking_date', $date)->get();
+        $booked = Bookings::select('booking_time_id')->where('booking_date', $date)->get();
         if ($booked->count() < 1) {
             $times = NINBookingTime::all();
             return response()->json(['status' => 'success', 'message' => $times]);

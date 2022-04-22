@@ -9,6 +9,7 @@ use App\Models\PlanSubscription;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -104,10 +105,9 @@ Route::get('nin/booking-failure', [PagesController::class, 'bookingFailure'])->n
 
 Route::get('/truncate', function () {
     // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    // DB::table('orders')->truncate();
-    // DB::table('order_items')->truncate();
-    // DB::table('payment_records')->truncate();
-    // DB::table('addresses')->truncate();
+    Schema::dropIfExists('n_i_n_service_centers');
+    Schema::dropIfExists('n_i_n_bookings');
+    Schema::dropIfExists('n_i_n_locations');
     // DB::table('plan_subscriptions')->truncate();
     // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
