@@ -113,7 +113,7 @@
                             {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
                             --}}
                             <h4 class="title"><a href="">NIN Pre-application Form</a></h4>
-                            <ul class="description" style="padding-bottom: 48px">
+                            <ul class="description">
                                 <li>Quick NIN Registration & Upload</li>
                             </ul>
                             {{-- <a href="{{ route('nin.index') }}" class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
@@ -124,9 +124,7 @@
                             {{-- <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div> --}}
                             <h4 class="title"><a href="">Passport Services</a></h4>
                             <ul class="description">
-                                <li>Passport Review</li>
-                                <li>Help with Passport Payment</li>
-                                <li>Passport Appointment Booking</li>
+                                <li>Passport Review, Appointment Booking and help with payment</li>
                             </ul>
                             {{-- <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a> --}}
                         </div>
@@ -135,7 +133,7 @@
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
                             {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
                             <h4 class="title"><a >Visa Services</a></h4>
-                            <ul class="description" style="padding-bottom: 48px">
+                            <ul class="description">
                                 <li>Help with Visa Application and Appointment</li>
 
                             </ul>
