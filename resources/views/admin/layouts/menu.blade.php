@@ -108,7 +108,7 @@
     </div>
 </li>
 
-{{-- <hr class="sidebar-divider d-none d-md-block mb-0">
+<hr class="sidebar-divider d-none d-md-block mb-0">
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#services" aria-expanded="true"
         aria-controls="collapseTwo">
@@ -117,12 +117,12 @@
     </a>
     <div id="services" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">All services</a>
+            <a class="collapse-item" href="{{ route('admin.services.blissitech') }}">Blissitech Hub</a>
         </div>
     </div>
 </li>
 
- --}}
+
 
 
 

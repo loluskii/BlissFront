@@ -35,9 +35,9 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="index.html">BLISSITECH HUB</a></h1>
+                {{-- <h1><a href="index.html">BLISSITECH HUB</a></h1> --}}
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <a href="{{ route('home') }}"><img src="{{ secure_asset('logo.png') }}" style="height: 100px" alt="" class="my-2 img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar">
@@ -62,7 +62,7 @@
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
                     <p class="animate__animated fanimate__adeInUp">We offer rapid solutions for Africans in Diaspora</p>
-                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Book Now</a>
+                    <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services </a>
                 </div>
             </div>
 

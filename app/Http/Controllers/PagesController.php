@@ -50,7 +50,7 @@ class PagesController extends Controller
             $times = NINBookingTime::all();
             return response()->json(['status' => 'success', 'message' => $times]);
         } else {
-            $times = NINBookingTime::whereNotIn('id', $booked)->get();
+            $times = NINBookingTime::whereNotIn('time', $booked)->get();
             return response()->json(['status' => 'success', 'message' => $times]);
         }
     }

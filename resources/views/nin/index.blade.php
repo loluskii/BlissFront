@@ -3,21 +3,10 @@
 
 
 @section('content')
-<div class="container" style="padding-top: 100px; padding-bottom: 100px">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-6 mx-auto">
-            <h1>Blissitech Hub Services</h1>
-            <p>Please fill the form below and we will reach out to you as soon as possible</p>
-            {{-- <button class="btn btn-dark btn-lg mt-3">Start Enrollment</button> --}}
-        </div>
 
-    </div>
-</div>
-
-<hr width="auto">
 <section>
     <div class="container">
-        <p>Please take note of the list of required documents for NIN Enrolment. NOTE YOU ARE REQUIRED TO BRING ONLY ONE OF THE LISTED DOCUMENTS</p>
+        <p>Please take note of the list of required documents for any desired service. We open from 9.30am - 4pm, Monday to Friday in all service centres.</p>
         <ul>
             <li>Nigerian International Passport (Valid or Expired)</li>
             <li>Nigerian Birth Certificate</li>
@@ -28,8 +17,9 @@
         {{-- <a href="{{ route('nin.apply') }}" class="btn btn-lg btn-dark">Proceed to Application</a> --}}
         <form action="{{ route('nin.submit') }}" method="POST">
             @csrf
-            <p>Please select service. Kindly ensure that you select the same service location and centre. We open from
-                9.30am - 4pm, Monday to Friday in all service centres.</p>
+
+            <h2>Section 1</h2>
+            <p>Please select service.</p>
             <div class="row mt-3">
                 <div class="col-12 col-md-4 col-lg-4">
                     <div class="mb-3">
@@ -149,16 +139,31 @@
                 },
                 error: function(response) {},
             })
-        })
+        });
+
+
 
         function loadTimes(params) {
             $('#time').empty();
             $('#time').append('<option value="">Select a time slot...</option>');
 
             params.forEach(function(entry){
-                $('#time').append('<option value="' + entry.id+ '">' + entry.time + '</option>');
+                $('#time').append('<option value="' + entry.time+ '">' + entry.time + '</option>');
             });
         }
+
+
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        $('#date').attr('min', maxDate);
     })
 </script>
 @endpush

@@ -6,6 +6,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+<script src="{{ secure_asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ secure_asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
 @include('admin.layouts.toastr-script')
 
 

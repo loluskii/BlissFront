@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bookings extends Model
 {
     use HasFactory;
+    public function time(){
+        return $this->hasMany(NINBookingTime::class);
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -65,5 +66,9 @@ Route::middleware('admin')->group(function () {
         Route::post('update/{id}',[PlanController::class,'update'])->name('plans.update');
         Route::get('terminate/{plan}/{user}',[PlanController::class,'endSubscription'])->name('plans.terminate');
         Route::get('delete/{id}',[PlanController::class,'destroy'])->name('plan.delete');
+    });
+
+    Route::prefix('services')->group(function () {
+        Route::get('/blissitech', [ServiceController::class,'blissitechHub'])->name('services.blissitech');
     });
 });

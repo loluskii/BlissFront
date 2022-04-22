@@ -9,4 +9,8 @@ class NINBookingTime extends Model
 {
     use HasFactory;
     protected $fillable = ['time'];
+
+    public function booking(){
+        return $this->belongsTo(Bookings::class);
+    }
 }
