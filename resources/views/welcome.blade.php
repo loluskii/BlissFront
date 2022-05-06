@@ -115,9 +115,11 @@
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
                             {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
                             --}}
-                            <h4 class="title"><a href="">NIN Pre-application Form</a></h4>
+                            <h4 class="title"><a href="">Nigeria Application Forms</a></h4>
                             <ul class="description">
                                 <li>Quick NIN Registration & Upload</li>
+                                <li>Passport Review, Appointment Booking and help with payment</li>
+                                <li>Help with Visa Application and Appointment</li>
                             </ul>
                             {{-- <a href="{{ route('nin.index') }}"
                                 class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
@@ -126,22 +128,16 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="icon-box" data-aos="zoom-in-left">
                             {{-- <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div> --}}
-                            <h4 class="title"><a href="">Passport Services</a></h4>
-                            <ul class="description">
-                                <li>Passport Review, Appointment Booking and help with payment</li>
-                            </ul>
+                            <h4 class="title"><a href="">Bliss Subscription</a></h4>
+                            <small>Subscription 📦 errand services built for Africans in Diaspora. Personalize your shopping experience from Buying groceries and setting up pocket money plan for love once anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</small>
                             {{-- <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
                             {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
-                            <h4 class="title"><a>Visa Services</a></h4>
-                            <ul class="description">
-                                <li>Help with Visa Application and Appointment</li>
-
-                            </ul>
-                            {{-- <a href="{{ route('ses') }}" class="btn btn-dark w-100 mt-3">Book</a> --}}
+                            <h4 class="title"><a>Bliss Directory</a></h4>
+                            <small>Experience Finger licking dishes, top-notch restaurants, one stop grocery stores, fabric stores & lots more from African & Caribbean vendors</small>
                         </div>
                     </div>
 
@@ -169,14 +165,20 @@
 
                     <div class="col-lg-4" data-aos="fade-right">
                         <div class="info">
-                            <div class="address">
+                            <div class="address mb-4">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
                                 <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater
-                                    London, WC2N 4JF United Kingdom</p>
-                                <p class="mb-2"><b>London:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6
-                                    4NT, London</p>
-                                <p><b>Scotland: </b>100 West George street, Glasgow, G2 1PP, GBR</p>
+                                    London, WC2N 4JF United Kingdom. Phone: <a href="tel:+07306399602">07306399602</a></p>
+                                <p class="mb-2"><b>Birmingham City:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6
+                                    4NT, London. <br> Phone: <a href="tel:+07493133871">07493133871</a></p>
+                                <p><b>Glasgow City: </b>100 West George Street G2 1PP <br> Phone: <a href="tel:+07470334864">07470334864</a></p>
+                            </div>
+
+                            <div class="address">
+                                <i class="bi bi-envelope"></i>
+                                <h4>Email:</h4>
+                                <p class="mb-2">blissitechhub@gmail.com</p>
                             </div>
 
                             <div class="phone">

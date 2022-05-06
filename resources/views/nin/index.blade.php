@@ -27,7 +27,7 @@
                         <select class="form-control" name="category" id="">
                             <option>Select category</option>
                             <option value="NIN Registration for Adults">NIN Registration for Adults</option>
-                            <option value="NIN Registration for Children">NIN Registration for Children (0-16 years)
+                            <option value="NIN Registration for Children">NIN Registration for Children (0-15 years)
                             </option>
                             <option value="New Passport for Adults">New Passport for Adults</option>
                             <option value="New Passport for Children">New Passport for Children</option>
