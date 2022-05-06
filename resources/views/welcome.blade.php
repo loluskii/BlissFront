@@ -62,7 +62,7 @@
             <div class="carousel-item active">
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
-                    <p class="animate__animated fanimate__adeInUp">We offer rapid solutions for Nigerians in Diaspora
+                    <p class="animate__animated fanimate__adeInUp">We are an innovative agency tasked with creating simple solutions fo complex needs for Africans in Diaspora
                     </p>
                     <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services
                     </a>
@@ -121,8 +121,7 @@
                                 <li>Passport Review, Appointment Booking and help with payment</li>
                                 <li>Help with Visa Application and Appointment</li>
                             </ul>
-                            {{-- <a href="{{ route('nin.index') }}"
-                                class="align-items-baseline btn w-100 btn-dark btn-block mt-3">Book</a> --}}
+                            <a href="{{ route('nin.apply') }}" class="btn btn-dark mt-3 w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -131,6 +130,10 @@
                             <h4 class="title"><a href="">Bliss Subscription</a></h4>
                             <small>Subscription 📦 errand services built for Africans in Diaspora. Personalize your shopping experience from Buying groceries and setting up pocket money plan for love once anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</small>
                             {{-- <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a> --}}
+                            <div class="d-flex justify-content-between">
+                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px" class="img-fluid mt-3" alt="" srcset="">
+                                <img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-3" alt="" srcset="">
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
@@ -138,18 +141,22 @@
                             {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
                             <h4 class="title"><a>Bliss Directory</a></h4>
                             <small>Experience Finger licking dishes, top-notch restaurants, one stop grocery stores, fabric stores & lots more from African & Caribbean vendors</small>
+                            <div class="d-flex justify-content-between pt-3">
+                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px" class="img-fluid mt-4" alt="" srcset="">
+                                <a href="https://play.google.com/store/apps/details?id=com.blisssub.user"><img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-4" alt="" srcset=""></a>
+                            </div>
                         </div>
                     </div>
 
 
                 </div>
 
-                <div class="row mt-5">
+                {{-- <div class="row mt-5">
                     <div class="col-md-4 mx-auto">
                         <a href="{{ route('nin.apply') }}"
                             class="btn btn-outline-dark w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </section><!-- End Services Section -->
@@ -165,7 +172,7 @@
 
                     <div class="col-lg-4" data-aos="fade-right">
                         <div class="info">
-                            <div class="address mb-4">
+                            {{-- <div class="address mb-4">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
                                 <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater
@@ -173,7 +180,7 @@
                                 <p class="mb-2"><b>Birmingham City:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6
                                     4NT, London. <br> Phone: <a href="tel:+07493133871">07493133871</a></p>
                                 <p><b>Glasgow City: </b>100 West George Street G2 1PP <br> Phone: <a href="tel:+07470334864">07470334864</a></p>
-                            </div>
+                            </div> --}}
 
                             <div class="address">
                                 <i class="bi bi-envelope"></i>
@@ -182,12 +189,21 @@
                             </div>
 
                             <div class="phone">
-                                <i class="bi bi-phone"></i>
-                                <h4>Call:</h4>
-                                <p>07306399602</p>
-                                <p>07470334864</p>
-                                <p>07493133871</p>
-                                <p>07555539781</p>
+                                <i class="bi bi-instagram"></i>
+                                <h4>Instagram:</h4>
+                                <p><a href="http://www.instagram.com/blissitech">BlissITech</a></p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bi bi-twitter"></i>
+                                <h4>Twitter:</h4>
+                                <p><a href="https://mobile.twitter.com/blissitech/">BlissITech</a></p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bi bi-facebook"></i>
+                                <h4>Facebook:</h4>
+                                <p><a href="https://www.facebook.com/profile.php?id=100073728863717">BlissITech</a></p>
                             </div>
 
                         </div>

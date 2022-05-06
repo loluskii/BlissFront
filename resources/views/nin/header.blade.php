@@ -25,7 +25,7 @@
             <div class="carousel-item active">
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Blissitech Hub Services</h2>
-                    <p>Please fill the form below and we will reach out to you as soon as possible</p>
+                    {{-- <p>Please fill the form below and we will reach out to you as soon as possible</p> --}}
                 </div>
             </div>
 
