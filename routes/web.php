@@ -97,20 +97,14 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });
 
 Route::get('/booking',[PagesController::class,'ninEnrolment'])->name('nin.apply');
-Route::post('/get-location',[PagesController::class,'getLocation'])->name('nin.get-location'); //getTime
-Route::post('/get-time',[PagesController::class,'getTime'])->name('nin.get-time');
-Route::post('/submit',[PagesController::class,'submitBooking'])->name('nin.submit');
-Route::get('nin/booking-success', [PagesController::class, 'bookingSuccess'])->name('nin.success');
-Route::get('nin/booking-failure', [PagesController::class, 'bookingFailure'])->name('nin.failure');
-
+Route::post('/form/submit',[PagesController::class,'enquiryForm'])->name('contact.form');
 Route::get('/truncate', function () {
 
-    Schema::dropIfExists('n_i_n_service_centers');
-    Schema::dropIfExists('n_i_n_bookings');
-    Schema::dropIfExists('n_i_n_locations');
-    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    DB::table('n_i_n_booking_times')->truncate();
-    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+    Schema::dropIfExists('n_i_n_booking_times');
+    Schema::dropIfExists('bookings');
+    // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+    // DB::table('n_i_n_booking_times')->truncate();
+    // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 });
 

@@ -18,9 +18,6 @@ class DatabaseSeeder extends Seeder
             // CategorySeed::class,
             // PlanSeed::class,
             // StoreSeeder::class,
-            // NINLocationSeeder::class,
-            // NINServiceCenterSeed::class,
-            NINBookingTimeSeed::class,
 
 
         ]);

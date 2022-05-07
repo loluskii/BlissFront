@@ -62,7 +62,8 @@
             <div class="carousel-item active">
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
-                    <p class="animate__animated fanimate__adeInUp">We are an innovative agency tasked with creating simple solutions fo complex needs for Africans in Diaspora
+                    <p class="animate__animated fanimate__adeInUp">We are an innovative agency tasked with creating
+                        simple solutions fo complex needs for Africans in Diaspora
                     </p>
                     <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services
                     </a>
@@ -111,40 +112,45 @@
                 </div>
 
                 <div class="row">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box" data-aos="zoom-in-left">
+                            <h4 class="title"><a href="">Bliss Subscription</a></h4>
+                            <small>Subscription 📦 errand services built for Africans in Diaspora. Personalize your
+                                shopping experience from Buying groceries and setting up pocket money plan for love once
+                                anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</small>
+                            <div class="d-flex justify-content-between">
+                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px"
+                                    class="img-fluid mt-3" alt="" srcset="">
+                                <img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-3" alt=""
+                                    srcset="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+                        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+                            <h4 class="title"><a>Bliss Directory</a></h4>
+                            <small>Experience Finger licking dishes, top-notch restaurants, one stop grocery stores,
+                                fabric stores & lots more from African & Caribbean vendors</small>
+                            <div class="d-flex justify-content-between pt-3">
+                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px"
+                                    class="img-fluid mt-4" alt="" srcset="">
+                                <a href="#"><img src="{{ asset('images.png') }}" style="height: 40px"
+                                        class="img-fluid mt-4" alt="" srcset=""></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
-                            {{-- <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
-                            --}}
                             <h4 class="title"><a href="">Nigeria Application Forms</a></h4>
                             <ul class="description">
                                 <li>Quick NIN Registration & Upload</li>
                                 <li>Passport Review, Appointment Booking and help with payment</li>
                                 <li>Help with Visa Application and Appointment</li>
                             </ul>
-                            <a href="{{ route('nin.apply') }}" class="btn btn-dark mt-3 w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="zoom-in-left">
-                            {{-- <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div> --}}
-                            <h4 class="title"><a href="">Bliss Subscription</a></h4>
-                            <small>Subscription 📦 errand services built for Africans in Diaspora. Personalize your shopping experience from Buying groceries and setting up pocket money plan for love once anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</small>
-                            {{-- <a href="#" class="btn w-100 btn-dark w-100 mt-3">Book</a> --}}
-                            <div class="d-flex justify-content-between">
-                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px" class="img-fluid mt-3" alt="" srcset="">
-                                <img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-3" alt="" srcset="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
-                        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
-                            {{-- <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div> --}}
-                            <h4 class="title"><a>Bliss Directory</a></h4>
-                            <small>Experience Finger licking dishes, top-notch restaurants, one stop grocery stores, fabric stores & lots more from African & Caribbean vendors</small>
-                            <div class="d-flex justify-content-between pt-3">
-                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px" class="img-fluid mt-4" alt="" srcset="">
-                                <a href="https://play.google.com/store/apps/details?id=com.blisssub.user"><img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-4" alt="" srcset=""></a>
-                            </div>
+                            <a href="{{ route('nin.apply') }}"
+                                class="btn btn-dark mt-3 w-100 animate__animated animate__fadeInUp scrollto">Book
+                                Now</a>
                         </div>
                     </div>
 
@@ -176,32 +182,35 @@
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
                                 <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater
-                                    London, WC2N 4JF United Kingdom. Phone: <a href="tel:+07306399602">07306399602</a></p>
-                                <p class="mb-2"><b>Birmingham City:</b> Jennies Cash n Carry, 195 Newton Row Moorsom Street, B6
+                                    London, WC2N 4JF United Kingdom. Phone: <a href="tel:+07306399602">07306399602</a>
+                                </p>
+                                <p class="mb-2"><b>Birmingham City:</b> Jennies Cash n Carry, 195 Newton Row Moorsom
+                                    Street, B6
                                     4NT, London. <br> Phone: <a href="tel:+07493133871">07493133871</a></p>
-                                <p><b>Glasgow City: </b>100 West George Street G2 1PP <br> Phone: <a href="tel:+07470334864">07470334864</a></p>
+                                <p><b>Glasgow City: </b>100 West George Street G2 1PP <br> Phone: <a
+                                        href="tel:+07470334864">07470334864</a></p>
                             </div> --}}
 
                             <div class="address">
-                                <i class="bi bi-envelope"></i>
+                                <i class="bi bi-envelope-fill text-dark"></i>
                                 <h4>Email:</h4>
                                 <p class="mb-2">blissitechhub@gmail.com</p>
                             </div>
 
                             <div class="phone">
-                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-instagram text-dark"></i>
                                 <h4>Instagram:</h4>
                                 <p><a href="http://www.instagram.com/blissitech">BlissITech</a></p>
                             </div>
 
                             <div class="phone">
-                                <i class="bi bi-twitter"></i>
+                                <i class="bi bi-twitter text-dark"></i>
                                 <h4>Twitter:</h4>
                                 <p><a href="https://mobile.twitter.com/blissitech/">BlissITech</a></p>
                             </div>
 
                             <div class="phone">
-                                <i class="bi bi-facebook"></i>
+                                <i class="bi bi-facebook text-dark"></i>
                                 <h4>Facebook:</h4>
                                 <p><a href="https://www.facebook.com/profile.php?id=100073728863717">BlissITech</a></p>
                             </div>
@@ -211,8 +220,8 @@
                     </div>
 
                     <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
-
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="{{ route('contact.form') }}" method="post" id="contact-form" class="php-email-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name"
@@ -224,19 +233,11 @@
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
-                            </div>
-                            <div class="form-group mt-3">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message"
                                     required></textarea>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center"><button class="btn btn-dark mt-3" id="submit" type="submit">Send
+                                    Message</button></div>
                         </form>
 
                     </div>
@@ -255,10 +256,11 @@
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    <a href="#" class="back-to-top d-flex bg-secondary align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    @include('layouts.partials.footer_scripts')
     <script src="{{ secure_asset('assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ secure_asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ secure_asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
@@ -268,5 +270,9 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        $('.alert').hide();
+    </script>
+
 
 </body>
