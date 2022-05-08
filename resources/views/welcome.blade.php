@@ -44,9 +44,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <!-- <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
-                    <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
-                    <li><a class="nav-link scrollto" href="{{ route('nin.apply') }}">Book an Appointment</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('nin.apply') }}">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
