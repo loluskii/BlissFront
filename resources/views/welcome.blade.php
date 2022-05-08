@@ -120,8 +120,9 @@
                             <div class="d-flex justify-content-between">
                                 <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px"
                                     class="img-fluid mt-3" alt="" srcset="">
-                                <img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-3" alt=""
-                                    srcset="">
+                                    <a href="https://play.google.com/store/apps/details?id=com.blisssub.user"><img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-3" alt=""
+                                        srcset=""></a>
+
                             </div>
                         </div>
                     </div>
