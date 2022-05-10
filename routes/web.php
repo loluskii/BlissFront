@@ -104,6 +104,7 @@ Route::get('/truncate', function () {
     Schema::dropIfExists('bookings');
     // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
     // DB::table('n_i_n_booking_times')->truncate();
+    
     // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 });
