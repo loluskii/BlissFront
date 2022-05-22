@@ -4,274 +4,152 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>BLISSITECH HUB</title>
+    <title>Bliss Explorers</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
-    <!-- Favicons -->
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;700;800;900&display=swap"
         rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
 
-    <!-- Vendor CSS Files -->
-    <link href="{{ secure_asset('assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('assets/css/style.css') }}" rel="stylesheet">
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .main {
+            /* min-height: 73vh; */
+            margin-top: 70px;
+            margin-bottom: 60px;
+        }
+    </style>
+
 </head>
 
 <body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <div class="logo">
-                {{-- <h1><a href="index.html">BLISSITECH HUB</a></h1> --}}
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="{{ route('home') }}"><img src="{{ secure_asset('logo.png') }}" style="height: 100px" alt=""
-                        class="my-2 img-fluid"></a>
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('nin.apply') }}">Contact</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-
-        </div>
-    </header><!-- End Header -->
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
-        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
-                    <p class="animate__animated fanimate__adeInUp">We are an innovative agency tasked with creating
-                        simple solutions fo complex needs for Africans in Diaspora
-                    </p>
-                    <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services
-                    </a>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-
-
-            <!-- <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-      </a> -->
-
-        </div>
-
-        <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28 " preserveAspectRatio="none">
-            <defs>
-                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-            </defs>
-            <g class="wave1">
-                <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-            </g>
-            <g class="wave2">
-                <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-            </g>
-            <g class="wave3">
-                <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
-            </g>
-        </svg>
-
-    </section><!-- End Hero -->
-
-    <main id="main">
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
-            <div class="container">
-
-                <div class="section-title" data-aos="zoom-out">
-                    <h2>Services</h2>
-                    <p>What we do offer</p>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon-box" data-aos="zoom-in-left">
-                            <h4 class="title"><a href="">Bliss Subscription</a></h4>
-                            <small>Subscription 📦 errand services built for Africans in Diaspora. Personalize your
-                                shopping experience from Buying groceries and setting up pocket money plan for love once
-                                anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</small>
-                            <div class="d-flex justify-content-between">
-                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px"
-                                    class="img-fluid mt-3" alt="" srcset="">
-                                    <a href="https://play.google.com/store/apps/details?id=com.blisssub.user"><img src="{{ asset('images.png') }}" style="height: 40px" class="img-fluid mt-3" alt=""
-                                        srcset=""></a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
-                        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
-                            <h4 class="title"><a>Bliss Directory</a></h4>
-                            <small>Experience Finger licking dishes, top-notch restaurants, one stop grocery stores,
-                                fabric stores & lots more from African & Caribbean vendors</small>
-                            <div class="d-flex justify-content-between pt-3">
-                                <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 40px"
-                                    class="img-fluid mt-4" alt="" srcset="">
-                                <a href="#"><img src="{{ asset('images.png') }}" style="height: 40px"
-                                        class="img-fluid mt-4" alt="" srcset=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
-                        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
-                            <h4 class="title"><a href="">Nigeria Application Forms</a></h4>
-                            <ul class="description">
-                                <li>Quick NIN Registration & Upload</li>
-                                <li>Passport Review, Appointment Booking and help with payment</li>
-                                <li>Help with Visa Application and Appointment</li>
-                            </ul>
-                            <a href="{{ route('nin.apply') }}"
-                                class="btn btn-dark mt-3 w-100 animate__animated animate__fadeInUp scrollto">Book
-                                Now</a>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                {{-- <div class="row mt-5">
-                    <div class="col-md-4 mx-auto">
-                        <a href="{{ route('nin.apply') }}"
-                            class="btn btn-outline-dark w-100 animate__animated animate__fadeInUp scrollto">Book Now</a>
-                    </div>
-                </div> --}}
-
-            </div>
-        </section><!-- End Services Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-
-                <div class="section-title" data-aos="zoom-out">
-                    <h2>Contact</h2>
-                    <p>Contact Us</p>
-                </div>
-
-                <div class="row mt-5">
-
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <div class="info">
-                            {{-- <div class="address mb-4">
-                                <i class="bi bi-geo-alt"></i>
-                                <h4>Location:</h4>
-                                <p class="mb-2"><b>London:</b> Golden Cross House, 8 Duncannon Street London, Greater
-                                    London, WC2N 4JF United Kingdom. Phone: <a href="tel:+07306399602">07306399602</a>
-                                </p>
-                                <p class="mb-2"><b>Birmingham City:</b> Jennies Cash n Carry, 195 Newton Row Moorsom
-                                    Street, B6
-                                    4NT, London. <br> Phone: <a href="tel:+07493133871">07493133871</a></p>
-                                <p><b>Glasgow City: </b>100 West George Street G2 1PP <br> Phone: <a
-                                        href="tel:+07470334864">07470334864</a></p>
-                            </div> --}}
-
-                            <div class="address">
-                                <i class="bi bi-envelope-fill text-dark"></i>
-                                <h4>Email:</h4>
-                                <p class="mb-2">blissitechhub@gmail.com</p>
-                            </div>
-
-                            <div class="phone">
-                                <i class="bi bi-instagram text-dark"></i>
-                                <h4>Instagram:</h4>
-                                <p><a href="http://www.instagram.com/blissitech">BlissITech</a></p>
-                            </div>
-
-                            <div class="phone">
-                                <i class="bi bi-twitter text-dark"></i>
-                                <h4>Twitter:</h4>
-                                <p><a href="https://mobile.twitter.com/blissitech/">BlissITech</a></p>
-                            </div>
-
-                            <div class="phone">
-                                <i class="bi bi-facebook text-dark"></i>
-                                <h4>Facebook:</h4>
-                                <p><a href="https://www.facebook.com/profile.php?id=100073728863717">BlissITech</a></p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
-                        <form action="{{ route('contact.form') }}" method="post" id="contact-form" class="php-email-form">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Your Name" required>
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Your Email" required>
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message"
-                                    required></textarea>
-                            </div>
-                            <div class="text-center"><button class="btn btn-dark mt-3" id="submit" type="submit">Send
-                                    Message</button></div>
-                        </form>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section><!-- End Contact Section -->
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
+    <main>
         <div class="container">
-            <h3>BLISSITECH HUB</h3>
+            <header
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <img src="{{ secure_asset('images/blissex.png') }}" height="35" alt="">
+                </a>
+
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">About Us</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Contact Us</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Legal</a></li>
+                </ul>
+
+                <div class="col-md-3 text-end">
+                    {{-- <button type="button" class="btn btn-outline-dark me-2 rounded-0 btn-sm">Login</button> --}}
+                    <button type="button" class="btn btn-dark rounded-1 btn-sm">Get Started</button>
+                </div>
+            </header>
         </div>
-    </footer><!-- End Footer -->
+        <div class="container col-xxl-12 px-4 py-5 main">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="{{ secure_asset('images/header.JPG') }}" class="d-block mx-lg-auto img-fluid"
+                        alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    {{-- <img src="{{ secure_asset('images/header.JPG') }}" class="img-fluid header-img " alt=""
+                        srcset=""> --}}
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bolder lh-1 mb-3">Bliss Explorers</h1>
+                    <p class="lead">Subscription 📦 errand services built for Africans in Diaspora. Personalize your
+                        shopping experience from Buying groceries and setting up pocket money plan for love once
+                        anywhere in Nigeria 🇳🇬 & Ghana 🇬🇭</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <img src="{{ asset('app-store-icon-png-14.png') }}" style="height: 50px" class="img-fluid mt-4"
+                            alt="" srcset="">
+                        <a href="#"><img src="{{ asset('images.png') }}" style="height: 50px" class="img-fluid mt-4"
+                                alt="" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <a href="#" class="back-to-top d-flex bg-secondary align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <svg class="bi" width="30" height="24">
+                            <use xlink:href="#bootstrap" />
+                        </svg>
+                    </a>
+                    <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+                </div>
 
-    <!-- Vendor JS Files -->
-    @include('layouts.partials.footer_scripts')
-    <script src="{{ secure_asset('assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ secure_asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ secure_asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ secure_asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ secure_asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#twitter" />
+                            </svg></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#instagram" />
+                            </svg></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#facebook" />
+                            </svg></a></li>
+                </ul>
+            </footer>
+        </div>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    <script>
-        $('.alert').hide();
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
-
-
 </body>
