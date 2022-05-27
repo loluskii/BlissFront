@@ -96,7 +96,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('subscription/delete/{id}', [SubscriptionController::class, 'cancelSubscription'])->name('subscription.delete');
 });
 
-Route::get('/booking',[PagesController::class,'ninEnrolment'])->name('nin.apply');
 Route::post('/form/submit',[PagesController::class,'enquiryForm'])->name('contact.form');
 Route::get('/truncate', function () {
 
@@ -104,8 +103,11 @@ Route::get('/truncate', function () {
     Schema::dropIfExists('bookings');
     // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
     // DB::table('n_i_n_booking_times')->truncate();
-    
+
     // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 });
+
+Route::view('/blissex', 'blissex')->name('blissex');
+Route::view('/blisssub', 'blisssub')->name('blisssub');
 

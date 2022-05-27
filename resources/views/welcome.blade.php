@@ -61,7 +61,7 @@
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>BLISSITECH HUB</span></h2>
                     <p class="animate__animated fanimate__adeInUp">We are an innovative agency tasked with creating
-                        simple solutions fo complex needs for Africans in Diaspora
+                        simple solutions for complex needs for Africans in Diaspora
                     </p>
                     <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Services
                     </a>
@@ -109,7 +109,7 @@
                     <p>What we do offer</p>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center">
 
                     <div class="col-lg-4 col-md-6">
                         <div class="icon-box" data-aos="zoom-in-left">
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+                    {{-- <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
                         <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
                             <h4 class="title"><a href="">Nigeria Application Forms</a></h4>
                             <ul class="description">
@@ -150,7 +150,7 @@
                             <a href="{{ route('nin.apply') }}"
                                 class="btn btn-dark mt-3 w-100 animate__animated animate__fadeInUp scrollto">Book
                                 Now</a>
-                        </div>
+                        </div> --}}
                     </div>
 
 
